@@ -1,0 +1,28 @@
+.breadth__section {
+  color: white;
+  background: #700bc1;
+  padding: 3rem;
+}
+.breadth_container {
+  display: flex;
+  justify-content: center;
+}
+.breadth_container img {
+  max-width: 400px;
+}
+.breadth_text_wrapper {
+  padding-right: 5rem;
+}
+.breadth_text_wrapper h3 {
+  text-align: left;
+  font-size: 25px;
+}
+.breadth_inner_text {
+  display: flex;
+}
+.breadth_inner_text div {
+  padding: 1rem;
+}
+.breadth_inner_text div:nth-child(1) {
+  padding-left: 0;
+}

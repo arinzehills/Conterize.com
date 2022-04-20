@@ -1,0 +1,21 @@
+.partners__section {
+  background: #f6f9fb;
+  padding: 1rem 0rem;
+  /* display: flex;
+  justify-content: center; */
+}
+.partners_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+.partners__section h3 {
+  max-width: 380px;
+  font-size: 23px;
+}
+
+.partners__logos img {
+  height: 43.67px;
+}

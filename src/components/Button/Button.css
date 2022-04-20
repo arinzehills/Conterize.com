@@ -1,0 +1,140 @@
+.btn {
+  padding: 8px 20px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-top: 1em;
+  margin-right: 1rem;
+  font-weight: 500;
+  height: 50px;
+  width: 170px;
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-style: normal;
+}
+.btn:hover {
+  background: var(--grey);
+  color: var(--dark-blue);
+
+  border: 1px solid var(--dark-blue);
+  transition: all 0.3s ease-out;
+}
+.btn--normal {
+  background-color: var(--grey);
+  color: #1f1a1a;
+  border: 1px solid var(--grey);
+}
+
+.btn--outline {
+  background-color: transparent;
+  padding: 8px 20px;
+  border: 1px solid var(--red);
+  color: var(--red);
+  transition: all 0.3s ease-out;
+}
+.btn--rounded {
+  border-radius: 50px;
+}
+.btn--medium {
+  padding: 8px 20px;
+  font-size: 18px;
+  font-family: "Rubik", sans-serif;
+}
+
+.btn--large {
+  padding: 12px 26px;
+  font-size: 16px;
+  height: 65px;
+  box-sizing: border-box;
+}
+
+.btn--mobile {
+  text-align: center;
+  border-radius: 4px;
+  width: 80%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: #fff;
+  padding: 14px 20px;
+  border: 1px solid #fff;
+  transition: all 0.3s ease-out;
+}
+
+.btn--wide {
+  padding: 12px 26px;
+  font-size: 20px;
+}
+
+.btn--large:hover,
+.btn--medium:hover,
+.btn--mobile:hover {
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: var(--red);
+}
+
+.btn--wide:hover {
+  color: #fff;
+  transition: all 0.2s ease-out;
+}
+
+.btn-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 16px;
+  height: 100%;
+  width: 100%;
+}
+
+.pink {
+  background: var(--pink);
+  /* box-shadow: 0 10px 60px 2px rgba(243, 61, 25, 0.65); */
+  padding: 8px 20px;
+  color: #fff;
+}
+.pink:hover {
+  background-color: white;
+  border: 1px solid var(--pink);
+  transition: all 0.3s ease-out;
+  color: var(--pink);
+}
+.blue {
+  background: var(--light-blue);
+  /* box-shadow: 0 10px 60px 2px rgba(243, 61, 25, 0.65); */
+  color: #fff;
+}
+.blue:hover {
+  background-color: white;
+  border: 1px solid var(--light-blue);
+  transition: all 0.3s ease-out;
+  color: var(--dark-blue);
+}
+
+@media screen and (max-width: 960px) {
+  .btn {
+    width: 190px;
+    margin-bottom: 35px;
+    /* height: 60px; */
+  }
+  .btn--large {
+    /* width: 300px; */
+  }
+  .airtime-header {
+    padding-top: 1em;
+  }
+}
+
+@media screen and (min-width: 961px) {
+  .btn {
+    /* width: 210px; */
+    /* height: 70px; */
+  }
+  .btn--large {
+    /* width: 500px; */
+  }
+}
