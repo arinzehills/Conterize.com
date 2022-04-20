@@ -95,7 +95,10 @@ function Hero({
               {showButton && <Button buttonColor="pink">{buttonLabel}</Button>}
             </div>
           </div>
-          <div className="col" style={{ marginTop: marginfrBg }}>
+          <div
+            className="col"
+            style={{ marginTop: window.innerWidth >= 960 && marginfrBg }}
+          >
             <div
               className={
                 withBg && window.innerWidth >= 960
