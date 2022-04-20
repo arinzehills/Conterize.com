@@ -58,3 +58,18 @@
   justify-content: left;
   align-items: center;
 }
+
+@media screen and (max-width: 961px) {
+  .faq_wrapper {
+    padding: 2rem 3rem;
+  }
+  .faq_container {
+    line-height: 1;
+    text-align: left;
+  }
+  .faq_container hr {
+    width: 100%;
+  }
+  .faq_inner {
+  }
+}

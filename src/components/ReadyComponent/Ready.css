@@ -18,3 +18,12 @@
 .ready_icons img:nth-child(1) {
   padding-left: 0rem;
 }
+@media screen and (max-width: 961px) {
+  .ready__section {
+    margin: 0 1rem;
+    width: 90%;
+  }
+  .ready_container {
+    padding: 1rem 5rem;
+  }
+}

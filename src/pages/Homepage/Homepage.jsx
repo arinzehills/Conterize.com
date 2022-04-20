@@ -150,6 +150,7 @@ function Homepage() {
         headline="How it works"
         data={howitWorks}
         height="280px"
+        alignCenter={true}
       />
       <Hero {...dataArr} />
       <Hero {...dataArr2} marginfrBg="-1rem" />

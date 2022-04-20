@@ -23,7 +23,9 @@ const PricingComponent = ({
             {data.map((item) => (
               <div className="pricing_card_wrapper" key={item.key}>
                 <div
-                  className="pricing-card"
+                  className={
+                    alignCenter ? "pricing-card alignCenter" : "pricing-card"
+                  }
                   key={item.heading}
                   style={{ height: height }}
                 >

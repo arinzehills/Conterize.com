@@ -10,7 +10,7 @@
   font-family: "Inter", sans-serif;
 }
 .navbar {
-  height: 60px;
+  height: 70px;
   display: flex;
   /* justify-content: start; */
   /* align-items: flex-start; */
@@ -89,6 +89,9 @@
   display: none;
 }
 @media screen and (max-width: 960px) {
+  .navbar {
+    height: 85px;
+  }
   .nav-items {
     position: relative;
   }
@@ -146,7 +149,7 @@
     position: absolute;
     top: 0px;
     left: -20px;
-    /* transform: translate(25%, 50%); */
+    transform: translate(-5%, -20%);
   }
 
   .menu-icon {
@@ -163,7 +166,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    padding: 1.5rem;
+    padding: 0.5rem;
     z-index: 99;
   }
 

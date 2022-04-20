@@ -19,13 +19,19 @@ function Hero({
 }) {
   return (
     <>
-      {withBg && (
+      {withBg && window.innerWidth >= 960 && (
         <section
           className="blue_bg"
           style={{ height: bgheight, background: bgColor }}
         ></section>
       )}
-      <div className="hero__section">
+      <div
+        className="hero__section"
+        style={{
+          background:
+            withBg && window.innerWidth <= 960 && (bgColor ?? "#141874"),
+        }}
+      >
         <div
           className="row home__hero_row"
           style={{
@@ -34,7 +40,10 @@ function Hero({
             // padding: imgStart === "start" ? "0" : "",
           }}
         >
-          <div className="col" style={{ marginTop: marginfrBg }}>
+          <div
+            className="col"
+            style={{ marginTop: window.innerWidth >= 960 && marginfrBg }}
+          >
             <div className="hero__text_wrapper">
               <h1
                 className="heading"
@@ -87,7 +96,13 @@ function Hero({
             </div>
           </div>
           <div className="col" style={{ marginTop: marginfrBg }}>
-            <div className={withBg ? "hero__image withbg" : "hero__image"}>
+            <div
+              className={
+                withBg && window.innerWidth >= 960
+                  ? "hero__image withbg"
+                  : "hero__image"
+              }
+            >
               {/* <img src='../../images/studio.png' alt='hero image' className='home__hero-img' /> */}
 
               <img src={img} alt="hero image" className="home__hero-img" />

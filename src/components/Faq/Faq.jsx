@@ -62,6 +62,7 @@ const Faq = () => {
               key={item.id}
             >
               <div className="faq_inner">
+                {/* row for the plus sign and */}
                 <GrFormAdd
                   className={click[index] ? "faq_icon active" : "faq_icon "}
                   size="20"
