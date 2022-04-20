@@ -7,16 +7,14 @@
 .breadth_container {
   display: flex;
   justify-content: center;
-  flex: 1;
-  flex-basis: 0%;
   flex-wrap: wrap;
-  align-content: stretch;
 }
 .breadth_container img {
-  max-width: 400px;
+  max-width: 340px;
 }
 .breadth_text_wrapper {
   padding-right: 5rem;
+  text-align: left;
 }
 .breadth_text_wrapper h3 {
   text-align: left;
@@ -30,4 +28,9 @@
 }
 .breadth_inner_text div:nth-child(1) {
   padding-left: 0;
+}
+@media screen and (max-width: 961px) {
+  .breadth_text_wrapper {
+    padding-right: 0;
+  }
 }
