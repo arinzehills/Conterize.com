@@ -1,0 +1,95 @@
+.pricing_card_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pricing_card {
+  background-color: rgb(242, 244, 246);
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+  width: 27%;
+}
+.pricing_card:hover {
+  /* transform: scale(1.06); */
+  transition: all 0.3s ease-out;
+  background: white;
+  border: 1px solid var(--pink);
+}
+.pricing-header {
+  font-size: 35px;
+  line-height: 2px;
+  color: var(--mypurple);
+}
+.item_header {
+  display: flex;
+}
+.no_contracts {
+  font-family: "Plus Jakarta Display", sans-serif;
+  color: #62668a;
+
+  /* font-size: 16px; */
+  line-height: 1.688em;
+  letter-spacing: -0.01em;
+}
+.price {
+  font-size: 35px;
+  color: var(--dark-blue);
+  text-align: left;
+  font-family: "Lab Grotesque", Arial, sans-serif;
+}
+.price span {
+  color: #62668a;
+  font-size: 20px;
+}
+.more_pop {
+  background: #e71de743;
+  padding: 5px;
+  line-height: 0;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  height: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  color: var(--pink);
+}
+.pricing_bottom_header {
+  /* color: var(--mypurple); */
+  font-size: 72px;
+  background: -webkit-linear-gradient(var(--pink), var(--mypurple));
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+@media screen and (max-width: 961px) {
+  .pricing_card_container {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 10px 0px;
+    height: auto;
+
+    /* background-color: red; */
+  }
+  .pricing-header {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .pricing_card {
+    width: 80%;
+    margin-bottom: 10%;
+  }
+  .pricing_bottom_header {
+    font-size: 13px;
+    padding-top: 2rem;
+  }
+}

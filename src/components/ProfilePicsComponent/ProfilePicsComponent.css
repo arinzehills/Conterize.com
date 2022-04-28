@@ -1,0 +1,48 @@
+.prf-container {
+  display: flex;
+  border: 0.5px solid #e7e8f1;
+  box-shadow: 0 0 6px 0 rgb(78 42 222 / 2%), 0 6px 18px 0 rgb(78 42 222 / 2%);
+  width: 150px;
+  border-radius: 10px;
+  background: white;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.prf-container.iscircular {
+  border: none;
+  height: auto;
+  background: transparent;
+}
+.pic-wrapper {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  /* background: red; */
+  width: 30%;
+}
+.pic-wrapper.iscircular {
+  border-radius: 50%;
+  padding: 0;
+}
+.pic-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 0;
+  padding-left: 12px;
+  /* padding: 3r; */
+  font-size: 14px;
+  justify-content: start;
+  align-items: center;
+}
+.pic-text span {
+  line-height: 15px;
+  color: gray;
+  font-size: 12px;
+}
+.prf-pic-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}

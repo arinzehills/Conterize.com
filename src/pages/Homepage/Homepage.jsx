@@ -3,7 +3,7 @@ import BreadthComponent from "../../components/BreadthComponent/BreadthComponent
 import Faq from "../../components/Faq/Faq";
 import Hero from "../../components/Hero/Hero";
 import Partners from "../../components/PatnersComponent/Partners";
-import PricingComponent from "../../components/PricingComponent/PricingComponent";
+import HowitWorks from "../../components/HowitWorks/HowitWorks";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
 
 const homeData = {
@@ -134,7 +134,7 @@ function Homepage() {
       <Hero {...homeData} />
       <Partners />
       <Hero {...homeData2} />
-      <PricingComponent
+      <HowitWorks
         headline="Why should you use Conterize?"
         data={whyConterize}
         height="320px"
@@ -146,7 +146,7 @@ function Homepage() {
         bgColor="#31A7FE"
         marginfrBg="-10rem"
       />
-      <PricingComponent
+      <HowitWorks
         headline="How it works"
         data={howitWorks}
         height="280px"

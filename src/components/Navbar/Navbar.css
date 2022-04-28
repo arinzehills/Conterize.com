@@ -1,10 +1,12 @@
 :root {
   --grey: #f3f3f3;
+  --grey2: rgb(242, 244, 246);
   --pink: #e61de7;
   --mypurple: #700bc1;
   --dark-blue: #190762;
   --light-blue: #31a7fe;
   --dark-orange: #700bc1;
+  --blue-grey: #eff3ff;
 }
 * {
   font-family: "Inter", sans-serif;

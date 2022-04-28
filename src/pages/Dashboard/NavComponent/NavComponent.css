@@ -1,0 +1,13 @@
+.nav-cmpt-section {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+}
+@media screen and (max-width: 960px) {
+  .nav-cmpt-section {
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+}

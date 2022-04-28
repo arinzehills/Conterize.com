@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { TiTimesOutline } from "react-icons/ti";
 // import {useNavigate} from 'react-router-dom';
@@ -28,11 +27,8 @@ const Navbar = () => {
 
   useEffect(() => {
     showButton();
-    window.addEventListener("resize", showButton);
-    return {
-      // window.removeEventListener('resize', showButton)
-    };
   }, []);
+  window.addEventListener("resize", showButton);
 
   return (
     <>
@@ -113,7 +109,7 @@ const Navbar = () => {
               {button ? (
                 <Link to="/login">
                   <Button buttonColor="pink" buttonStyle="btn--rounded">
-                    Get Started{" "}
+                    Get Started
                   </Button>
                 </Link>
               ) : (

@@ -10,7 +10,7 @@ export const Button = ({
   buttonColor,
   style,
 }) => {
-  const COLOR = ["pink", "blue"];
+  const COLOR = ["pink", "blue", "gradient"];
   const STYLES = ["btn--normal", "btn--outline", "btn--rounded"];
   const SIZES = ["btn--medium", "btn--large", "btn--wide"];
   const checkButtonStyle = STYLES.includes(buttonStyle)

@@ -5,7 +5,7 @@
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  margin-top: 1em;
+  margin-top: 1rem;
   margin-right: 1rem;
   font-weight: 500;
   height: 50px;
@@ -30,8 +30,8 @@
 .btn--outline {
   background-color: transparent;
   padding: 8px 20px;
-  border: 1px solid var(--red);
-  color: var(--red);
+  border: 1px solid var(--mypurple);
+  color: var(--mypurple);
   transition: all 0.3s ease-out;
 }
 .btn--rounded {
@@ -114,7 +114,18 @@
   transition: all 0.3s ease-out;
   color: var(--dark-blue);
 }
-
+.gradient {
+  /* background: linear-gradient(to left, var(--pink), var(--dark-orange)); */
+  background: rgb(146, 3, 255);
+  /* box-shadow: 0 10px 60px 2px rgba(243, 61, 25, 0.65); */
+  color: #fff;
+}
+.gradient:hover {
+  background: white;
+  border: 1px solid var(--mypurple);
+  transition: all 0.3s ease-out;
+  color: var(--dark-blue);
+}
 @media screen and (max-width: 960px) {
   .btn {
     width: 190px;
