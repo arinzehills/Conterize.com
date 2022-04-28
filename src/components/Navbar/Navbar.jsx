@@ -85,7 +85,7 @@ const Navbar = () => {
             {!button && (
               <div>
                 <li className="nav-btn" onClick={closeMobileMenu}>
-                  <Link to="/login">
+                  <Link to="/dashboard">
                     <Button buttonStyle="btn--outline" buttonSize="btn--large">
                       Sign In
                     </Button>
@@ -107,7 +107,7 @@ const Navbar = () => {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-btn" onClick={closeMobileMenu}>
               {button ? (
-                <Link to="/login">
+                <Link to="/dashboard">
                   <Button buttonColor="pink" buttonStyle="btn--rounded">
                     Get Started
                   </Button>
