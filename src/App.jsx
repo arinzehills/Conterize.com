@@ -14,6 +14,10 @@ import Request from "./pages/Dashboard/Request/Request";
 import Company from "./pages/Dashboard/Company/Company";
 import Team from "./pages/Dashboard/Team/Team";
 import Settings from "./pages/Dashboard/Settings/Settings";
+import NewRequest from "./pages/Dashboard/NewRequest/NewRequest";
+import GraphicsRequest from "./pages/Dashboard/NewRequest/GraphicsRequest";
+import VideoRequest from "./pages/Dashboard/NewRequest/VideoRequest";
+import ContentRequest from "./pages/Dashboard/NewRequest/ContentRequest";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -37,6 +41,10 @@ function App() {
           <Route path="company" element={<Company />} />
           <Route path="team" element={<Team />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="newrequest" element={<NewRequest />} />
+          <Route path="contentrequest" element={<ContentRequest />} />
+          <Route path="graphicsrequest" element={<GraphicsRequest />} />
+          <Route path="videorequest" element={<VideoRequest />} />
           <Route index element={<Home />} />
         </Route>
         <Route path="/login" exact element={<Login />} />

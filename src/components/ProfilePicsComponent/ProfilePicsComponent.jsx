@@ -10,7 +10,7 @@ const ProfilePicsComponent = ({ name, isCirclular }) => {
         <div
           className={isCirclular ? "pic-wrapper iscircular" : "pic-wrapper "}
         >
-          <img src="svg/avatar.svg" alt="" />
+          <img src="/svg/avatar.svg" alt="" />
         </div>
 
         <div

@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import ProfilePicsComponent from "../../../components/ProfilePicsComponent/ProfilePicsComponent";
 import NavComponent from "../NavComponent/NavComponent";
+import RequestTable from "../Request/RequestTable";
 import "./Home.css";
 
 const DashboardCard = ({ title, value }) => {
@@ -54,29 +55,33 @@ const Home = () => {
       <div className="home">
         <div className="dashboard-wrapper">
           <div className="dash-fst-container">
-            {/* the first column for dashboard */}
-            <div className="greetings-wrapper">
-              <div className="greetings-text">
-                <h2 color="var(--dark-blue)">Good Evening, Hills</h2>
-                <p>
-                  you have 4 draft to complete. Do you need help in requesting
-                  content? Invite team members or contact your content director
-                  to assist you.
-                </p>
+            {/* the first row for dashboard */}
+            <div className="greetings-and-card-wrapper">
+              <div className="greetings-wrapper">
+                <div className="greetings-text">
+                  <h2 color="var(--dark-blue)">Good Evening, Hills</h2>
+                  <p>
+                    you have 4 draft to complete. Do you need help in requesting
+                    content? Invite team members or contact your content
+                    director to assist you.
+                  </p>
+                </div>
+                <div className="greetings-img">
+                  <img src="/svg/womandashboard.svg" alt="" />
+                </div>
               </div>
-              <div className="greetings-img">
-                <img src="svg/womandashboard.svg" alt="" />
+              <div className="dash-card_wrapper">
+                <DashboardCard />
+                <DashboardCard />
+                <DashboardCard />
+                <DashboardCard />
               </div>
             </div>
-            <div className="dash-card_wrapper">
-              <DashboardCard />
-              <DashboardCard />
-              <DashboardCard />
-              <DashboardCard />
-            </div>
+            <RequestProgressCard />
           </div>
           <div className="dash-sec-container">
-            <RequestProgressCard />
+            {/* second row for dashboard */}
+            <RequestTable title={"Draft Request"} />
           </div>
         </div>
       </div>

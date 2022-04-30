@@ -20,7 +20,11 @@ const Sidebar = ({ click, handleClick }) => {
               />
             )}
             <Link onClick={handleClick} to="">
-              <img className="sidebar-logo" src="images/conterize.png" alt="" />
+              <img
+                className="sidebar-logo"
+                src="/images/conterize.png"
+                alt=""
+              />
             </Link>
           </div>
           <div className="links">
@@ -74,7 +78,7 @@ const Sidebar = ({ click, handleClick }) => {
           </div>
         </div>
         <div className="down">
-          <Link to="/newrequest">
+          <Link to="/dashboard/newrequest">
             <div className="new-request-btn-wrapper">
               <div className="newrequest-container">
                 <div className="request-icon-container">

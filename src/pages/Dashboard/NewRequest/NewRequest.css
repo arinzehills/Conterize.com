@@ -1,0 +1,106 @@
+.new-request-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-request-container {
+  margin-top: 1rem;
+  background: white;
+  border-radius: 20px;
+  border: 0.5px solid #e7e8f1;
+  border-radius: 36px;
+  line-height: 0;
+  padding: 2rem 4rem 0px;
+  /* height: 350px; */
+  box-shadow: 0 0 6px 0 rgb(78 42 222 / 2%), 0 6px 18px 0 rgb(78 42 222 / 2%);
+}
+.new-request-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-items: center;
+}
+.new-request-btn {
+  flex-direction: column;
+  display: flex;
+}
+.request-inner-btn {
+  display: "flex";
+  align-items: "center";
+  justify-content: "center";
+  display: "flex";
+  /* alignItems: "center",
+  gap: "11px",
+  justifyContent: "center", */
+}
+/* this is for request e.g graphics request,content  and the rest */
+.request-header {
+  width: 100%;
+  background: radial-gradient(
+    circle,
+    #a7afda 5%,
+    #7e8dd8 10%,
+    #5768c1 15%,
+    #2d3d8c 35%,
+    #1f318c 30%
+  );
+  height: 105px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  color: white;
+  font-size: 28px;
+  font-weight: 500;
+}
+.request-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* flex-wrap: wrap; */
+}
+.request-section h3 {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 600;
+}
+.request-first-container {
+  background: white;
+  margin-top: -3rem;
+  border-radius: 15px;
+  width: 430px;
+  padding: 20px;
+  text-align: left;
+  border: 0.5px solid #e7e8f1;
+  box-shadow: 0 0 6px 0 rgb(78 42 222 / 2%), 0 6px 18px 0 rgb(78 42 222 / 2%);
+  line-height: 5px;
+  gap: 2rem;
+}
+.request-scn-container {
+  background: white;
+  margin-top: -3rem;
+  border-radius: 15px;
+  width: 430px;
+  padding: 20px;
+  text-align: left;
+  border: 0.5px solid #e7e8f1;
+  box-shadow: 0 0 6px 0 rgb(78 42 222 / 2%), 0 6px 18px 0 rgb(78 42 222 / 2%);
+  line-height: 5px;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 960px) {
+  .request-section {
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  .request-first-container {
+    width: 90%;
+  }
+  .request-scn-container {
+    margin-top: 1.5rem;
+    width: 90%;
+  }
+}

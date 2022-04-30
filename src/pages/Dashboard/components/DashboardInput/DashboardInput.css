@@ -1,0 +1,28 @@
+.dashboard-input {
+  height: 35px;
+  width: 257px;
+  border: 1px solid #ececec;
+  /* box-sizing: bor-box; */
+  /* width: 100%; */
+  padding-left: 10px;
+
+  border-radius: 10px;
+}
+.width-495 {
+  width: 495px;
+}
+.width-353 {
+  width: 303px;
+}
+@media screen and (max-width: 960px) {
+  .dashboard-input {
+    width: 295px;
+  }
+  .width-495 {
+    width: 295px;
+  }
+  .width-353 {
+    /* width: 295px; */
+    width: 100%;
+  }
+}
