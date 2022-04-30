@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../../../components/Button/Button";
 
-function SaveButton({ title, labels, firstBtnColor, secondBtnSize }) {
+function SaveButton({ title, labels, firstBtnColor, secondBtnSize, flexWrap }) {
   return (
     <>
       <div
@@ -11,6 +11,7 @@ function SaveButton({ title, labels, firstBtnColor, secondBtnSize }) {
           justifyContent: window.innerWidth < 763 && "space-between",
           alignItems: "center",
           alignContent: "center",
+          flexWrap: flexWrap,
         }}
       >
         <Button

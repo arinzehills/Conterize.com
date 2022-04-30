@@ -54,23 +54,29 @@ const GraphicsRequest = () => {
           </div>
           <div
             className="div"
-            style={{ display: "flex", justifyContent: "space-between" }}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
           >
-            <Button
-              style={{
-                width: "96px",
-                height: "43px",
-                color: "grey",
-                border: "1px solid #ececec",
-                background: "#fff",
-              }}
-            >
-              {"Back"}
-            </Button>
+            {
+              <Button
+                style={{
+                  width: "96px",
+                  height: "43px",
+                  color: "grey",
+                  border: "1px solid #ececec",
+                  background: "#fff",
+                }}
+              >
+                {"Back"}
+              </Button>
+            }
             <SaveButton
               labels={["Draft", "Request Now"]}
-              secondBtnSize="auto"
+              secondBtnSize={window.innerWidth < 960 ? "100%" : "auto"}
               firstBtnColor="#35438C"
+              flexWrap={window.innerWidth < 960 && "wrap"}
             />
           </div>
         </div>

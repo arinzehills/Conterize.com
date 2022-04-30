@@ -89,7 +89,7 @@
 @media only screen and (max-width: 600px) {
   .dashboard-card {
     max-width: 400px;
-    width: 17px;
+    width: 1px;
     /* width: ; */
     margin: 0;
   }
@@ -124,7 +124,7 @@
   }
   .dashboard-card {
     max-width: 400px;
-    width: 107px;
+    width: 112px;
     /* width: ; */
     margin: 0;
   }
