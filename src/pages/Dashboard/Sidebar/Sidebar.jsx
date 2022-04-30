@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./Sidebar.css";
 const Sidebar = ({ click, handleClick, setClick }) => {
   const [currentLink, setCurrentLink] = useState(1);
-
   const closeMobileMenu = () => setClick(!click);
 
   function handleAllClick(linkNumber) {

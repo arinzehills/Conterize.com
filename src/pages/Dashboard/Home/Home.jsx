@@ -6,22 +6,121 @@ import RequestTable from "../Request/RequestTable";
 import "./Home.css";
 import { useOutletContext } from "react-router-dom";
 
-const DashboardCard = ({ title, value }) => {
+const IconWrapper = ({ type, IconPadding, iconFontSize }) => {
+  return (
+    <>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background:
+            type === "content"
+              ? "#f25c3240"
+              : type === "graphics"
+              ? "#00c32a3e"
+              : type === "video"
+              ? "#00c4f03d"
+              : "#35448c36",
+          // color: type === "request" ? "grey" : "white",
+          color:
+            type === "content"
+              ? "#F25B32"
+              : type === "graphics"
+              ? "#00C32B"
+              : type === "video"
+              ? "#00C4F0"
+              : "var(--dashboard-dark-blue)",
+          borderRadius: "50%",
+          padding: IconPadding ?? "5px",
+          fontSize: iconFontSize ?? "12px",
+        }}
+      >
+        {type === "request" && (
+          <Icon borderRadius="1em" icon="bxs:bar-chart-square" />
+        )}
+        {type === "content" && <Icon icon="bxs:bar-chart-square" rotate={1} />}
+        {type === "graphics" && <Icon icon="fa6-solid:radio" />}
+        {type === "video" && <Icon icon="eva:video-fill" />}
+      </div>
+    </>
+  );
+};
+
+const DashboardCard = ({ title, value, color, type }) => {
   return (
     <div className="dashboard-card">
-      <div className="dashboard-card-row">
-        <Icon icon="bxs:bar-chart-square" hFlip={true} />
-        <p>{value ?? "value"}</p>
+      <div
+        className="dashboard-card-row"
+        style={{
+          color:
+            type === "content"
+              ? "#F25B32"
+              : type === "graphics"
+              ? "#00C32B"
+              : type === "video"
+              ? "#00C4F0"
+              : "var(--dashboard-dark-blue)",
+          fontWeight: "500",
+        }}
+      >
+        <IconWrapper type={type ?? "content"} />
+        <p style={{ fontSize: "24px" }}>{value ?? "value"}</p>
       </div>
-      <h3 style={{ color: "grey", fontWeight: "normal" }}>
+      <h3
+        style={{
+          color: "grey",
+          fontWeight: "500",
+          fontSize: window.innerWidth < 960 ? "10px" : "16px",
+          textTransform: "capitalize",
+        }}
+      >
         {title ?? "title"}
       </h3>
     </div>
   );
 };
+const IconAndName = ({ type, title, quantity }) => {
+  return (
+    <div
+      className="dashboard-card-row"
+      style={{
+        gap: "0",
+        marginTop: "1rem",
+        textAlign: "left",
+        textOverflow: "clip",
+      }}
+    >
+      <IconWrapper type={type} iconFontSize="20px" IconPadding="15px" />
+      <div
+        className="pic-text" //this comes from profilepicscomponent
+        style={{
+          textOverflow: "clip",
+          display: "flex",
+          justifyContent: "left",
+          alignItems: "flex-start",
+        }}
+      >
+        <p
+          style={{
+            fontWeight: "500",
+            color: "black",
+            textOverflow: "clip",
+          }}
+        >
+          {title ?? "title"}
+        </p>
+        {<span>{quantity ?? 23}</span>}
+      </div>
+    </div>
+  );
+};
 const RequestProgressCard = ({ title, value }) => {
   return (
-    <div style={{}} className="request-progress-container">
+    <div
+      //  style={{ width: "auto" }}
+      className="request-progress-container"
+    >
       <div className="rqs-header-wrapper">
         <h4>Profile</h4>
         <div
@@ -43,9 +142,9 @@ const RequestProgressCard = ({ title, value }) => {
       </div>
       <ProfilePicsComponent name="cjrsds" />
       <h4>Request in progress</h4>
-      <ProfilePicsComponent name="cjrsds" />
-      <ProfilePicsComponent name="cjrsds" />
-      <ProfilePicsComponent name="cjrsds" />
+      <IconAndName type={"content"} title="Write articles..." />
+      <IconAndName type={"graphics"} title="Design social ..." />
+      <IconAndName type={"video"} title="Create explainer..." />
     </div>
   );
 };
@@ -76,10 +175,26 @@ const Home = () => {
                 </div>
               </div>
               <div className="dash-card_wrapper">
-                <DashboardCard />
-                <DashboardCard />
-                <DashboardCard />
-                <DashboardCard />
+                <DashboardCard
+                  type={"request"}
+                  title={"Total request"}
+                  value={"123"}
+                />
+                <DashboardCard
+                  type={"content"}
+                  title={"Content Writing"}
+                  value={"12"}
+                />
+                <DashboardCard
+                  type={"graphics"}
+                  title={"Graphics Design"}
+                  value={"13"}
+                />
+                <DashboardCard
+                  type={"video"}
+                  title={"Video creation"}
+                  value={"23"}
+                />
               </div>
             </div>
             <RequestProgressCard />

@@ -28,7 +28,7 @@
   background: #eff3ff;
   border-radius: 20px;
   border: 0.5px solid #e7e8f1;
-  width: 95%;
+  width: 97%;
   box-shadow: 0 0 6px 0 rgb(78 42 222 / 2%), 0 6px 18px 0 rgb(78 42 222 / 2%);
 }
 .greetings-text {
@@ -72,12 +72,12 @@
 }
 .request-progress-container {
   background: white;
-  padding: 1rem;
+  padding: 2rem;
 
   text-align: left;
   border-radius: 10px;
   margin: 0;
-  width: 220px;
+  width: 380px;
   /* margin-left: -1rem; */
   /* margin-right: 3rem; */
 }
@@ -133,5 +133,6 @@
   }
   .request-progress-container {
     width: 90%;
+    padding: 1rem;
   }
 }
