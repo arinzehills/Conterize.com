@@ -3,12 +3,15 @@ import "./Company.css";
 import DashboardInput from "../components/DashboardInput/DashboardInput";
 import NavComponent from "../NavComponent/NavComponent";
 import SaveButton from "../components/SaveButton/SaveButton";
+import { useOutletContext } from "react-router-dom";
 
 const Company = () => {
+  const [click, setClick] = useOutletContext();
+  const handleClick = () => setClick(!click);
   return (
     <>
       <div>
-        <NavComponent pageTitle="Company" />
+        <NavComponent pageTitle="Company" handleClick={handleClick} />
         {/* <DashboardInput inputSize="width-495" /> */}
         <div className="company-section">
           <div className="company-container">

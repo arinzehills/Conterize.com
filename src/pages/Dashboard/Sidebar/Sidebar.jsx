@@ -2,11 +2,15 @@ import { Icon } from "@iconify/react";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
-const Sidebar = ({ click, handleClick }) => {
+const Sidebar = ({ click, handleClick, setClick }) => {
   const [currentLink, setCurrentLink] = useState(1);
 
   const closeMobileMenu = () => setClick(!click);
 
+  function handleAllClick(linkNumber) {
+    setCurrentLink(linkNumber);
+    closeMobileMenu();
+  }
   return (
     <>
       <div className={click ? "left-section show" : "left-section"}>
@@ -30,7 +34,7 @@ const Sidebar = ({ click, handleClick }) => {
           <div className="links">
             <ul>
               <li
-                onClick={() => setCurrentLink(1)}
+                onClick={() => handleAllClick(1)}
                 className={currentLink === 1 ? "active-nav" : "nonactive-nav"}
               >
                 <Link to="/dashboard">
@@ -39,7 +43,7 @@ const Sidebar = ({ click, handleClick }) => {
                 </Link>
               </li>
               <li
-                onClick={() => setCurrentLink(2)}
+                onClick={() => handleAllClick(2)}
                 className={currentLink === 2 ? "active-nav" : "nonactive-nav"}
               >
                 <Link to="/dashboard/request">
@@ -48,7 +52,7 @@ const Sidebar = ({ click, handleClick }) => {
                 </Link>
               </li>
               <li
-                onClick={() => setCurrentLink(3)}
+                onClick={() => handleAllClick(3)}
                 className={currentLink === 3 ? "active-nav" : "nonactive-nav"}
               >
                 <Link to="/dashboard/company">
@@ -57,7 +61,7 @@ const Sidebar = ({ click, handleClick }) => {
                 </Link>
               </li>
               <li
-                onClick={() => setCurrentLink(4)}
+                onClick={() => handleAllClick(4)}
                 className={currentLink === 4 ? "active-nav" : "nonactive-nav"}
               >
                 <Link to="/dashboard/team">
@@ -66,7 +70,7 @@ const Sidebar = ({ click, handleClick }) => {
                 </Link>
               </li>
               <li
-                onClick={() => setCurrentLink(5)}
+                onClick={() => handleAllClick(5)}
                 className={currentLink === 5 ? "active-nav" : "nonactive-nav"}
               >
                 <Link to="/dashboard/settings">

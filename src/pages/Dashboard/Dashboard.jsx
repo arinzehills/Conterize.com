@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar/Sidebar";
 function Dashboard() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+
   // const {user, setUser} = useUser();
   // const {  token, setToken } = useToken();
   // console.log(token)
@@ -14,11 +15,11 @@ function Dashboard() {
   //   }
   return (
     <>
-      <Sidebar click={click} handleClick={handleClick} />
+      <Sidebar click={click} handleClick={handleClick} setClick={setClick} />
 
       <div className="section">
-        <NavComponent handleClick={handleClick} />
-        <Outlet />
+        {/* <NavComponent handleClick={handleClick} /> */}
+        <Outlet context={[click, setClick]} />
       </div>
     </>
   );

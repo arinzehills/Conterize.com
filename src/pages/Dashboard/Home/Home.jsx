@@ -4,6 +4,7 @@ import ProfilePicsComponent from "../../../components/ProfilePicsComponent/Profi
 import NavComponent from "../NavComponent/NavComponent";
 import RequestTable from "../Request/RequestTable";
 import "./Home.css";
+import { useOutletContext } from "react-router-dom";
 
 const DashboardCard = ({ title, value }) => {
   return (
@@ -50,8 +51,12 @@ const RequestProgressCard = ({ title, value }) => {
 };
 
 const Home = () => {
+  const [click, setClick] = useOutletContext();
+  const handleClick = () => setClick(!click);
+  // console.log(name);
   return (
     <>
+      <NavComponent handleClick={handleClick} />
       <div className="home">
         <div className="dashboard-wrapper">
           <div className="dash-fst-container">

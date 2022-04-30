@@ -17,7 +17,7 @@ function NavComponent({ pageTitle, handleClick }) {
             <img
               className="sidebar-logo"
               style={{ height: 60 }}
-              src="images/conterize.png"
+              src="/images/conterize.png"
               alt=""
             />
           </>
@@ -31,7 +31,7 @@ function NavComponent({ pageTitle, handleClick }) {
         )}
         {window.innerWidth < 960 && (
           <div className="nav-profile-wrapper">
-            <img src="svg/avatar.svg" style={{ height: 20 }} alt="" />
+            <img src="/svg/avatar.svg" style={{ height: 20 }} alt="" />
           </div>
         )}
       </div>

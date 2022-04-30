@@ -1,13 +1,16 @@
 import React from "react";
+import { useOutletContext } from "react-router-dom";
 import DashboardInput from "../components/DashboardInput/DashboardInput";
 import SaveButton from "../components/SaveButton/SaveButton";
 import NavComponent from "../NavComponent/NavComponent";
 
 const Settings = () => {
+  const [click, setClick] = useOutletContext();
+  const handleClick = () => setClick(!click);
   return (
     <>
       <div>
-        <NavComponent pageTitle="Settings" />
+        <NavComponent pageTitle="Settings" handleClick={handleClick} />
         <div className="company-section">
           <div
             className="company-container"

@@ -16,10 +16,12 @@
 }
 @media screen and (max-width: 960px) {
   .dashboard-input {
-    width: 295px;
+    width: 100%;
+    /* width: 295px; */
   }
   .width-495 {
-    width: 295px;
+    width: 100%;
+    /* width: 295px; */
   }
   .width-353 {
     /* width: 295px; */
