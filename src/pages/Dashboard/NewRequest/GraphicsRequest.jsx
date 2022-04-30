@@ -1,11 +1,18 @@
 import React from "react";
+import { useOutletContext } from "react-router-dom";
 import { Button } from "../../../components/Button/Button";
 import DashboardInput from "../components/DashboardInput/DashboardInput";
 import SaveButton from "../components/SaveButton/SaveButton";
+import NavComponent from "../NavComponent/NavComponent";
 
 const GraphicsRequest = () => {
+  const [click, setClick] = useOutletContext();
+  const handleClick = () => setClick(!click);
+
   return (
     <>
+      <NavComponent handleClick={handleClick} pageTitle={"New  Request"} />
+
       <div className="request-header">Graphic Request</div>
       <div className="request-section">
         <div className="request-first-container">

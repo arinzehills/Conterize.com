@@ -2,13 +2,18 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { Button } from "../../../components/Button/Button";
 import "./NewRequest.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import NavComponent from "../NavComponent/NavComponent";
 
 const NewRequest = () => {
   const navigate = useNavigate();
+  const [click, setClick] = useOutletContext();
+  const handleClick = () => setClick(!click);
 
   return (
     <>
+      <NavComponent handleClick={handleClick} pageTitle={"New Request"} />
+
       <div className="new-request-section">
         <div className="new-request-container">
           <h2>Select You Request type</h2>
