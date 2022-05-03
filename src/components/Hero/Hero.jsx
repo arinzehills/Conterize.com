@@ -17,6 +17,7 @@ function Hero({
   buttonLabel,
   bgheight,
   btnWidth,
+  buttonColor,
 }) {
   return (
     <>
@@ -94,7 +95,10 @@ function Hero({
                 </div>
               )}
               {showButton && (
-                <Button buttonColor="pink" style={{ width: btnWidth }}>
+                <Button
+                  buttonColor={buttonColor ?? "pink"}
+                  style={{ width: btnWidth }}
+                >
                   {buttonLabel}
                 </Button>
               )}

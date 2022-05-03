@@ -4,6 +4,19 @@ import GuaranteeHero from "../../components/GuaranteeHero/GuaranteeHero";
 import Hero from "../../components/Hero/Hero";
 import "./ContentCreators.css";
 const ContentCreators = () => {
+  const workData = {
+    headline: "Want to work with Conterize and make your work stand out?",
+    description:
+      "Join a fast growing team of content creators across several sectors." +
+      "We work with content writers, graphic designers and video editors who" +
+      "match our high quality standard at the same time willing to work in a" +
+      "rewarding environment.",
+    img: "/images/contentdirector.jpg",
+    showButton: true,
+    buttonLabel: "Join Now",
+
+    buttonColor: "gradient",
+  };
   const dataArr2 = {
     headline: "More Reasons to Work with Us",
     description: [
@@ -22,6 +35,7 @@ const ContentCreators = () => {
     showButton: true,
     buttonLabel: "Apply Now",
     withBg: true,
+    imgStart: "start",
   };
   const desArr = [
     "You apply and undergo our test where we test your capabilities in your chosen category.",
@@ -34,34 +48,7 @@ const ContentCreators = () => {
   ];
   return (
     <>
-      <div
-        className="pricing_bottom_header"
-        style={{
-          //   backGround: "-webkit-linear-gradient(var(--mypurple), red)",
-          justifyContent: "center",
-        }}
-      >
-        <h1 className="" style={{ textAlign: "center" }}>
-          Want to work with Conterize and make <br></br>your work stand out?
-        </h1>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <h3 style={{ color: "black", fontWeight: "500" }}>
-          Join a fast growing team of content creators across several sectors.
-          We work with content writers, graphic designers and video editors who
-          <br></br>
-          match our high quality standard at the same time willing to work in a
-          rewarding environment.{" "}
-        </h3>
-        <Button buttonColor="gradient">Join Now </Button>
-      </div>
+      <Hero {...workData} />
       <GuaranteeHero
         descArr={desArr}
         headline="How does it work for Content creators?"
@@ -70,6 +57,34 @@ const ContentCreators = () => {
       <div style={{ height: "52px", color: "white", marginTop: "2rem" }}>
         dsadsaa
       </div>
+      {/* <div
+          className="pricing_bottom_header"
+          style={{
+            //   backGround: "-webkit-linear-gradient(var(--mypurple), red)",
+            justifyContent: "center",
+          }}
+        >
+          <h1 className="" style={{ textAlign: "center" }}>
+            Want to work with Conterize and make <br></br>your work stand out?
+          </h1>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h3 style={{ color: "black", fontWeight: "500" }}>
+            Join a fast growing team of content creators across several sectors.
+            We work with content writers, graphic designers and video editors who
+            <br></br>
+            match our high quality standard at the same time willing to work in a
+            rewarding environment.{" "}
+          </h3>
+          <Button buttonColor="gradient">Join Now </Button>
+        </div> */}
     </>
   );
 };
