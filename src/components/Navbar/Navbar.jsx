@@ -79,7 +79,8 @@ const Navbar = () => {
             </li>
             <li className="nav-items">
               <Link
-                to="/whyconterize"
+                to="/
+                "
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
