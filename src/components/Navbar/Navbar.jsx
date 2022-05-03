@@ -78,8 +78,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-items">
-              <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
-                About
+              <Link
+                to="/whyconterize"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Why Conterize
               </Link>
             </li>
             {!button && (

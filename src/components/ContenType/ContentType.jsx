@@ -9,7 +9,10 @@ const ContentType = ({ headline, detail, subcontents, img, reverse }) => {
       <div className="content_section">
         <div
           className="content_container "
-          style={{ flexDirection: reverse ? "row-reverse" : "" }}
+          style={{
+            flexDirection:
+              window.innerWidth > 960 && reverse ? "row-reverse" : "",
+          }}
         >
           <div className="content_col">
             <h1>{headline}</h1>
@@ -37,7 +40,12 @@ const ContentType = ({ headline, detail, subcontents, img, reverse }) => {
                         size="22"
                         style={{ color: "var(--mypurple)" }}
                       />
-                      <p style={{ alignContent: "center", fontSize: "16.6px" }}>
+                      <p
+                        style={{
+                          alignContent: "center",
+                          fontSize: "16.6px",
+                        }}
+                      >
                         {des}
                       </p>
                     </div>

@@ -18,6 +18,8 @@ import NewRequest from "./pages/Dashboard/NewRequest/NewRequest";
 import GraphicsRequest from "./pages/Dashboard/NewRequest/GraphicsRequest";
 import VideoRequest from "./pages/Dashboard/NewRequest/VideoRequest";
 import ContentRequest from "./pages/Dashboard/NewRequest/ContentRequest";
+import WhyConterize from "./pages/WhyConterize/WhyConterize";
+import ContentCreators from "./pages/ContentCreators/ContentCreators";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,10 +33,9 @@ function App() {
           <Route path="/contact" exact element={<Contact />} />
           <Route path="/pricing" exact element={<Pricingpage />} />
           <Route path="/contenttypes" exact element={<ContentTypePage />} />
-          {/* 
-          <Route path="/contenttypes" exact element={<ContentTypes />} />
-          
-          <Route path="/contentcreators" exact element={<ContentCreators />} /> */}
+          <Route path="/whyconterize" exact element={<WhyConterize />} />
+
+          <Route path="/contentcreators" exact element={<ContentCreators />} />
         </Route>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="request" element={<Request />} />

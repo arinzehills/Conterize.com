@@ -67,6 +67,13 @@
   flex-wrap: wrap;
   font-size: 20px;
 }
+.pricing_bottom_header.withBluebg {
+  background: -webkit-linear-gradient(var(--mypurple), var(--dark-blue));
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
 @media screen and (max-width: 961px) {
   .pricing_card_container {
     display: block;

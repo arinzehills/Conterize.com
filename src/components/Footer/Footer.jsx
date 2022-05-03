@@ -80,8 +80,8 @@ function Footer() {
               <div className="footer-logo">
                 <Link to="/" className="social-logo">
                   <img
-                    src="images/whitelogo.png"
-                    style={{ maxHeight: "100px" }}
+                    src="images/conterize.png"
+                    style={{ maxHeight: "160px" }}
                     alt=""
                   />
                 </Link>
