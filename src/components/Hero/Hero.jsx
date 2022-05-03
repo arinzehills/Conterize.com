@@ -96,7 +96,7 @@ function Hero({
               )}
               {showButton && (
                 <Button
-                  buttonColor={buttonColor ?? "pink"}
+                  buttonColor={buttonColor ?? "gradient"}
                   style={{ width: btnWidth }}
                 >
                   {buttonLabel}
