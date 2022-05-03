@@ -99,7 +99,8 @@
     height: 85px;
   }
   .nav-items {
-    position: relative;
+    /* position: relative; */
+    width: 66%;
   }
 
   .nav-menu {
