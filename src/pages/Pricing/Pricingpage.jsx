@@ -111,12 +111,12 @@ const Pricingpage = () => {
         </div>
       </div>
       <ReadyComponent />
-      <div className="pricing_bottom_header">
+      {/* <div className="pricing_bottom_header">
         <h1 className="">
           Power and grow your business with our unbeatable Content Creation
           plans backed by leading content creators.{" "}
         </h1>
-      </div>
+      </div> */}
     </>
   );
 };
