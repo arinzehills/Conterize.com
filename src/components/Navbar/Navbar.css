@@ -125,16 +125,12 @@
   }
 
   .nav-links {
-    text-align: left;
-    /* margin-top: -1rem; */
+    text-align: center;
+    padding: 2rem;
     justify-items: center;
     justify-content: center;
-    align-items: center;
     display: table;
     color: var(--grey);
-    top: 1rem;
-
-    padding: 0.9rem;
   }
 
   .nav-links:hover {
