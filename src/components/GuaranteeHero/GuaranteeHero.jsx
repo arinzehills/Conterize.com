@@ -34,7 +34,7 @@ function GuaranteeHero({ headline, descArr }) {
               </div>
             ))}
           </div>
-          <Button buttonColor={"pink"}>Join Now</Button>
+          <Button buttonColor={"gradient"}>Join Now</Button>
         </div>
       </div>
     </>

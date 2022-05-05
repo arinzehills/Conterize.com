@@ -15,7 +15,7 @@ const ContentCreators = () => {
     showButton: true,
     buttonLabel: "Join Now",
 
-    buttonColor: "gradient",
+    // buttonColor: "gradient",
   };
   const dataArr2 = {
     headline: "More Reasons to Work with Us",

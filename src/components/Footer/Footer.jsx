@@ -15,7 +15,7 @@ function Footer() {
       <div className="footer_wrapper">
         {/* <FooterSvg /> */}
         <div className="footer-container">
-          <section className="footer-subscription">
+          {/* <section className="footer-subscription">
             <p className="footer-subscription-heading">
               Join our exclusive membership to receive the latest news and
               trends
@@ -41,7 +41,7 @@ function Footer() {
                 </Button>
               </form>
             </div>
-          </section>
+          </section> */}
           <div className="footer-links">
             <div className="footer-link-wrapper">
               <div className="footer-link-items">
@@ -75,7 +75,15 @@ function Footer() {
               '
             </div>
           </div>
-          <section className="social-media">
+          <section
+            className="social-media"
+            style={{
+              lineHeight: 0,
+              // background: "red",
+              padding: "0",
+              margin: 0,
+            }}
+          >
             <div className="social-media-wrap">
               <div className="footer-logo">
                 <Link to="/" className="social-logo">
@@ -87,7 +95,7 @@ function Footer() {
                 </Link>
               </div>
               <small className="website-rights">Conterize.com © 2022</small>
-              <div className="social-icons">
+              {/* <div className="social-icons">
                 <Link
                   className="social-icon-link"
                   to="/"
@@ -130,7 +138,7 @@ function Footer() {
                 >
                   <FaLinkedin />
                 </Link>
-              </div>
+              </div> */}
             </div>
           </section>
         </div>

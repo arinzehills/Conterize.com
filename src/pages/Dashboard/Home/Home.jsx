@@ -1,10 +1,11 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useState } from "react";
 import ProfilePicsComponent from "../../../components/ProfilePicsComponent/ProfilePicsComponent";
 import NavComponent from "../NavComponent/NavComponent";
 import RequestTable from "../Request/RequestTable";
 import "./Home.css";
 import { useOutletContext } from "react-router-dom";
+import { Calendar } from "react-calendar";
 
 const IconWrapper = ({ type, IconPadding, iconFontSize }) => {
   return (
@@ -152,6 +153,10 @@ const RequestProgressCard = ({ title, value }) => {
 const Home = () => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
+  const [date, setDate] = useState(new Date());
+  const onChange = (date) => {
+    setDate(date);
+  };
   // console.log(name);
   return (
     <>
@@ -202,7 +207,17 @@ const Home = () => {
           <div className="dash-sec-container">
             {/* second row for dashboard */}
             <RequestTable title={"Draft Request"} />
+            {/* <Calendar
+              onChange={onChange}
+              value={date}
+              style={{ width: "20px" }}
+            /> */}
           </div>
+          {/* <Calendar
+            onChange={onChange}
+            value={date}
+            style={{ width: "20px" }}
+          /> */}
         </div>
       </div>
     </>

@@ -79,7 +79,7 @@ const Navbar = () => {
             </li>
             <li className="nav-items">
               <Link
-                to="/
+                to="/whyconterize
                 "
                 className="nav-links"
                 onClick={closeMobileMenu}
@@ -99,7 +99,7 @@ const Navbar = () => {
 
                 <li className="nav-btn" onClick={closeMobileMenu}>
                   <Link to="/register">
-                    <Button buttonColor="pink" buttonSize="btn--large">
+                    <Button buttonColor="gradient" buttonSize="btn--large">
                       Register
                     </Button>
                   </Link>
@@ -113,7 +113,7 @@ const Navbar = () => {
             <li className="nav-btn" onClick={closeMobileMenu}>
               {button ? (
                 <Link to="/dashboard">
-                  <Button buttonColor="pink" buttonStyle="btn--rounded">
+                  <Button buttonColor="gradient" buttonStyle="btn--rounded">
                     Get Started
                   </Button>
                 </Link>
@@ -121,7 +121,7 @@ const Navbar = () => {
                 //for mobile
                 <Link to="/login">
                   <Button
-                    buttonColor="pink"
+                    buttonColor="gradient"
                     //   buttonSize='btn--wide'
                   >
                     Get Started
