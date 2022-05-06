@@ -3,7 +3,9 @@ import "./Stepper.css";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import { VscPass } from "react-icons/vsc";
 import { TiTick } from "react-icons/ti";
-import { MdCheck } from "react-icons/md";
+import { MdCheck, MdIncompleteCircle } from "react-icons/md";
+import { BsFillCreditCard2BackFill } from "react-icons/bs";
+import { SiGnuprivacyguard } from "react-icons/si";
 
 function Stepper({ activeStep, hrColor }) {
   console.log(activeStep);
@@ -15,7 +17,11 @@ function Stepper({ activeStep, hrColor }) {
             activeStep === 1 ? "stepper-container checked" : "stepper-container"
           }
         >
-          {activeStep === 1 ? "" : <MdCheck fontSize={"29px"} />}
+          {activeStep === 1 ? (
+            <SiGnuprivacyguard />
+          ) : (
+            <MdCheck fontSize={"29px"} />
+          )}
         </div>
         <hr className={hrColor}></hr>
         <div
@@ -24,9 +30,9 @@ function Stepper({ activeStep, hrColor }) {
           }
         >
           {activeStep < 2 ? (
-            "" //if active step is less 1 i.e less than two show the number 2
+            <BsFillCreditCard2BackFill /> //if active step is less 1 i.e less than two show the number 2
           ) : activeStep === 2 ? (
-            ""
+            <BsFillCreditCard2BackFill />
           ) : (
             <MdCheck fontSize={"29px"} />
           )}
@@ -38,7 +44,11 @@ function Stepper({ activeStep, hrColor }) {
             activeStep === 3 ? "stepper-container checked" : "stepper-container"
           }
         >
-          {activeStep === 3 ? <MdCheck fontSize={"29px"} /> : ""}
+          {activeStep === 3 ? (
+            <MdCheck fontSize={"29px"} />
+          ) : (
+            <MdIncompleteCircle />
+          )}
         </div>
       </div>
     </div>
