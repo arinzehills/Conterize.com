@@ -6,7 +6,8 @@
   /* width: 100%;
   height: 100%; */
 
-  background-image: url("svg/ribbon.svg"), url("curve2.svg"); /* put two image backround*/
+  /* background-image: url("svg/ribbon.svg"), url("curve2.svg");  */
+  /* put two image backround*/
   background-repeat: no-repeat, no-repeat;
 }
 .form-hero-container {

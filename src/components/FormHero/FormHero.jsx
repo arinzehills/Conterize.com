@@ -13,6 +13,8 @@ function Formhero({
   message,
   responseError,
   imageRight,
+  rightImageHeight,
+  leftImageHeight,
   imageleft,
   formType,
   buttonLabel,
@@ -65,7 +67,12 @@ function Formhero({
           >
             {formType === "contact" && (
               <div className="right__hero-img-wrapper">
-                <img src={imageleft} alt={alt2} className="right__hero-img" />
+                <img
+                  src={imageleft}
+                  alt={alt2}
+                  height={rightImageHeight}
+                  className="right__hero-img"
+                />
 
                 {/* <Hero
                   subHeadline="contact us"
@@ -86,6 +93,7 @@ function Formhero({
                   <div className="left__hero-img-wrapper">
                     <img
                       src={imageRight}
+                      height={leftImageHeight}
                       alt={alt1}
                       className="left__hero-img"
                     />
@@ -146,7 +154,7 @@ function Formhero({
                     {formType == "contact" ? (
                       <div style={{ marginTop: "0px" }}>
                         <Button
-                          buttonColor="pink"
+                          buttonColor="gradient"
                           buttonSize="btn--large"
                           style={{ width: "100%" }}
                         >

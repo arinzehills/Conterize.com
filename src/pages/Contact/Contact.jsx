@@ -60,11 +60,13 @@ function Contact() {
     headline: "CONTACT SUPPORT",
     buttonLabel: ["Send message"],
     inputLabels: ["Name..", "Enter email", "Message..."],
-    imageRight: "images/letter.svg",
-    imageleft: "svg/studio3.svg",
+    imageRight: "/svg/envelope.svg",
+    rightImageHeight: "600px",
+    leftImageHeight: "150px",
+    imageleft: "/svg/contactus.svg",
     formType: "contact",
-    alt1: "",
-    alt2: "",
+    alt1: "dssdadsa",
+    alt2: "dssdadsa",
   };
   return (
     <>
