@@ -1,0 +1,12 @@
+.register-fsc-section {
+  display: "none";
+  justify-content: "center";
+  align-items: "center";
+  width: "60%";
+  background: linear-gradient(
+    106.37deg,
+    rgba(203, 132, 203, 0.148) 29.63%,
+    white 51.55%,
+    rgba(142, 10, 237, 0.701) 90.85%
+  );
+}

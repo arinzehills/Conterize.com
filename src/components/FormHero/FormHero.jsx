@@ -35,7 +35,7 @@ function Formhero({
   // console.log(inputNames[0]);
   return (
     <>
-      {formType != "contact" && (
+      {/* {formType != "contact" && (
         <Link to="/" className="navbar-logo">
           <img
             src="images/conterize.png"
@@ -48,7 +48,7 @@ function Formhero({
             alt=""
           />
         </Link>
-      )}
+      )} */}
 
       <div className="form-hero-section">
         <div className="form-hero-container">

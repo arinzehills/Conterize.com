@@ -1,0 +1,32 @@
+.stepper-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stepper-wrapper {
+  /* gap: 1rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+
+.stepper-container {
+  height: 50px;
+  width: 160px;
+  border-radius: 50%;
+  border: 2px solid var(--light-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-purple);
+  font-size: 22px;
+  font-weight: bolder;
+}
+.stepper-container.checked {
+  background: var(--light-purple);
+  color: white;
+}
+.hrColor {
+  background: rgba(146, 3, 255, 0.273);
+}

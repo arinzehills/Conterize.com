@@ -18,6 +18,7 @@ function InputField({
     "input--primary",
     "input--shadow-purple",
     "input--shadow-orange",
+    "input--outline",
   ];
   const SIZES = ["ipn--small", "ipn--medium", "ipn--large", "ipn--wide"];
   const COLOR = ["purple-input", "orange-input"];
