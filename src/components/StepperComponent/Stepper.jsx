@@ -15,7 +15,7 @@ function Stepper({ activeStep, hrColor }) {
             activeStep === 1 ? "stepper-container checked" : "stepper-container"
           }
         >
-          {activeStep === 1 ? 1 : <MdCheck fontSize={"29px"} />}
+          {activeStep === 1 ? "" : <MdCheck fontSize={"29px"} />}
         </div>
         <hr className={hrColor}></hr>
         <div
@@ -24,9 +24,9 @@ function Stepper({ activeStep, hrColor }) {
           }
         >
           {activeStep < 2 ? (
-            2 //if active step is less 1 i.e less than two show the number 2
+            "" //if active step is less 1 i.e less than two show the number 2
           ) : activeStep === 2 ? (
-            2
+            ""
           ) : (
             <MdCheck fontSize={"29px"} />
           )}
@@ -38,7 +38,7 @@ function Stepper({ activeStep, hrColor }) {
             activeStep === 3 ? "stepper-container checked" : "stepper-container"
           }
         >
-          {activeStep === 3 ? <MdCheck fontSize={"29px"} /> : 3}
+          {activeStep === 3 ? <MdCheck fontSize={"29px"} /> : ""}
         </div>
       </div>
     </div>
