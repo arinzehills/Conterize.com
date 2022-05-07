@@ -22,6 +22,7 @@
   color: var(--light-purple);
   font-size: 22px;
   font-weight: bolder;
+  transition: all 1.2s ease-in-out;
 }
 .stepper-container.checked {
   background: var(--light-purple);
@@ -29,4 +30,5 @@
 }
 .hrColor {
   background: rgba(146, 3, 255, 0.273);
+  transition: all 1.2s ease-in-out;
 }

@@ -1,0 +1,38 @@
+.payment {
+  opacity: 1;
+  transition: all 1.2s ease-in-out;
+  position: relative;
+}
+.payment.none {
+  opacity: 0;
+  transition: all 1.2s ease-in-out;
+  transform: translate(-100%);
+  position: absolute;
+}
+
+.review-order-container {
+  border: 0.5px solid #e5d8ee;
+  border-radius: 36px;
+  box-shadow: 0 0 6px 0 rgb(78 42 222 / 2%), 0 6px 18px 0 rgb(78 42 222 / 2%);
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  );
+  padding: 1rem;
+  padding-top: 0.5rem;
+  right: -100%;
+  position: absolute;
+  /* margin-top: ; */
+  /* transition: all 0.5s ease; */
+}
+.review-order-container.activeShow {
+  right: 0;
+  position: relative;
+  transition: all 1.2s ease-in-out;
+}
+.review-order-contents {
+  display: flex;
+  justify-content: space-between;
+  line-height: 0;
+}

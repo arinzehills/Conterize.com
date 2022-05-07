@@ -16,7 +16,11 @@ const RegisterHero = ({ setSuccessMessage }) => {
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
   const Form = () =>
-    activeStep === 1 ? <Signup next={nextStep} /> : <Payment next={nextStep} />;
+    activeStep === 1 ? (
+      <Signup next={nextStep} />
+    ) : (
+      <Payment next={nextStep} back={backStep} activeStep={activeStep} />
+    );
   const Confirm = () => (
     <div style={{ textAlign: "center" }}>
       Thanks for the purchase
