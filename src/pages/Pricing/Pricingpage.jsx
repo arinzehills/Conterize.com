@@ -62,7 +62,7 @@ const Pricingpage = () => {
     <>
       <div className="pricing-container">
         <div className="pricing-wrapper">
-          <h2 className="pricing-header">Simple Pricing for your Business?</h2>
+          <h2 className="pricing-header">Simple Pricing for your Business</h2>
           <h3>Choose any plan that best suite your business need. </h3>
           <p className="no_contracts">
             No contracts, No commitments, No long story.  Every plan comes with

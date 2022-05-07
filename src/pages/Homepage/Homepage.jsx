@@ -7,7 +7,7 @@ import HowitWorks from "../../components/HowitWorks/HowitWorks";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
 
 const homeData = {
-  headline: "Content Creation as a subscription service for Startups",
+  headline: "Power Your Business Growth with On-Demand Content",
   description:
     "Automate your content creation and crush your inbound and " +
     "paid marketing with a dedicated content creation team that works 24/7 " +
