@@ -10,7 +10,7 @@ import InputField from "../Inputfield/InputField";
 import "./Payment.css";
 import Review from "./Review";
 
-const stripePromise = loadStripe(process.env.APP_STRIPE_PUBLIC_KEY);
+// const stripePromise = loadStripe(process.env.APP_STRIPE_PUBLIC_KEY);
 // const stripePromise = loadStripe("pk_test_51KwinKEL7CF34u9QloS58YLEeNaPEUjdFdsIlqbcO5OPTyV2CGSgMmn5LZZGOACMRm64km6pKv6WTvgFgcv0ZXMh00EvCklSaW");
 
 const Payment = ({ next, back }) => {

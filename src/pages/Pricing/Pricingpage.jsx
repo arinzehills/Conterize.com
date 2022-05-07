@@ -4,6 +4,7 @@ import "./Pricing.css";
 import "../../components/HowitWorks/HowitWorks.css";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
+import Faq from "../../components/Faq/Faq";
 
 const data = [
   {
@@ -110,6 +111,8 @@ const Pricingpage = () => {
           </div>
         </div>
       </div>
+      <Faq />
+
       <ReadyComponent />
       {/* <div className="pricing_bottom_header">
         <h1 className="">

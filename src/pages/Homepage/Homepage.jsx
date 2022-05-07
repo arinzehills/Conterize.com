@@ -154,7 +154,6 @@ function Homepage() {
       />
       <Hero {...dataArr} />
       <Hero {...dataArr2} marginfrBg="-1rem" />
-      <Faq />
       <ReadyComponent />
     </>
   );
