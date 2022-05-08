@@ -30,7 +30,8 @@ function SaveButton({ title, labels, firstBtnColor, secondBtnSize, flexWrap }) {
             width: secondBtnSize ?? "79px",
             height: "43px",
             color: "white",
-            background: "#35438C",
+            // background: "#35438C",
+            background: "var(--light-purple)",
           }}
         >
           {labels[1]}

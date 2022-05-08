@@ -101,6 +101,32 @@
   line-height: 1.688em;
   letter-spacing: -0.01em;
 }
+.pricing_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+}
+.pricing_icon.blue {
+  background: linear-gradient(45deg, #2196f3 30%, #21cbf3 90%);
+}
+.pricing_icon.red {
+  background: linear-gradient(45deg, #ffcb52 30%, #ff7b02 90%);
+}
+.pricing_icon.purple {
+  background: linear-gradient(45deg, #5881f1 30%, #1153fc 90%);
+}
+.pricing_icon.darkpurple {
+  background: linear-gradient(45deg, var(--mypurple) 30%, var(--pink) 90%);
+}
+.pricing_icon.pink {
+  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+}
+
 @media screen and (max-width: 961px) {
   .pricing-container {
     padding: 20px 0 20px;

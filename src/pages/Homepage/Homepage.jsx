@@ -78,6 +78,8 @@ const whyConterize = [
     heading: "Vetted Content Creators    ",
     desc: "All our content creators are fully vetted, tested and trusted from content writers, graphic designers to video creators. ",
     img: "/images/web-content1.png",
+    icon: "arcticons:androits-gps-test",
+    iconColorClass: "blue",
   },
   {
     heading: "Dedicated account Manager",
@@ -86,6 +88,8 @@ const whyConterize = [
       " of the content creation team and the quality of the delivery so" +
       " you don’t have to. ",
     img: "/images/calculations1.png",
+    icon: "fluent:window-inprivate-account-20-filled",
+    iconColorClass: "red",
   },
   {
     heading: "Less Headaches",
@@ -94,6 +98,8 @@ const whyConterize = [
       " of the content creation team and the quality of the delivery so" +
       "you don’t have to.",
     img: "/images/headache1.png",
+    icon: "icon-park-solid:thinking-problem",
+    iconColorClass: "purple",
   },
   {
     heading: "High Quality & Reliable work",
@@ -102,6 +108,8 @@ const whyConterize = [
       " creators, creative directors and our quality assurance, you can" +
       "  only expect the top notch and reliable deliveries. ",
     img: "/images/high-quality1.png",
+    icon: "cib:when-i-work",
+    iconColorClass: "darkpurple",
   },
 ];
 const howitWorks = [
@@ -111,21 +119,29 @@ const howitWorks = [
       "Choose a plan and request Content from your dashboard by submitting the requirements." +
       " You can also invite your team members to manage content request.    ",
     img: "/images/lightbulb 1.png",
+    icon: "fluent:select-all-on-20-filled",
+    iconColorClass: "blue",
   },
   {
-    heading: "Matches Content",
+    heading: "Matches Your Request",
     desc:
       "Our system matches your request with " +
       "the best content creators suitable for your specific content needs. ",
     img: "/images/content-marketing 1.png",
+    iconColorClass: "red",
+    icon: "simple-icons:yourtraveldottv",
+    // icon: "logos:chromatic-icon",
   },
   {
-    heading: "Dashboard Processing",
+    heading: "Recieve Content",
     desc:
       "Sit back and relax while you receive " +
       "your content on your dashboard in few days." +
       " You can then accept or request for revision.      ",
     img: "/images/dashboard 1.png",
+    // icon: "logos:adonisjs-icon",
+    icon: "cib:open-collective",
+    iconColorClass: "purple",
   },
 ];
 function Homepage() {

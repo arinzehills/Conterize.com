@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../Button/Button";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import "./HowitWorks.css";
+import { Icon } from "@iconify/react";
 
 const HowitWorks = ({
   headline,
@@ -10,6 +11,7 @@ const HowitWorks = ({
   height,
   showBtn,
   alignCenter,
+  showImg,
 }) => {
   return (
     <>
@@ -34,7 +36,10 @@ const HowitWorks = ({
                     stopColor1={item.stopColor1}
                     stopColor2={item.stopColor2}
                   /> */}
-                  <img src={item.img} className="img" alt="" />
+                  {showImg && <img src={item.img} className="img" alt="" />}
+                  <div className={`pricing_icon ${item.iconColorClass}`}>
+                    <Icon icon={item.icon} fontSize="36px" />
+                  </div>
                   <div
                     className="card-info"
                     style={{ textAlign: alignCenter && "center" }}

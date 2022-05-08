@@ -37,14 +37,20 @@
 /* this is for request e.g graphics request,content  and the rest */
 .request-header {
   width: 100%;
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle,
     #a7afda 5%,
     #7e8dd8 10%,
     #5768c1 15%,
     #2d3d8c 35%,
     #1f318c 30%
+  ); */
+  background: linear-gradient(
+    to top left,
+    var(--mypurple),
+    var(--light-purple)
   );
+
   height: 105px;
   border-radius: 15px;
   display: flex;

@@ -59,7 +59,8 @@
   color: rgb(155, 151, 151);
 }
 .active-nav {
-  background: #35438c;
+  background: var(--light-purple);
+  /* background: #35438c; */
 }
 .active-nav a {
   color: white;
