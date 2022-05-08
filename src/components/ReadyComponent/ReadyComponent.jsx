@@ -1,8 +1,9 @@
 import React from "react";
 import "./Ready.css";
 import { Button } from "../Button/Button";
+import { Link } from "react-router-dom";
 
-function ReadyComponent() {
+function ReadyComponent({ getStartedLink }) {
   return (
     <>
       <div className="ready__section">
@@ -13,7 +14,11 @@ function ReadyComponent() {
             <img src="images/group37.png" alt="ds" />
             <img src="images/group38.png" alt="ds" />
           </div>
-          <Button buttonColor="blue">Get started</Button>
+          <a href={getStartedLink ?? "#pricing"}>
+            <Button buttonColor="blue">Get started</Button>
+          </a>
+          {/* <Link to={ getStartedLink}> */}
+          {/* </Link> */}
         </div>
       </div>
     </>

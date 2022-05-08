@@ -170,7 +170,7 @@ function Homepage() {
       />
       <Hero {...dataArr} />
       <Hero {...dataArr2} marginfrBg="-1rem" />
-      <ReadyComponent />
+      <ReadyComponent getStartedLink="/pricing" />
     </>
   );
 }

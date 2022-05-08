@@ -26,13 +26,14 @@
   z-index: 999;
   padding-top: 0.2rem;
   padding-bottom: 0.5rem;
-  background: linear-gradient(
+  /* background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.1),
     rgba(255, 255, 255, 0.1)
-  );
-  backdrop-filter: blur(45px);
-  -webkit-backdrop-filter: blur(45px);
+  ); */
+  background: white;
+  backdrop-filter: blur(145px);
+  -webkit-backdrop-filter: blur(145px);
 }
 
 .navbar-container {

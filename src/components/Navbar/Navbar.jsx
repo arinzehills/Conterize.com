@@ -114,7 +114,7 @@ const Navbar = () => {
               {button ? (
                 <Link to="/dashboard">
                   <Button buttonColor="gradient" buttonStyle="btn--rounded">
-                    Get Started
+                    Login
                   </Button>
                 </Link>
               ) : (

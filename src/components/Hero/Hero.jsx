@@ -3,6 +3,7 @@ import "./Hero.css";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Button } from "../Button/Button";
 import { AiTwotoneCheckCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 function Hero({
   headline,
   description,
@@ -95,12 +96,14 @@ function Hero({
                 </div>
               )}
               {showButton && (
-                <Button
-                  buttonColor={buttonColor ?? "gradient"}
-                  style={{ width: btnWidth }}
-                >
-                  {buttonLabel}
-                </Button>
+                <Link to="pricing">
+                  <Button
+                    buttonColor={buttonColor ?? "gradient"}
+                    style={{ width: btnWidth }}
+                  >
+                    {buttonLabel}
+                  </Button>
+                </Link>
               )}
             </div>
           </div>

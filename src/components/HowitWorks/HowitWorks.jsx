@@ -46,8 +46,8 @@ const HowitWorks = ({
                   >
                     <h3 className="pricing_heading2 ">{item.heading}</h3>
                     {isPricing === true ? (
-                      item.desc.map((des) => (
-                        <div className="guarantee_row" key={des}>
+                      item.desc.map((des, index) => (
+                        <div className="guarantee_row" key={index}>
                           <HiOutlineBadgeCheck
                             className="g_icon"
                             style={{ color: "var(--red)" }}

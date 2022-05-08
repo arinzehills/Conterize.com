@@ -5,6 +5,7 @@ import "../../components/HowitWorks/HowitWorks.css";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
 import Faq from "../../components/Faq/Faq";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -61,7 +62,7 @@ const data = [
 const Pricingpage = () => {
   return (
     <>
-      <div className="pricing-container">
+      <div className="pricing-container" id="pricing">
         <div className="pricing-wrapper">
           <h2 className="pricing-header">Simple Pricing for your Business</h2>
           <h3>Choose any plan that best suite your business need. </h3>
@@ -82,13 +83,15 @@ const Pricingpage = () => {
                 <h2 className="price">
                   {item.price} <span>/month</span>
                 </h2>
-                <Button
-                  style={{ lineHeight: 0, marginTop: 0, width: "90%" }}
-                  buttonColor="blue"
-                  buttonSize="btn--large"
-                >
-                  Get Started
-                </Button>
+                <Link to="/register">
+                  <Button
+                    style={{ lineHeight: 0, marginTop: 0, width: "90%" }}
+                    buttonColor="blue"
+                    buttonSize="btn--large"
+                  >
+                    Get Started
+                  </Button>
+                </Link>
                 <hr style={{ width: "112.5%", marginLeft: "-20px" }}></hr>
                 {item.desc.map((des) => (
                   <div
