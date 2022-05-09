@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 function Hero({
   headline,
   description,
+  descriptionFont,
   subdescription,
+  subdescriptionFont,
   img,
   withBg,
   bgColor,
@@ -60,7 +62,7 @@ function Hero({
               </h1>
               {isList == null && (
                 <p
-                  className="description"
+                  className={`description ${descriptionFont}`}
                   style={{ color: withBg ? "white" : "#1d293f" }}
                 >
                   {description}
@@ -68,7 +70,7 @@ function Hero({
               )}
               {isList == null && (
                 <p
-                  className="description subdescription"
+                  className={`description subdescription ${subdescriptionFont}`}
                   style={{ color: withBg ? "white" : "#1d293f" }}
                 >
                   {subdescription}

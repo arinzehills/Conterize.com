@@ -37,6 +37,17 @@
   font-size: 18px;
   line-height: 149%;
 }
+.description.f16px {
+  font-size: 16px;
+  line-height: 1;
+}
+.subdescription.f16px {
+  font-size: 16px;
+}
+.subdescription.f18px {
+  font-size: 18px;
+  /* line-height: 0.5;   */
+}
 .subdescription {
   font-size: 14px;
 }

@@ -4,38 +4,86 @@ import { GrFormAdd } from "react-icons/gr";
 import { BsRecordCircle } from "react-icons/bs";
 const data = [
   {
-    id: 1,
-    heading: "How does it work?",
+    id: 0,
+    heading: "About Conterize? ",
     desc: [
-      "After signing up, you will see different monthly plans to choose from on your dashboard. ",
-      "Pick a plan and submit a content request from your dashboard. Specify requirements, word counts and content type, etc. " +
-        "Our algorithm finds the best content creators for your requirements and the content is delivered to you on your dashboard where you can accept or request a revision.  ",
-      "You can also Invite any member of your team to make a content request or handle content requests for you.      ",
+      "Conterize is an on-demand content creation platform for business owners, startups, and agencies. We are dedicated to creating highly optimized content to take your content marketing and business growth to the next level.",
+      "Our community of over 500 US and UK based content writers specialized in all kinds of SEO optimized content writing that ranks well on search engines." +
+        "We are also powered by a network of over 500 Graphic designers and Video creators who are based in selected countries across the world. ",
+    ],
+  },
+  {
+    id: 1,
+    heading: "What type of content can I request per month? ",
+    desc: [
+      "Each plan comes with a variety of content options." +
+        "For instance, the Growth plan comes with 10,000 words of content" +
+        "16 Graphics and 2 videos per month, with this plan, you can request " +
+        "Twenty 500 worded articles or ten 1,000 worded articles or five 2,000" +
+        "worded articles, etc. It could be newsletters, landing page " +
+        "copy, ebooks, product descriptions, social media posts, etc see list",
+      "For graphics, it could be Instagram/facebook flyers, cover photos, banner images,  " +
+        "quote graphics, infographics, or just any other form of graphics. See list.  ",
+
+      "For videos, it could be product demo videos, explainer videos, 2d Videos, promotional videos, onboarding videos, etc.",
     ],
   },
   {
     id: 2,
-    heading: "How many pieces of content can I request per month? ",
+    heading: "How is Conterize different from the competition?  ",
+    withInnerArray: true,
     desc: [
-      "Each plan comes with a variety of content options.",
-      "For instance, the Starter plan comes with 4,000 worded content and five social media graphics per month. On the 4,000 worded content, you can request 8 500 worded articles or 4 1,000 worded articles or 2 2,000 worded articles, or any other split word count you like. Also, this could be articles, newsletters, product descriptions, ebooks, etc.",
-      "For the Social media graphics, it could be flyers, cover photos, banner images, quote graphics, infographics, or just any other form of social media graphic. You can also split the graphic types. For instance, you can request three flyers and two cover photo designs. ",
+      "Conterize model differs from the competition in terms of reliability, quality and support." +
+        "Our model matches you with a content director who collaborates " +
+        "with you on your project and will be always there to assist you, " +
+        "make sure your expectations are met and can also communicate your" +
+        "needs to your team of content creators. ",
+      "In addition, we help you skip the following:",
+      [
+        "•	Days of reviewing profiles",
+        "•	Weeks of interviews",
+        "•	Weeks of proposals ",
+        "•	Payment for services with no guarantee.",
+      ],
     ],
   },
   {
     id: 3,
-    heading: "What if I don’t like my content?",
+    heading: "What if I am an agency? ",
     desc: [
-      "We offer unlimited revisions for all content created as part of your monthly subscription plan. We also offer a 100% money-back guarantee. ",
+      "We create tons of content for content marketing agencies, SEO agencies, graphics agencies, advertising agencies, sales agencies, content creation agencies, PR agencies, and E-commerce agencies. ",
+      "Contact us to discuss your agency content needs. ",
     ],
   },
   {
     id: 4,
+    heading: "What if I don’t like my content?",
+    desc: [
+      "We offer unlimited revisions for all content created as part of your monthly subscription plan. We also offer a 100% money-back guarantee.  ",
+    ],
+  },
+  {
+    id: 5,
+    heading: "Why is your price so affordable?",
+    desc: [
+      "Conterize has a community of top, highly vetted content creators who create content across several industries and are in the top 2% of their category. Because we offer our content creators consistent work, they offer to work for our clients for a more affordable rate lower than the average industry freelancing rate. ",
+      "Also, we use technology to automate much of our processes, giving us the edge to offer you the cost savings. ",
+    ],
+  },
+  {
+    id: 6,
+    heading: "What if I am too busy to handle the platform myself?",
+    desc: [
+      "If you are too busy to manage the platform by yourself, we can assign you an account manager who would be responsible for handling content requests and revisions on your behalf. ",
+    ],
+  },
+  {
+    id: 7,
     heading: "Can I cancel anytime?",
     desc: [
       "Yes, you can cancel the monthly" +
         "subscription at any time and resume it any " +
-        "time of your choice. No contracts. ",
+        "time of your choice. No contracts and no long stories. ",
     ],
   },
 ];

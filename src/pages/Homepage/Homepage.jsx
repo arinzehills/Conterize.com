@@ -21,9 +21,11 @@ const homeData = {
 const homeData2 = {
   headline: "Your Startup Content Partner",
   description:
+    "Content writing, Graphics and Videos to scale your content marketing ",
+  descriptionFont: "f16px",
+  subdescription:
     "Get the right content your business need to attract, convert and scale.",
-  // subdescription:
-  //   "Content Writing, Social media graphics and Videos at scale monthly",
+  subdescriptionFont: "f18px",
   img: "images/twomen.png",
   // showButton: true,
   withBg: true,
