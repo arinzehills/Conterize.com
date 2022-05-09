@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./MyProgress.css";
 function MyProgress({ progress, progressClass, stopColor1, stopColor2 }) {
-  console.log(stopColor1);
-  console.log(stopColor2);
   let number = document.getElementById("number");
   let [counter, setCounter] = useState(0);
 

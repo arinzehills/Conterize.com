@@ -20,6 +20,7 @@ import VideoRequest from "./pages/Dashboard/NewRequest/VideoRequest";
 import ContentRequest from "./pages/Dashboard/NewRequest/ContentRequest";
 import WhyConterize from "./pages/WhyConterize/WhyConterize";
 import ContentCreators from "./pages/ContentCreators/ContentCreators";
+import CreatorsRegistration from "./pages/Register/CreatorsRegistration";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -50,6 +51,11 @@ function App() {
         </Route>
         <Route path="/login" exact element={<Login />} />
         <Route path="/register" exact element={<Register />} />
+        <Route
+          path="/contentregistration"
+          exact
+          element={<CreatorsRegistration />}
+        />
       </Switch>
     </div>
   );

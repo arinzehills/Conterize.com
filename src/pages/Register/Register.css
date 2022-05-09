@@ -10,3 +10,56 @@
     rgba(142, 10, 237, 0.701) 90.85%
   );
 }
+.choose_role_wrapper {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-columns: repeat(2, 150px);
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.choose_role {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  font-weight: 800;
+  font-size: 12px;
+  /* padding-left: 1rem; */
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+  transition: all 0.8s ease-in-out;
+
+  /* margin-top: 10px; */
+}
+.choose_role:hover {
+  opacity: 0.8;
+  transition: all 0.5s ease;
+}
+.choose_role.unselectedRole {
+  opacity: 0.3;
+}
+.choose_role div {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.choose_role.blue {
+  background: linear-gradient(45deg, #2196f3 30%, #21cbf3 90%);
+}
+.choose_role.red {
+  background: linear-gradient(45deg, #ffcb52 30%, #ff7b02 90%);
+}
+.choose_role.purple {
+  background: linear-gradient(45deg, #5881f1 30%, #1153fc 90%);
+}
+.choose_role.darkpurple {
+  background: linear-gradient(45deg, var(--mypurple) 30%, var(--pink) 90%);
+}
+.choose_role.pink {
+  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+}

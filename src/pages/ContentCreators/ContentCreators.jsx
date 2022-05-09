@@ -11,7 +11,7 @@ const ContentCreators = () => {
       "We work with content writers, graphic designers and video editors who" +
       "match our high quality standard at the same time willing to work in a" +
       "rewarding environment.",
-    img: "/images/contentdirector.jpg",
+    img: "/images/contentcreators1.jpg",
     showButton: true,
     buttonLabel: "Join Now",
 
@@ -38,22 +38,25 @@ const ContentCreators = () => {
     imgStart: "start",
   };
   const desArr = [
-    "You apply and undergo our test where we test your capabilities in your chosen category.",
-    "If you scale through our rigorous test process, we will start matching you with client" +
-      " requests. Only the top 5% of content creators get accepted.",
-    " You chose your working hours and work from anywhere you want as a freelancer on Conterize. ",
-    " As we are a monthly subscription service, you are likely to be creating content for the same set of " +
-      "clients we match you with. This will save you time and resources on always starting from scratch to" +
-      "learn about a new business every single time.",
+    "Apply and undergo our test where we test your capabilities in your chosen category.",
+    "If you scale through our rigorous test process, we will start matching you with client",
+    "Only the top 2% of content creators get accepted.",
+    " You chose your working hours and work from anywhere you want as a content creator on Conterize. ",
+    " You are likely to be creating content for the same set of clients we match you with this will save you time and resources.",
   ];
   return (
     <>
-      <Hero {...workData} />
+      <Hero {...workData} buttonLink={"/contentregistration"} />
       <GuaranteeHero
         descArr={desArr}
         headline="How does it work for Content creators?"
       />
-      <Hero {...dataArr2} marginfrBg="-11rem" bgheight="550px" />
+      <Hero
+        {...dataArr2}
+        marginfrBg="-11rem"
+        bgheight="550px"
+        buttonLink={"/contentregistration"}
+      />
       <div style={{ height: "52px", color: "white", marginTop: "2rem" }}>
         dsadsaa
       </div>

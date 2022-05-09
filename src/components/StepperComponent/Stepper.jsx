@@ -8,7 +8,6 @@ import { BsFillCreditCard2BackFill } from "react-icons/bs";
 import { SiGnuprivacyguard } from "react-icons/si";
 
 function Stepper({ activeStep, hrColor }) {
-  console.log(activeStep);
   return (
     <div className="stepper-section">
       <div className="stepper-wrapper">

@@ -67,6 +67,7 @@ const WhyConterize = () => {
         bgColor="#31A7FE"
         marginfrBg="-3rem"
         btnWidth="250px"
+        buttonLink="/contenttypes"
       />
       <Hero {...homeData2} marginfrBg="5rem" />
       <Hero
@@ -75,7 +76,7 @@ const WhyConterize = () => {
         bgColor="#31A7FE"
         marginfrBg="4.9rem"
       />
-      <ReadyComponent />
+      <ReadyComponent getStartedLink={"pricing"} />
     </>
   );
 };

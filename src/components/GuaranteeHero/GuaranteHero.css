@@ -31,8 +31,8 @@
 .guarantee_p {
   font-family: "Plus Jakarta Display", sans-serif;
   color: #62668a;
-  font-size: 15px;
-  line-height: 1.28em;
+  font-size: 17px;
+  line-height: 1.08em;
   letter-spacing: -0.01em;
   padding-left: 1rem;
 }
@@ -45,7 +45,7 @@ hr {
   margin: 1rem 0rem;
 }
 .g_icon {
-  font-size: 15px;
+  font-size: 18px;
 }
 @media screen and (max-width: 960px) {
   .guarantee_container {

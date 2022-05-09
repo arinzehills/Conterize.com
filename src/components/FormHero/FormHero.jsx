@@ -37,7 +37,7 @@ function Formhero({
   // console.log(inputNames[0]);
   return (
     <>
-      {/* {formType != "contact" && (
+      {formType != "contact" && (
         <Link to="/" className="navbar-logo">
           <img
             src="images/conterize.png"
@@ -50,7 +50,7 @@ function Formhero({
             alt=""
           />
         </Link>
-      )} */}
+      )}
 
       <div className="form-hero-section">
         <div className="form-hero-container">
@@ -173,15 +173,15 @@ function Formhero({
                       </div> //for register and sign up
                     ) : (
                       <div style={{ marginTop: "0px" }}>
-                        {/* <Link to={'/'+ buttonLabel[0]} > */}
-                        <Button
-                          buttonColor="gradient"
-                          buttonSize="btn--large"
-                          style={{ width: "100%" }}
-                        >
-                          {buttonLabel[0]}
-                        </Button>
-                        {/* </Link> */}
+                        <Link to={"/dashboard"}>
+                          <Button
+                            buttonColor="gradient"
+                            buttonSize="btn--large"
+                            style={{ width: "100%" }}
+                          >
+                            {buttonLabel[0]}
+                          </Button>
+                        </Link>
                         <div className="hr-wrapper">
                           <hr className="hr"></hr>
                           <p className="hr-p ">OR</p>

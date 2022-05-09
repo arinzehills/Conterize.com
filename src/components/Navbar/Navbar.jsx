@@ -77,7 +77,7 @@ const Navbar = () => {
                 Content Creators
               </Link>
             </li>
-            <li className="nav-items">
+            {/* <li className="nav-items">
               <Link
                 to="/whyconterize
                 "
@@ -86,7 +86,7 @@ const Navbar = () => {
               >
                 Why Conterize
               </Link>
-            </li>
+            </li> */}
             {!button && (
               <div>
                 <li className="nav-btn" onClick={closeMobileMenu}>
@@ -112,7 +112,7 @@ const Navbar = () => {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-btn" onClick={closeMobileMenu}>
               {button ? (
-                <Link to="/dashboard">
+                <Link to="/login">
                   <Button buttonColor="gradient" buttonStyle="btn--rounded">
                     Login
                   </Button>

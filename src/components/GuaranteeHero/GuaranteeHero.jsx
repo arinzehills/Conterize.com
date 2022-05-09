@@ -2,6 +2,7 @@ import React from "react";
 import "./GuaranteHero.css";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import { Button } from "../Button/Button";
+import { Link } from "react-router-dom";
 
 function GuaranteeHero({ headline, descArr }) {
   const header = "Conterize Guaranteed Quality Assurance";
@@ -34,7 +35,9 @@ function GuaranteeHero({ headline, descArr }) {
               </div>
             ))}
           </div>
-          <Button buttonColor={"gradient"}>Join Now</Button>
+          <Link to="/contentregistration">
+            <Button buttonColor={"gradient"}>Join Now</Button>
+          </Link>
         </div>
       </div>
     </>

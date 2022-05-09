@@ -16,6 +16,7 @@ function Hero({
   imgStart,
   showButton,
   buttonLabel,
+  buttonLink,
   bgheight,
   btnWidth,
   buttonColor,
@@ -96,7 +97,7 @@ function Hero({
                 </div>
               )}
               {showButton && (
-                <Link to="pricing">
+                <Link to={buttonLink ?? "/pricing"}>
                   <Button
                     buttonColor={buttonColor ?? "gradient"}
                     style={{ width: btnWidth }}

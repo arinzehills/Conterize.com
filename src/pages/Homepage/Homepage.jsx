@@ -12,8 +12,8 @@ const homeData = {
     "Automate your content creation and crush your inbound and " +
     "paid marketing with a dedicated content creation team that works 24/7 " +
     "to support your business.",
-  subdescription:
-    "Content Writing, Social media graphics and Videos at scale monthly",
+  // subdescription:
+  //   "Content Writing, Social media graphics and Videos at scale monthly",
   img: "images/twowomen.png",
   showButton: true,
   buttonLabel: "Get Started",
@@ -45,7 +45,7 @@ const dataArr = {
   headline: "Conterize Guaranteed Quality Assurance",
   description: [
     "100 percent unique Content",
-    "Only top 5% content Creators",
+    "Only top 2% content Creators",
     "Unlimited revisions ",
     "Customizable plans option",
     "Change monthly subscription ",
@@ -82,7 +82,7 @@ const whyConterize = [
     iconColorClass: "blue",
   },
   {
-    heading: "Dedicated account Manager",
+    heading: "Dedicated Content Director ",
     desc:
       "You are assigned a creative director to act as the supervisor" +
       " of the content creation team and the quality of the delivery so" +
@@ -91,18 +91,18 @@ const whyConterize = [
     icon: "fluent:window-inprivate-account-20-filled",
     iconColorClass: "red",
   },
+  // {
+  //   heading: "Less Headaches",
+  //   desc:
+  //     "You are assigned a creative director to act as the supervisor" +
+  //     " of the content creation team and the quality of the delivery so" +
+  //     "you don’t have to.",
+  //   img: "/images/headache1.png",
+  //   icon: "icon-park-solid:thinking-problem",
+  //   iconColorClass: "purple",
+  // },
   {
-    heading: "Less Headaches",
-    desc:
-      "You are assigned a creative director to act as the supervisor" +
-      " of the content creation team and the quality of the delivery so" +
-      "you don’t have to.",
-    img: "/images/headache1.png",
-    icon: "icon-park-solid:thinking-problem",
-    iconColorClass: "purple",
-  },
-  {
-    heading: "High Quality & Reliable work",
+    heading: "High Quality & Reliable Work",
     desc:
       "Thanks to our team of vetted and highly qualified content " +
       " creators, creative directors and our quality assurance, you can" +

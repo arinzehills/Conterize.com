@@ -3,14 +3,22 @@ import { Button } from "../../components/Button/Button";
 import InputField from "../../components/Inputfield/InputField";
 import Stepper from "../../components/StepperComponent/Stepper";
 
-const Signup = ({ next }) => {
+const Signup = ({ type, next, increaseIndex }) => {
+  const nextStep = () => {
+    next();
+    increaseIndex();
+  };
   return (
     <>
       {/* <img src="/images/conterize.png" height={"120px"} alt="" />
        */}
       <div
         className="name-container"
-        style={{ display: "flex", lineHeight: 0 }}
+        style={{
+          display: "flex",
+          lineHeight: 0,
+          transition: "all 1.2s ease-in-out",
+        }}
       >
         <div>
           <h3>First Name</h3>
@@ -39,9 +47,17 @@ const Signup = ({ next }) => {
         label="Enter email address"
         // style={{ width: "93.5%" }}
       />
+      {type === "creators" && <h3>Phone Number</h3>}
+      {type === "creators" && (
+        <InputField
+          label="Enter phone number"
+          inputStyle="input--outline"
+          // style={{ width: "93.5%" }}
+        />
+      )}
       <h3>Password</h3>
       <InputField
-        label="Enter email password"
+        label="Enter password"
         inputStyle="input--outline"
         // style={{ width: "93.5%" }}
       />
@@ -49,7 +65,7 @@ const Signup = ({ next }) => {
         buttonColor="gradient"
         buttonSize="btn--large"
         style={{ width: "100%" }}
-        onClick={next}
+        onClick={nextStep}
       >
         NEXT{" "}
       </Button>

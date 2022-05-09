@@ -7,22 +7,40 @@ import InputField from "../../components/Inputfield/InputField";
 import MyProgress from "../../components/MyProgress/MyProgress";
 import Payment from "../../components/Payment/Payment";
 import Stepper from "../../components/StepperComponent/Stepper";
+import CreatorsFinish from "./CreatorsFinish";
 import Signup from "./Signup";
 import Thankyou from "./Thankyou";
 
-const RegisterHero = ({ setSuccessMessage }) => {
-  const steps = ["Sign up", "Payment Details", "Thank You"];
+const CreatorsRegistration = ({ setSuccessMessage }) => {
+  const steps = [
+    " Creators Application Page",
+    "What's the Role you are interested in?",
+    "Thank You",
+  ];
   const [activeStep, setActiveStep] = useState(1);
+  const [index, setIndex] = useState(0);
+
+  const increaseIndex = () => {
+    if (index < steps.length - 1) {
+      setIndex(index + 1); //this is to increase index for the title of the pages
+    }
+  };
 
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
   const Form = () =>
     activeStep === 1 ? (
-      <Signup next={nextStep} />
+      <Signup next={nextStep} type="creators" increaseIndex={increaseIndex} />
     ) : (
-      <Payment next={nextStep} back={backStep} activeStep={activeStep} />
+      <CreatorsFinish
+        next={nextStep}
+        back={backStep}
+        increaseIndex={increaseIndex}
+        index={index}
+      />
     );
 
+  console.log("index " + index);
   return (
     <>
       {/* {loading ? (
@@ -91,7 +109,10 @@ const RegisterHero = ({ setSuccessMessage }) => {
           <h1 style={{ color: "var(--mypurple)" }}>{steps[activeStep - 1]}</h1>
 
           {activeStep === 3 ? (
-            <Thankyou message={"Thanks for the purchase"} />
+            <Thankyou
+              message={"Thanks for the registering on conterize"}
+              buttonLabel="Start Earning"
+            />
           ) : (
             <Form />
           )}
@@ -102,4 +123,4 @@ const RegisterHero = ({ setSuccessMessage }) => {
   );
 };
 
-export default RegisterHero;
+export default CreatorsRegistration;

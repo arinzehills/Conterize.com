@@ -25,6 +25,7 @@
   padding-left: 5px;
   outline-color: var(--light-purple);
   width: 98%;
+  margin-top: 0;
 }
 .input-primary {
   border: 1px solid white;
