@@ -98,7 +98,7 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-btn" onClick={closeMobileMenu}>
-                  <Link to="/register">
+                  <Link to="/pricing">
                     <Button buttonColor="gradient" buttonSize="btn--large">
                       Register
                     </Button>
@@ -111,20 +111,10 @@ const Navbar = () => {
         {button && (
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-btn" onClick={closeMobileMenu}>
-              {button ? (
+              {button && (
                 <Link to="/login">
                   <Button buttonColor="gradient" buttonStyle="btn--rounded">
                     Login
-                  </Button>
-                </Link>
-              ) : (
-                //for mobile
-                <Link to="/login">
-                  <Button
-                    buttonColor="gradient"
-                    //   buttonSize='btn--wide'
-                  >
-                    Get Started
                   </Button>
                 </Link>
               )}

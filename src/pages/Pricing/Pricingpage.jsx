@@ -13,7 +13,7 @@ const data = [
     price: "$595",
     desc: [
       "	5,000 words of content",
-      "	8 Creative Social Media Graphics",
+      "8 Creative graphics for Social Media, Ads, Web, etc.",
       "	Original Research Included",
       "	Royalty Free images",
       "	Unlimited Revisions",
@@ -28,8 +28,8 @@ const data = [
     more: " " + "<span><h4> Most Popular<h4></span>",
     desc: [
       "	10,000 words of content",
-      " 	15 Creative Social Media Graphics",
-      " 	2 Promo/Explainer Videos",
+      "16 Creative graphics for Social Media, Ads, web, etc. ",
+      "2 Videos of up to 60 secs each.",
       " 	Original Research Included ",
       "	Royalty Free images",
       "	Unlimited Revisions",
@@ -45,8 +45,8 @@ const data = [
     price: "$2,495",
     desc: [
       "	20,000 words of content",
-      "	30 Creative Social Media graphics",
-      "	5 EXplainer/Promo Videos",
+      " 32 Creative Graphics for Social Media, Ads, etc",
+      "	5 EXplainer/Promo Videos of up to 60 secs each",
       "	Original Research Included",
       "	Royalty free images",
       "	Unlimited Revisions",
@@ -97,7 +97,7 @@ const Pricingpage = () => {
                   <div
                     className="guarantee_row"
                     key={des}
-                    style={{ lineHeight: 0 }}
+                    // style={{ lineHeight: 0 }}
                   >
                     <HiOutlineBadgeCheck
                       className="g_icon"
