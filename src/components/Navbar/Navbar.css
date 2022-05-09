@@ -61,11 +61,10 @@
 }
 .nav-menu {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
   list-style: none;
-  text-align: left;
-  justify-content: end;
+  /* justify-content: end; */
 }
 
 .nav-item {
