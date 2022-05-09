@@ -61,7 +61,7 @@
 }
 .nav-menu {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
   list-style: none;
   /* justify-content: end; */
