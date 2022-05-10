@@ -46,7 +46,7 @@ const data = [
     desc: [
       "	20,000 words of content",
       " 32 Creative Graphics for Social Media, Ads, etc",
-      "	5 EXplainer/Promo Videos of up to 60 secs each",
+      "	5 Videos of up to 60 secs each",
       "	Original Research Included",
       "	Royalty free images",
       "	Unlimited Revisions",
@@ -104,7 +104,7 @@ const Pricingpage = () => {
                       size="22"
                       style={{ color: "var(--mypurple)" }}
                     />
-                    <p style={{ alignContent: "center", fontSize: "16.6px" }}>
+                    <p style={{ alignContent: "center", fontSize: "13.0px" }}>
                       {des}
                     </p>
                   </div>
