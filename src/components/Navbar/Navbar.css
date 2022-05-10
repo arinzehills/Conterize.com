@@ -134,6 +134,7 @@
     z-index: 0;
     align-items: flex-end;
     padding: 0;
+    margin-left: -2rem;
     /* backdrop-filter: blur(145px);
     -webkit-backdrop-filter: blur(145px); */
   }
