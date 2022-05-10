@@ -44,7 +44,7 @@ const Navbar = () => {
               <HiMenuAlt4 fontSize={48} />
             )}
           </div>
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <ul className={click ? "nav-menu active" : "nav-menu"} style={{}}>
             <li className="nav-items">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 Home
