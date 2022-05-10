@@ -1,6 +1,12 @@
 .hero__section {
   padding: 70px 120px;
 }
+.hero__section.animate {
+  position: absolute;
+
+  position: absolute;
+  transition: all 0.8s ease-in-out;
+}
 .hero__text_wrapper {
   max-width: 440px;
   text-align: left;
@@ -24,6 +30,13 @@
   flex: 1;
   max-width: 50%;
   flex-basis: 0%;
+  transition: all 0.8s ease-in-out;
+  left: 0;
+}
+.col.animate {
+  left: -100%;
+  position: absolute;
+  transition: all 0.8s ease-in-out;
 }
 .heading {
   font-size: 40px;
