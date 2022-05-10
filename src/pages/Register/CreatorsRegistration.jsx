@@ -51,16 +51,20 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
         <img
           src="images/conterize.png"
           style={{
-            margin: "30px",
+            margin: window.innerWidth > 960 ? "30px" : "10px",
             marginLeft: "0",
-            padding: "-100px",
+            marginTop: window.innerWidth < 960 ? "4rem" : "1.3rem",
+            // padding: "-100px",
             height: 110,
             position: "absolute",
           }}
           alt=""
         />
       </Link>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        className="reg_section"
+        // style={{ display: "block", justifyContent: "space-between" }}
+      >
         {/* {showModal && (
             <Modal
               isSuccess={true}
@@ -73,17 +77,17 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
           )} */}
 
         <div
-          className="register-fsc-section "
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "60%",
-            background:
-              "linear-gradient(106.37deg,  rgba(203, 132, 203, 0.148) 29.63%, white 51.55%,rgba(142, 10, 237, 0.101) 90.85%)",
-            // filter: "blur(1px)",
-            // webkitFilter: "blur(8px)",
-          }}
+          className="reg-fsc-section"
+          // style={{
+          //   display: "flex",
+          //   justifyContent: "center",
+          //   alignItems: "center",
+          //   width: "60%",
+          //   // background:
+          //   //   "linear-gradient(106.37deg,  rgba(203, 132, 203, 0.148) 29.63%, white 51.55%,rgba(142, 10, 237, 0.101) 90.85%)",
+          //   // filter: "blur(1px)",
+          //   // webkitFilter: "blur(8px)",
+          // }}
         >
           <MyProgress
             progress={activeStep === 1 ? 33 : activeStep === 2 ? 66 : 100}
@@ -97,16 +101,23 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
           />
         </div>
         <div
+          className="reg-sec-section"
           style={{
             // background: "var(--grey)",
             textAlign: "left",
             padding: "1.5rem",
             height: "95vh",
-            width: "40%",
           }}
         >
           <Stepper hrColor={"hrColor"} activeStep={activeStep} />
-          <h1 style={{ color: "var(--mypurple)" }}>{steps[activeStep - 1]}</h1>
+          <h1
+            style={{
+              color: "var(--mypurple)",
+              fontSize: window.innerWidth < 960 && 23,
+            }}
+          >
+            {steps[activeStep - 1]}
+          </h1>
 
           {activeStep === 3 ? (
             <Thankyou

@@ -16,6 +16,7 @@ const Signup = ({ type, next, increaseIndex }) => {
         className="name-container"
         style={{
           display: "flex",
+
           lineHeight: 0,
           transition: "all 1.2s ease-in-out",
         }}
@@ -24,7 +25,7 @@ const Signup = ({ type, next, increaseIndex }) => {
           <h3>First Name</h3>
           <InputField
             inputStyle="input--outline"
-            style={{ width: "230px" }}
+            style={{ width: window.innerWidth > 960 && "230px" }}
             label="Enter first name"
           />
         </div>
@@ -33,9 +34,9 @@ const Signup = ({ type, next, increaseIndex }) => {
           <InputField
             inputStyle="input--outline"
             style={{
-              width: "230px",
+              width: window.innerWidth > 960 && "230px",
 
-              marginLeft: "15px",
+              marginLeft: window.innerWidth > 960 && "15px",
             }}
             label="Enter last name"
           />

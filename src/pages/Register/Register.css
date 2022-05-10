@@ -1,13 +1,18 @@
-.register-fsc-section {
-  display: "none";
-  justify-content: "center";
-  align-items: "center";
-  width: "60%";
+.reg_section {
+  display: flex;
+  justify-content: space-between;
+}
+.reg-fsc-section {
+  /* display: "none"; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
   background: linear-gradient(
     106.37deg,
     rgba(203, 132, 203, 0.148) 29.63%,
     white 51.55%,
-    rgba(142, 10, 237, 0.701) 90.85%
+    rgba(142, 10, 237, 0.101) 90.85%
   );
 }
 .choose_role_wrapper {
@@ -62,4 +67,16 @@
 }
 .choose_role.pink {
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+}
+@media screen and (max-width: 960px) {
+  .reg_section {
+    display: block;
+  }
+  .reg-fsc-section {
+    width: 100%;
+  }
+  .name-container {
+    flex-direction: column;
+    justify-content: left;
+  }
 }
