@@ -128,7 +128,7 @@
     background: white;
     left: 0;
     box-shadow: 0px 15px 10px -15px;
-
+    width: 110%;
     opacity: 1;
     max-width: 99.9%;
     transition: all 0.6s ease;
