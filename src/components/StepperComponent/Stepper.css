@@ -32,3 +32,12 @@
   background: rgba(146, 3, 255, 0.273);
   transition: all 1.2s ease-in-out;
 }
+@media screen and (max-width: 960px) {
+  .stepper-wrapper {
+    max-width: 340px;
+  }
+  .stepper-container {
+    height: 40px;
+    width: 130px;
+  }
+}
