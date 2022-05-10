@@ -74,7 +74,7 @@
   -moz-text-fill-color: transparent;
 }
 .guarantee_row {
-  line-height: 1;
+  line-height: 1.8;
   text-align: left;
 }
 @media screen and (max-width: 961px) {
@@ -103,7 +103,7 @@
     padding-top: 2rem;
   }
   .guarantee_row {
-    line-height: 1.3;
+    line-height: 1.8;
     text-align: left;
     /* align-items: baseline; */
   }

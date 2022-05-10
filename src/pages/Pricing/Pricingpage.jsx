@@ -97,14 +97,14 @@ const Pricingpage = () => {
                   <div
                     className="guarantee_row"
                     key={des}
-                    // style={{ lineHeight: 0 }}
+                    // style={{ lineHeight: 6 }}
                   >
                     <HiOutlineBadgeCheck
                       className="g_icon"
                       size="22"
                       style={{ color: "var(--mypurple)" }}
                     />
-                    <p style={{ alignContent: "center", fontSize: "13.0px" }}>
+                    <p style={{ alignContent: "center", fontSize: "13.2px" }}>
                       {des}
                     </p>
                   </div>
