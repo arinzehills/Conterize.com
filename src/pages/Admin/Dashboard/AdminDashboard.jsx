@@ -140,7 +140,13 @@ const AdminDashboard = () => {
           justifyContent: "space-between",
         }}
       >
-        <div style={{ justifyContent: "space-between" }}>
+        <div
+          style={{
+            justifyContent: "space-between",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <div
             className="dashboard-card-row"
             style={{
