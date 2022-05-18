@@ -84,7 +84,7 @@ function Overall() {
     <>
       <div
         style={{
-          width: window.innerWidth < 960 ? "150%" : "auto",
+          width: window.innerWidth < 960 ? "100%" : "auto",
           height: "400px",
           marginLeft: 10,
           marginTop: window.innerWidth < 960 && "30px",
