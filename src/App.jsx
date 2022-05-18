@@ -21,6 +21,9 @@ import ContentRequest from "./pages/Dashboard/NewRequest/ContentRequest";
 import WhyConterize from "./pages/WhyConterize/WhyConterize";
 import ContentCreators from "./pages/ContentCreators/ContentCreators";
 import CreatorsRegistration from "./pages/Register/CreatorsRegistration";
+import Admin from "./pages/Admin/Admin";
+import Customers from "./pages/Admin/Customers/Customers";
+import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -48,6 +51,14 @@ function App() {
           <Route path="graphicsrequest" element={<GraphicsRequest />} />
           <Route path="videorequest" element={<VideoRequest />} />
           <Route index element={<Home />} />
+        </Route>
+        <Route path="/admin" element={<Admin />}>
+          <Route path="contentrequest" element={<Customers />} />
+          <Route path="customers" element={<Customers />} />
+          <Route path="orders" element={<Customers />} />
+          <Route path="managerdiscount" element={<Customers />} />
+          <Route path="settings" element={<Customers />} />
+          <Route index element={<AdminDashboard />} />
         </Route>
         <Route path="/login" exact element={<Login />} />
         <Route path="/register" exact element={<Register />} />

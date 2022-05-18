@@ -81,7 +81,7 @@ const Sidebar = ({ click, handleClick, setClick }) => {
           </div>
         </div>
         <div className="down">
-          <Link to="/dashboard/newrequest">
+          <Link to="/">
             <div
               className="new-request-btn-wrapper"
               onClick={{ closeMobileMenu }}

@@ -61,6 +61,7 @@
 .active-nav {
   background: var(--light-purple);
   /* background: #35438c; */
+  width: 170px;
 }
 .active-nav a {
   color: white;
@@ -118,7 +119,7 @@
   .brand {
     display: flex;
     justify-content: space-between;
-    max-width: 900px;
+    /* max-width: 900px; */
     padding-left: 2rem;
     /* background: red; */
   }

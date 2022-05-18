@@ -3,7 +3,12 @@ import React from "react";
 import ProfilePicsComponent from "../../../components/ProfilePicsComponent/ProfilePicsComponent";
 import "./NavComponent.css";
 
-function NavComponent({ pageTitle, handleClick }) {
+function NavComponent({
+  personsName,
+  pageTitle,
+  handleClick,
+  showNotification,
+}) {
   return (
     <>
       <div className="nav-cmpt-section">
@@ -25,9 +30,21 @@ function NavComponent({ pageTitle, handleClick }) {
         <div className="nav-title-wrapper">
           {window.innerWidth > 960 && <h2>{pageTitle ?? "Dashboard"}</h2>}
         </div>
-
         {window.innerWidth > 960 && (
-          <ProfilePicsComponent name="Arinze" isCirclular={true} />
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            {showNotification && (
+              <Icon
+                icon="carbon:notification-new"
+                color="gray"
+                fontSize="22px"
+              />
+            )}
+            <ProfilePicsComponent
+              name={personsName ?? "Arinze"}
+              isCirclular={true}
+              size="120px"
+            />
+          </div>
         )}
         {window.innerWidth < 960 && (
           <div className="nav-profile-wrapper">

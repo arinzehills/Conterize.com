@@ -109,7 +109,11 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
             height: "95vh",
           }}
         >
-          <Stepper hrColor={"hrColor"} activeStep={activeStep} />
+          <Stepper
+            hrColor={"hrColor"}
+            activeStep={activeStep}
+            isPayment={false}
+          />
           <h1
             style={{
               color: "var(--mypurple)",

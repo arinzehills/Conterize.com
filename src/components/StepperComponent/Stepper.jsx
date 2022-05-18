@@ -6,8 +6,9 @@ import { TiTick } from "react-icons/ti";
 import { MdCheck, MdIncompleteCircle } from "react-icons/md";
 import { BsFillCreditCard2BackFill } from "react-icons/bs";
 import { SiGnuprivacyguard } from "react-icons/si";
+import { GiBuyCard } from "react-icons/gi";
 
-function Stepper({ activeStep, hrColor }) {
+function Stepper({ activeStep, hrColor, isPayment }) {
   return (
     <div className="stepper-section">
       <div className="stepper-wrapper">
@@ -28,7 +29,15 @@ function Stepper({ activeStep, hrColor }) {
             activeStep === 2 ? "stepper-container checked" : "stepper-container"
           }
         >
-          {activeStep < 2 ? (
+          {isPayment === false ? ( //if is not stepper for payment
+            activeStep < 2 ? (
+              <GiBuyCard /> //if active step is less 1 i.e less than two show the number 2
+            ) : activeStep === 2 ? (
+              <GiBuyCard />
+            ) : (
+              <MdCheck fontSize={"29px"} />
+            )
+          ) : activeStep < 2 ? (
             <BsFillCreditCard2BackFill /> //if active step is less 1 i.e less than two show the number 2
           ) : activeStep === 2 ? (
             <BsFillCreditCard2BackFill />
