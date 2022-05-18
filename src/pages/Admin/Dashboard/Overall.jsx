@@ -86,7 +86,7 @@ function Overall() {
         style={{
           width: window.innerWidth < 960 ? "120%" : "auto",
           height: "400px",
-          marginLeft: window.innerWidth > 960 && 10,
+          marginLeft: 10,
           marginTop: window.innerWidth < 960 && "30px",
           boxShadow: "0 10px 30px 3px rgb(131 8 255 / 20%)",
         }}
