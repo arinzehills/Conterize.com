@@ -140,7 +140,7 @@ const AdminDashboard = () => {
           justifyContent: "space-between",
         }}
       >
-        <div>
+        <div style={{ justifyContent: "space-between" }}>
           <div
             className="dashboard-card-row"
             style={{
@@ -161,7 +161,7 @@ const AdminDashboard = () => {
           <h4>Total {title} Today</h4>
           <h3
             style={{
-              fontSize: window.innerWidth < 960 ? "10px" : "18px",
+              fontSize: window.innerWidth < 960 ? "14px" : "18px",
             }}
           >
             {title ?? "title"}
