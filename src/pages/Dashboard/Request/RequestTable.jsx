@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import ProfilePicsComponent from "../../../components/ProfilePicsComponent/ProfilePicsComponent";
 import "./RequestTable.css";
-const RequestTable = ({ title }) => {
+const RequestTable = ({ isAdmin, title, data }) => {
   const CaretIcon = () => {
     return (
       <>
@@ -117,6 +117,20 @@ const RequestTable = ({ title }) => {
       submmitedOn: "20/04/2022",
       status: "archived",
     },
+    {
+      requestName: "Content For Youtube",
+      category: "graphics design",
+      assignTo: "Arinze",
+      submmitedOn: "20/04/2022",
+      status: "under review",
+    },
+    {
+      requestName: "Content Ads",
+      category: "video",
+      assignTo: "Arinze",
+      submmitedOn: "20/04/2022",
+      status: "archived",
+    },
   ];
   return (
     <>
@@ -125,35 +139,49 @@ const RequestTable = ({ title }) => {
 
         <table className="request-tabel-container">
           <thead>
-            <tr>
-              <th>#</th>
-              <th>
-                Request Name <CaretIcon />
-              </th>
-              {window.innerWidth > 740 && (
+            {isAdmin ? (
+              <tr>
+                {data.th.map((item) => (
+                  <th>{item}</th>
+                ))}
+              </tr>
+            ) : (
+              <tr>
+                <th>#</th>
                 <th>
-                  Category <CaretIcon />{" "}
+                  Request Name <CaretIcon />
                 </th>
-              )}
-              {window.innerWidth > 740 && (
+                {window.innerWidth > 740 && (
+                  <th>
+                    Category <CaretIcon />{" "}
+                  </th>
+                )}
+                {window.innerWidth > 740 && (
+                  <th>
+                    Assign To <CaretIcon />
+                  </th>
+                )}
+                {window.innerWidth > 740 && (
+                  <th>
+                    Submitted <CaretIcon />
+                  </th>
+                )}
                 <th>
-                  Assign To <CaretIcon />
+                  Status <CaretIcon />
                 </th>
-              )}
-              {window.innerWidth > 740 && (
-                <th>
-                  Submitted <CaretIcon />
-                </th>
-              )}
-              <th>
-                Status <CaretIcon />
-              </th>
-            </tr>
+              </tr>
+            )}
           </thead>
           <tbody>
             {requests.map((request, index) => (
               <tr key={request}>
-                <td>{index + 1}</td>
+                {isAdmin ? (
+                  <td>
+                    <Icon icon="bx:checkbox" color="gray" fontSize={25} />
+                  </td>
+                ) : (
+                  <td>{index + 1}</td>
+                )}
                 <td>
                   <IconAndName
                     title={"Content Marketing"}

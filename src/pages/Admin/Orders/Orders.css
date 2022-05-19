@@ -1,0 +1,9 @@
+.sub_nav_component {
+  padding: 10px;
+  background: white;
+  display: flex;
+  width: 100px;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+}

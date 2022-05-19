@@ -1,0 +1,30 @@
+.th {
+  gap: 50px;
+  color: grey;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.tabel_t_body tr {
+  /* padding: 5px 7px; */
+  /* border-bottom: 1px solid #dddddd; */
+}
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 200px;
+  width: 100%;
+}
+thead {
+  background: white;
+  height: 40px;
+  border-radius: 51px;
+  /* border: solid grey 0.001pt; */
+}
+tr {
+  background: white;
+  height: 40px;
+  border-radius: 51px;
+  /* border: solid grey 0.001pt; */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

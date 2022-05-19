@@ -24,6 +24,8 @@ import CreatorsRegistration from "./pages/Register/CreatorsRegistration";
 import Admin from "./pages/Admin/Admin";
 import Customers from "./pages/Admin/Customers/Customers";
 import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
+import Orders from "./pages/Admin/Orders/Orders";
+import Freelancers from "./pages/Admin/Freelancers/Freelancers";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -53,9 +55,9 @@ function App() {
           <Route index element={<Home />} />
         </Route>
         <Route path="/admin" element={<Admin />}>
-          <Route path="contentrequest" element={<Customers />} />
+          <Route path="freelancers" element={<Freelancers />} />
           <Route path="customers" element={<Customers />} />
-          <Route path="orders" element={<Customers />} />
+          <Route path="orders" element={<Orders />} />
           <Route path="managerdiscount" element={<Customers />} />
           <Route path="settings" element={<Customers />} />
           <Route index element={<AdminDashboard />} />

@@ -65,7 +65,7 @@ const AdminSidebar = ({ click, handleClick, setClick }) => {
                   currentLink === 2 ? "active-nav" : "admin-nonactive-nav"
                 }
               >
-                <Link to="/admin">
+                <Link to="/admin/freelancers">
                   <Icon icon="fa6-solid:people-carry-box" />
                   <span> Freelancers</span>
                 </Link>
