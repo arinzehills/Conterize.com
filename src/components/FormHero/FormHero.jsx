@@ -173,15 +173,16 @@ function Formhero({
                       </div> //for register and sign up
                     ) : (
                       <div style={{ marginTop: "0px" }}>
-                        <Link to={"/dashboard"}>
-                          <Button
-                            buttonColor="gradient"
-                            buttonSize="btn--large"
-                            style={{ width: "100%" }}
-                          >
-                            {buttonLabel[0]}
-                          </Button>
-                        </Link>
+                        {/* <Link to={"/dashboard"}> */}
+                        <Button
+                          buttonColor="gradient"
+                          buttonSize="btn--large"
+                          style={{ width: "100%" }}
+                          onClick={onSubmit}
+                        >
+                          {buttonLabel[0]}
+                        </Button>
+                        {/* </Link> */}
                         <div className="hr-wrapper">
                           <hr className="hr"></hr>
                           <p className="hr-p ">OR</p>

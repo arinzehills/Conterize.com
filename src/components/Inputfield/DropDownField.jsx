@@ -20,7 +20,13 @@ function DropDownField({
     "input--shadow-purple",
     "input--shadow-orange",
   ];
-  const SIZES = ["ipn--small", "ipn--medium", "ipn--large", "ipn--wide"];
+  const SIZES = [
+    "ipn--small",
+    "ipn--medium",
+    "ipn--large",
+    "ipn--wide",
+    "width-353",
+  ];
   const COLOR = ["purple-input", "orange-input"];
 
   const checkInputStyle = STYLES.includes(inputStyle) ? inputStyle : null;
@@ -31,18 +37,20 @@ function DropDownField({
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <div className="dropdown">
+      <div className="dropdown ">
         <div
-          className={`dropdown-btn input
+          className={`dropdown-btn
+          dashboard-input
                         ${checkInputStyle}
                         ${checkInputColor}
                         ${checkInputSize}
             `}
+          style={{ width: window.innerWidth > 960 ? 280 : "900", height: 37 }}
           onClick={(e) => setIsActive(!isActive)}
         >
           {selected}
           <span>
-            <AiOutlineDown />
+            <AiOutlineDown color="grey" />
           </span>
         </div>
         {isActive && (

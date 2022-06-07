@@ -3,12 +3,18 @@
   --grey2: rgb(242, 244, 246);
   --pink: #e61de7;
   --mypurple: #700bc1;
+  --dark-purple: #3a0667;
   --light-purple: rgb(146, 3, 255);
   --dark-blue: #141874;
   --dashboard-dark-blue: #35438c;
   --light-blue: #31a7fe;
   --dark-orange: #700bc1;
   --blue-grey: #eff3ff;
+  --danger: #ff7782;
+  --success: #41f1b6;
+  --light: rgba(132, 139, 200, 0.18);
+
+  --box-shadow: 0 2rem 3rem var(--light);
 }
 * {
   font-family: "Inter", sans-serif;

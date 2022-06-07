@@ -1,39 +1,57 @@
 import React, { useEffect, useState } from "react";
-import RegisterHero from "./RegisterHero";
+import { useNavigate, Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
+import MyProgress from "../../components/MyProgress/MyProgress";
+import Payment from "../../components/Payment/Payment";
+import Stepper from "../../components/StepperComponent/Stepper";
+import Signup from "./Signup";
+import Thankyou from "./Thankyou";
 function Register() {
-  // const initialValues = { name: "", email: "", password: "" };
-  // const [formValues, setFormValues] = useState(initialValues);
-  // const [formErrors, setFormErrors] = useState({});
-  // const [responseError, setResponseError] = useState("");
-  // const [isSubmit, setIsSubmit] = useState(false);
-  // const [loading, setLoading] = useState(false);
-  // const [showModal, setShowModal] = useState(false);
-  // const history = useNavigate();
-  // const errors = {};
-  // const inputValues = [formValues.name, formValues.email, formValues.password];
+  const initialValues = {
+    firstname: "",
+    secondname: "",
+    email: "",
+    password: "",
+  };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [responseError, setResponseError] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const history = useNavigate();
+  const errors = {};
 
-  // const inputNames = ["name", "email", "password"];
-  // const inputErrors = [formErrors.name, formErrors.email, formErrors.password];
-  // const homeData = {
-  //   headline: "Register",
-  //   buttonLabel: ["Sign up", "Login"],
-  //   inputLabels: ["Name..", "Enter email", "Password..."],
-  //   inputValues: inputValues,
-  //   inputNames: inputNames,
-  //   imageRight: "images/letter.svg",
-  //   imageleft: "images/letter.svg",
-  //   formType: "register",
-  //   alt1: "two circles",
-  //   alt2: "baby",
-  // };
+  const inputValues = [
+    formValues.firstname,
+    formValues.secondname,
+    formValues.email,
+    formValues.password,
+  ];
+
+  const inputNames = ["firstname", "secondname", "email", "password"];
+  const inputErrors = [
+    formErrors.firstname,
+    formErrors.secondname,
+    formErrors.email,
+    formErrors.password,
+  ];
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value.trimLeft().trimRight() });
+
+    console.log(formValues);
+    // console.log(e.target)
+  };
+
   // const handleChange = (e) => {
   //   const { name, value } = e.target;
   //   setFormValues({ ...formValues, [name]: value.trimLeft().trimRight() });
 
   //   console.log(formValues);
-  //   // console.log(e.target)
+  //   // console.log(e.target);
   // };
-  // // console.log(inputValues)
+  console.log(inputValues);
   // const onSubmit = (e) => {
   //   e.preventDefault();
   //   setFormErrors(validate(formValues));
@@ -113,11 +131,114 @@ function Register() {
 
   //   return errors;
   // };
+
+  const steps = ["Sign up", "Payment Details", "Thank You"];
+  const [activeStep, setActiveStep] = useState(1);
+
+  const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  const Form = () => {
+    const initialValues = {
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+    };
+    const [formValues, setFormValues] = useState(initialValues);
+    const inputValues = [
+      formValues.firstname,
+      formValues.lastname,
+      formValues.email,
+      formValues.password,
+    ];
+    const inputNames = ["firstname", "lastname", "email", "password"];
+
+    return activeStep === 1 ? (
+      <Signup
+        next={nextStep}
+        setFormValues={setFormValues}
+        formValues={formValues}
+        inputNames={inputNames}
+        inputValues={inputValues}
+        handleChange={handleChange}
+        user_type="normal_user"
+      />
+    ) : (
+      <Payment next={nextStep} back={backStep} activeStep={activeStep} />
+    );
+  };
+
   return (
     <>
-      <div>
-        <RegisterHero />
+      {/* {loading ? (
+        <Loader />
+      ) : 
+      ( */}
+      <Link to="/" className="navbar-logo">
+        <img
+          src="images/conterize.png"
+          style={{
+            margin: window.innerWidth > 960 ? "30px" : "10px",
+            marginLeft: "0",
+            marginTop: window.innerWidth < 960 ? "4rem" : "1.3rem",
+            height: 110,
+            position: "absolute",
+          }}
+          alt=""
+        />
+      </Link>
+      <div className="reg_section">
+        {/* {showModal && (
+            <Modal
+              isSuccess={true}
+              heading="User has been register successfully"
+              setOpenModal={setShowModal}
+              onClick={() => {
+                history("/login");
+              }}
+            />
+          )} */}
+
+        <div
+          className="reg-fsc-section "
+          style={
+            {
+              // filter: "blur(1px)",
+              // webkitFilter: "blur(8px)",
+            }
+          }
+        >
+          <MyProgress
+            progress={activeStep === 1 ? 33 : activeStep === 2 ? 66 : 100}
+            progressClass={
+              activeStep === 1
+                ? "anim33"
+                : activeStep === 2
+                ? "anim66"
+                : "anim100"
+            }
+          />
+        </div>
+        <div
+          className="reg-sec-section"
+          style={{
+            // background: "var(--grey)",
+            textAlign: "left",
+            padding: "1.5rem",
+            height: "95vh",
+          }}
+        >
+          <Stepper hrColor={"hrColor"} activeStep={activeStep} />
+          <h1 style={{ color: "var(--mypurple)" }}>{steps[activeStep - 1]}</h1>
+
+          {activeStep === 3 ? (
+            <Thankyou message={"Thanks for the purchase"} />
+          ) : (
+            <Form />
+          )}
+        </div>
       </div>
+      {/* )} */}
     </>
   );
 }

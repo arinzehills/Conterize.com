@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import ProfilePicsComponent from "../../../components/ProfilePicsComponent/ProfilePicsComponent";
+import useUser from "../../../useUser";
 import "./NavComponent.css";
 
 function NavComponent({
@@ -9,6 +10,7 @@ function NavComponent({
   handleClick,
   showNotification,
 }) {
+  const { user, setUser } = useUser();
   return (
     <>
       <div className="nav-cmpt-section">
@@ -40,7 +42,7 @@ function NavComponent({
               />
             )}
             <ProfilePicsComponent
-              name={personsName ?? "Arinze"}
+              name={personsName ?? user?.["firstname"]}
               isCirclular={true}
               size="120px"
             />

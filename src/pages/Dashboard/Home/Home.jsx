@@ -6,6 +6,9 @@ import RequestTable from "../Request/RequestTable";
 import "./Home.css";
 import { useOutletContext } from "react-router-dom";
 import { Calendar } from "react-calendar";
+import useUser from "../../../useUser";
+import useToken from "../../../useToken";
+import useFetch from "../../../useFetch";
 
 const IconWrapper = ({ type, IconPadding, iconFontSize }) => {
   return (
@@ -116,7 +119,7 @@ const IconAndName = ({ type, title, quantity }) => {
     </div>
   );
 };
-const RequestProgressCard = ({ title, value }) => {
+const RequestProgressCard = ({ title, value, profileName, userType }) => {
   return (
     <div
       //  style={{ width: "auto" }}
@@ -141,7 +144,7 @@ const RequestProgressCard = ({ title, value }) => {
           <Icon icon="clarity:notification-outline-badged" />
         </div>
       </div>
-      <ProfilePicsComponent name="cjrsds" />
+      <ProfilePicsComponent name={profileName} userType={userType} />
       <h4>Request in progress</h4>
       <IconAndName type={"content"} title="Write articles..." />
       <IconAndName type={"graphics"} title="Design social ..." />
@@ -154,13 +157,49 @@ const Home = () => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const [date, setDate] = useState(new Date());
+  const { user, setUser } = useUser();
+  const { token, setToken } = useToken();
+  const {
+    data: requests,
+    loading,
+    error,
+  } = useFetch({
+    url: window.baseUrl + "getUserRequests",
+    fetchParamData: { user_id: user?.["id"] },
+  });
+
+  let columnData = [
+    { heading: "Request Name", value: "request_name" },
+    { heading: "Category", value: "category" },
+    { heading: "Assign to", value: "assign_to" },
+    { heading: "submmitted by", value: "submmitted_by" },
+    { heading: "Status", value: "status" },
+  ];
+
   const onChange = (date) => {
     setDate(date);
   };
   // console.log(name);
+  const req = [
+    {
+      request_name: "Achills",
+      category: "graphics",
+      assign_to: "admin",
+      status: "under review",
+    },
+    {
+      request_name: "Achills",
+      category: "video",
+      assign_to: "admin",
+      status: "under review",
+    },
+  ];
   return (
     <>
-      <NavComponent handleClick={handleClick} />
+      <NavComponent
+        handleClick={handleClick}
+        personsName={user?.["firstname"]}
+      />
       <div className="home">
         <div className="dashboard-wrapper">
           <div className="dash-fst-container">
@@ -168,7 +207,9 @@ const Home = () => {
             <div className="greetings-and-card-wrapper">
               <div className="greetings-wrapper">
                 <div className="greetings-text">
-                  <h2 color="var(--dark-blue)">Good Evening, Hills</h2>
+                  <h2 color="var(--dark-blue)">
+                    Good Evening, {user?.["firstname"]}
+                  </h2>
                   <p>
                     you have 4 draft to complete. Do you need help in requesting
                     content? Invite team members or contact your content
@@ -202,11 +243,20 @@ const Home = () => {
                 />
               </div>
             </div>
-            <RequestProgressCard />
+            <RequestProgressCard
+              profileName={user?.["firstname"]}
+              userType={user?.["user_type"]}
+            />
           </div>
           <div className="dash-sec-container">
             {/* second row for dashboard */}
-            <RequestTable title={"Draft Request"} />
+            <RequestTable
+              title={"Draft Request"}
+              data={requests?.["requests"]}
+              // data={req}
+              columnData={columnData}
+              loading={loading}
+            />
             {/* <Calendar
               onChange={onChange}
               value={date}

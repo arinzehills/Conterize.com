@@ -5,6 +5,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { useState } from "react";
+import useUser from "../../useUser";
 import { Button } from "../Button/Button";
 import InputField from "../Inputfield/InputField";
 import "./Payment.css";
@@ -17,6 +18,7 @@ const stripePromise = loadStripe(
 
 const Payment = ({ next, back }) => {
   const [review, SetReview] = useState(false);
+  const { user, setUser } = useUser();
 
   return (
     <>
@@ -25,15 +27,22 @@ const Payment = ({ next, back }) => {
           inputStyle="input--outline"
           label="Enter full name"
           // style={{ width: "93.5%" }}
+          value={user?.["firstname"] + " " + user?.["lastname"]}
+          readonly={true}
         />{" "}
         <InputField
           inputStyle="input--outline"
           label="Enter email address"
           // style={{ width: "93.5%" }}
+          readonly={true}
+          value={user?.["email"]}
         />
       </div>
 
       <Review
+        firstname={user?.firstname}
+        lastname={user?.lastname}
+        email={user?.email}
         className={
           !review
             ? "review-order-container"

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Review = ({ className }) => {
+const Review = ({ className, firstname, lastname, email }) => {
   return (
     <>
       <div className="review-order-section">
@@ -9,8 +9,16 @@ const Review = ({ className }) => {
             <h2 style={{ color: "var(--mypurple)" }}>Review Order</h2>
           </div>
           <div className="review-order-contents">
-            <p>first name</p>
-            <p>Christher</p>
+            <p>First name</p>
+            <p>{firstname ?? "Christher"}</p>
+          </div>
+          <div className="review-order-contents">
+            <p>Last name</p>
+            <p>{lastname}</p>
+          </div>
+          <div className="review-order-contents">
+            <p>Email</p>
+            <p>{email ?? "Myemail.com"}</p>
           </div>
           {/* <p>last name</p>
           <p>Email</p>

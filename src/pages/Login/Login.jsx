@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Formhero from "../../components/FormHero/FormHero";
+import Loader from "../../components/Loader/Loader";
+import Modal2 from "../../components/Modal/Modal2";
+import useToken from "../../useToken";
+import useUser from "../../useUser";
 
 function Login() {
   const initialValues = { email: "", password: "" };
@@ -8,7 +13,10 @@ function Login() {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [loading, setLoading] = useState(false);
-  //   const history = useNavigate();
+
+  const { user, setUser } = useUser();
+  const { token, setToken } = useToken();
+  const history = useNavigate();
 
   const inputValues = [formValues.email, formValues.password];
   const inputLabels = ["Enter email", "Password..."];
@@ -44,14 +52,9 @@ function Login() {
       email: formValues.email,
       password: formValues.password,
     };
-    // const url="http://localhost/buyenergy_api/public/api/login";
-    // const url=window.baseUrl + "login";
-    // const url="https://buyenergy.herokuapp.com/public/api/login";
-    const url = "https://buyenergy.herokuapp.com/public/api/login";
+    const url = window.baseUrl + "login";
 
     fetch(url, {
-      // credentials: 'include
-      // Authorization:'http://localhost:8000/api/user',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -71,7 +74,7 @@ function Login() {
 
           setToken(token);
           setUser(user);
-          //   history("/dashboard");
+          history("/dashboard");
           setLoading(false);
         } else {
           const error = data["message"];
@@ -117,14 +120,19 @@ function Login() {
   };
   return (
     <>
-      <Formhero
-        {...homeData}
-        handleChange={handleChange}
-        onSubmit={onSubmit}
-        formErrors={inputErrors}
-        // message={message}
-        responseError={responseError}
-      />
+      <Modal2 zIndex={0} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <Formhero
+          {...homeData}
+          handleChange={handleChange}
+          onSubmit={onSubmit}
+          formErrors={inputErrors}
+          // message={message}
+          responseError={responseError}
+        />
+      )}
     </>
   );
 }

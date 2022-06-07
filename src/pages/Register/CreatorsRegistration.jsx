@@ -1,11 +1,7 @@
 import { Icon } from "@iconify/react";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "../../components/Button/Button";
-import Formhero from "../../components/FormHero/FormHero";
-import InputField from "../../components/Inputfield/InputField";
 import MyProgress from "../../components/MyProgress/MyProgress";
-import Payment from "../../components/Payment/Payment";
 import Stepper from "../../components/StepperComponent/Stepper";
 import CreatorsFinish from "./CreatorsFinish";
 import Signup from "./Signup";
@@ -28,9 +24,35 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
 
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  const Form = () =>
-    activeStep === 1 ? (
-      <Signup next={nextStep} type="creators" increaseIndex={increaseIndex} />
+
+  const Form = ({}) => {
+    const initialValues = {
+      firstname: "",
+      lastname: "",
+      email: "",
+      phone: "",
+      password: "",
+    };
+    const [formValues, setFormValues] = useState(initialValues);
+    const inputValues = [
+      formValues.firstname,
+      formValues.lastname,
+      formValues.email,
+      formValues.phone,
+      formValues.password,
+    ];
+    const inputNames = ["firstname", "lastname", "email", "phone", "password"];
+
+    return activeStep === 1 ? (
+      <Signup
+        next={nextStep}
+        type="creators"
+        setFormValues={setFormValues}
+        formValues={formValues}
+        inputNames={inputNames}
+        inputValues={inputValues}
+        increaseIndex={increaseIndex}
+      />
     ) : (
       <CreatorsFinish
         next={nextStep}
@@ -39,6 +61,7 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
         index={index}
       />
     );
+  };
 
   console.log("index " + index);
   return (

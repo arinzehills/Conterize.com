@@ -1,7 +1,15 @@
 import React from "react";
 import { Button } from "../../../../components/Button/Button";
 
-function SaveButton({ title, labels, firstBtnColor, secondBtnSize, flexWrap }) {
+function SaveButton({
+  title,
+  labels,
+  onClick,
+  onClick2,
+  firstBtnColor,
+  secondBtnSize,
+  flexWrap,
+}) {
   return (
     <>
       <div
@@ -22,10 +30,12 @@ function SaveButton({ title, labels, firstBtnColor, secondBtnSize, flexWrap }) {
             border: "1px solid #ececec",
             background: "#fff",
           }}
+          onClick={onClick2}
         >
           {labels[0]}
         </Button>
         <Button
+          onClick={onClick}
           style={{
             width: secondBtnSize ?? "79px",
             height: "43px",

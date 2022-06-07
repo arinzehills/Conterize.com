@@ -1,53 +1,40 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
+import useFetch from "../../../useFetch";
+import useUser from "../../../useUser";
 import NavComponent from "../../Dashboard/NavComponent/NavComponent";
 import RequestTable from "../../Dashboard/Request/RequestTable";
 import Subnav from "../components/Subnav";
 
-const tableData = {
-  th: [" name", "Company name", "Email", "Phone", "Country", "Plan", "Status"],
-  td: [
-    {
-      requestName: "Content Marketing",
-      category: "content",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "active",
-    },
-    {
-      requestName: "Content For Youtube",
-      category: "graphics design",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "under review",
-    },
-    {
-      requestName: "Content Ads",
-      category: "video",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "archived",
-    },
-    {
-      requestName: "Content For Youtube",
-      category: "graphics design",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "under review",
-    },
-    {
-      requestName: "Content Ads",
-      category: "video",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "archived",
-    },
-  ],
-};
-
 const Customers = () => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
+  const { user, setUser } = useUser();
+
+  const {
+    data: requests,
+    loading,
+    error,
+  } = useFetch({
+    url: window.baseUrl + "getAllCompanies",
+  });
+  let columnData = [
+    { heading: "Name", value: "firstname" },
+    { heading: "Company Name", value: "name" },
+    { heading: "Email", value: "email" },
+    { heading: "Phone", value: "phone" },
+    { heading: "Country", value: "nationality" },
+    { heading: "Plan", value: "plan" },
+    { heading: "Status", value: "status" },
+  ];
+  const req = [
+    {
+      firstname: "Achills",
+      name: "achillstechnologies",
+      phone: "434343",
+      status: "under review",
+    },
+  ];
   return (
     <>
       <div className="customers-section">
@@ -58,7 +45,12 @@ const Customers = () => {
           pageTitle=""
         />
         <Subnav title={"Customers"} icon="bi:people" />
-        <RequestTable isAdmin={true} data={tableData} />
+        <RequestTable
+          isAdmin={true}
+          loading={loading}
+          data={req}
+          columnData={columnData}
+        />
       </div>
     </>
   );

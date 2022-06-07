@@ -1,8 +1,24 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Button } from "../../../components/Button/Button";
+import Modal2 from "../../../components/Modal/Modal2";
 import ProfilePicsComponent from "../../../components/ProfilePicsComponent/ProfilePicsComponent";
+import useFetch from "../../../useFetch";
+import useUser from "../../../useUser";
+import FreelancersModal from "../../Admin/Freelancers/FreelancersModal";
+import NoDataFound from "./NoDataFound";
 import "./RequestTable.css";
-const RequestTable = ({ isAdmin, title, data }) => {
+const RequestTable = ({
+  messageNotFound,
+  isAdmin,
+  title,
+  data,
+  loading,
+  columnData,
+  activeRow,
+  setActiveRow,
+}) => {
+  const [showAssignFreelacer, setShowAssignFreelacer] = useState(false);
   const CaretIcon = () => {
     return (
       <>
@@ -95,118 +111,177 @@ const RequestTable = ({ isAdmin, title, data }) => {
       </div>
     );
   };
-  const requests = [
-    {
-      requestName: "Content Marketing",
-      category: "content",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "active",
-    },
-    {
-      requestName: "Content For Youtube",
-      category: "graphics design",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "under review",
-    },
-    {
-      requestName: "Content Ads",
-      category: "video",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "archived",
-    },
-    {
-      requestName: "Content For Youtube",
-      category: "graphics design",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "under review",
-    },
-    {
-      requestName: "Content Ads",
-      category: "video",
-      assignTo: "Arinze",
-      submmitedOn: "20/04/2022",
-      status: "archived",
-    },
-  ];
+
+  const TableHeadItem = ({ item, index }) => (
+    <th key={index}>
+      {item.heading} <CaretIcon />
+    </th>
+  );
+  const TableRow = ({ item, column, isAdmin, index, onClick, activeRow }) => (
+    <tr
+      onClick={onClick}
+      style={{ background: activeRow === true && "var(--success)" }}
+      key={index}
+    >
+      {isAdmin ? (
+        <td key={index}>
+          {activeRow === true ? (
+            <Icon
+              icon="akar-icons:check-box-fill"
+              color="white"
+              fontSize={25}
+            />
+          ) : (
+            <Icon icon="bx:checkbox" color="gray" fontSize={25} />
+          )}
+        </td>
+      ) : (
+        <td>{index + 1}</td>
+      )}
+      {column.map((columnItem, index) => {
+        return (
+          <td key={index}>
+            {columnItem.value === "request_name" ? (
+              <IconAndName
+                title={item[`${columnItem.value}`] ?? "Content Marketing"}
+                type={item[`category`] ?? ""}
+              />
+            ) : columnItem.value === "status" ? (
+              <StatusWidget
+                title={item[`${columnItem.value}`] ?? ""}
+                status={item[`${columnItem.value}`] ?? ""}
+              />
+            ) : columnItem.value === "assign_to" ? (
+              <ProfilePicsComponent
+                name={item[`${columnItem.value}`] ?? "Hills"}
+                isCirclular={true}
+              />
+            ) : (
+              item[`${columnItem.value}`]
+            )}
+          </td>
+        );
+      })}
+    </tr>
+  );
+  const handleActiveRow = (index) => () => {
+    // setActiveRow(!activeRow);
+    setActiveRow((state) => ({
+      ...state, // <-- copy previous state
+      [index]: !state[index], // <-- update value by index key
+    }));
+  };
+
+  let objHasSelected = Object.values(activeRow).some((value) => value === true);
+  console.log(showAssignFreelacer);
+  console.log(activeRow);
+
+  const [requestToReassign, setRequestToReassign] = useState([]);
+  console.log(requestToReassign);
+
+  useEffect(() => {
+    // setRequestToReassign([]);
+    for (const [key, value] of Object.entries(activeRow)) {
+      if (value === objHasSelected) {
+        // console.log(`${key}: ${value}`);
+        // console.log(Object.entries(activeRow[0]));
+        console.log(data[`${key}`]);
+        // console.log(data);
+        setRequestToReassign([...requestToReassign, data[`${key}`]]);
+      }
+    }
+    if (objHasSelected === false) {
+      setRequestToReassign(requestToReassign, []);
+    }
+  }, [activeRow]);
+
   return (
     <>
+      {showAssignFreelacer && (
+        <FreelancersModal
+          setOpenModal={setShowAssignFreelacer}
+          activeRow={activeRow}
+          setActiveRow={setActiveRow}
+          objHasSelected={objHasSelected}
+          data={data}
+          setshowAssignFreelacer={setShowAssignFreelacer}
+          requestToReassign={requestToReassign}
+          setRequestToReassign={setRequestToReassign}
+        />
+      )}
       <div className="request-tabel-section">
-        <h3>{title ?? ""}</h3>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h3>{title ?? ""}</h3>
+          {/* {activeRow === true && (
+            <Button buttonColor={"gradient"}>Assign Freelancer</Button>
+          )} */}
+
+          <div className={objHasSelected ? "payment " : "payment none"}>
+            {isAdmin && (
+              <Button
+                buttonColor={"gradient"}
+                onClick={() => {
+                  setShowAssignFreelacer(true);
+                  // handleAssignFreelancer();
+                }}
+              >
+                Assign Freelancer
+              </Button>
+            )}
+          </div>
+        </div>
 
         <table className="request-tabel-container">
           <thead>
-            {isAdmin ? (
-              <tr>
-                {data.th.map((item) => (
-                  <th>{item}</th>
-                ))}
-              </tr>
-            ) : (
-              <tr>
-                <th>#</th>
-                <th>
-                  Request Name <CaretIcon />
-                </th>
-                {window.innerWidth > 740 && (
-                  <th>
-                    Category <CaretIcon />{" "}
-                  </th>
-                )}
-                {window.innerWidth > 740 && (
-                  <th>
-                    Assign To <CaretIcon />
-                  </th>
-                )}
-                {window.innerWidth > 740 && (
-                  <th>
-                    Submitted <CaretIcon />
-                  </th>
-                )}
-                <th>
-                  Status <CaretIcon />
-                </th>
-              </tr>
-            )}
+            <tr>
+              <th>#</th>
+              {columnData.map((item, index) => (
+                <TableHeadItem item={item} index={index} key={index} />
+              ))}
+            </tr>
           </thead>
           <tbody>
-            {requests.map((request, index) => (
-              <tr key={request}>
-                {isAdmin ? (
-                  <td>
-                    <Icon icon="bx:checkbox" color="gray" fontSize={25} />
-                  </td>
-                ) : (
-                  <td>{index + 1}</td>
-                )}
-                <td>
-                  <IconAndName
-                    title={"Content Marketing"}
-                    type={request.category.split(" ")[0]}
+            {loading ? (
+              <Modal2 />
+            ) : data?.length === 0 ? (
+              <NoDataFound message={messageNotFound} />
+            ) : (
+              data
+                // requestss
+                .map((item, index) => (
+                  <TableRow
+                    key={index}
+                    item={item}
+                    index={index}
+                    column={columnData}
+                    isAdmin={isAdmin}
+                    activeRow={activeRow[index]}
+                    // activeRow={activeRow}
+                    // onClick={handleActiveRow}
+                    onClick={handleActiveRow(index)}
                   />
-                </td>
-                {window.innerWidth > 740 && <td>{request.category}</td>}
-                {window.innerWidth > 740 && (
+                ))
+            )}
+            {/* /* {window.innerWidth > 740 && <td>{request.category ?? ""}</td>} */}
+            {/* {window.innerWidth > 740 && (
+                    <td>
+                      <ProfilePicsComponent
+                        name={request.assign_to ?? "Hills"}
+                        isCirclular={true}
+                      />
+                    </td>
+                  )}
+                  {window.innerWidth > 740 && (
+                    <td>
+                      <IconAndName title={"20/04/2022"} type="calendar" />
+                    </td>
+                  )}
                   <td>
-                    <ProfilePicsComponent name={"Hills"} isCirclular={true} />
-                  </td>
-                )}
-                {window.innerWidth > 740 && (
-                  <td>
-                    <IconAndName title={"20/04/2022"} type="calendar" />
-                  </td>
-                )}
-                <td>
-                  <StatusWidget
-                    title={request.status}
-                    status={request.status}
-                  />
-                </td>
-              </tr>
-            ))}
+                    <StatusWidget
+                      title={request.status ?? ""}
+                      status={request.status ?? ""}
+                    />
+                  </td> */}
           </tbody>
         </table>
       </div>

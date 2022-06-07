@@ -6,26 +6,26 @@ const DashboardInput = ({
   type,
   label,
   style,
-  placeholder,
   readOnly,
   value,
   onHandleChange,
   onClick,
   inputSize,
+  ref,
 }) => {
   return (
     <>
       <input
         name={name}
         type={type ?? "text"}
-        label={label}
         style={style}
         className={`dashboard-input ${inputSize}`}
-        placeholder={placeholder}
+        placeholder={label}
         readOnly={readOnly}
         value={value}
         onChange={onHandleChange}
         onClick={onClick}
+        ref={ref}
       />
     </>
   );

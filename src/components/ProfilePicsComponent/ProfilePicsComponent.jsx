@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import "./ProfilePicsComponent.css";
-const ProfilePicsComponent = ({ name, isCirclular }) => {
+const ProfilePicsComponent = ({ name, isCirclular, userType }) => {
   return (
     <>
       <div
@@ -15,10 +15,19 @@ const ProfilePicsComponent = ({ name, isCirclular }) => {
 
         <div
           className="pic-text"
-          style={{ justifyContent: isCirclular && "center" }}
+          style={{
+            justifyContent: isCirclular && "center",
+          }}
         >
-          <p style={{ fontWeight: isCirclular ? "normal" : "bold" }}>{name}</p>
-          {isCirclular !== true && <span>Owner</span>}
+          <p
+            style={{
+              fontWeight: isCirclular ? "normal" : "bold",
+              textAlign: "left",
+            }}
+          >
+            {name}
+          </p>
+          {isCirclular !== true && <span>{userType ?? "User"}</span>}
         </div>
         {isCirclular && ( //if this is a circlular profile pics component show this icon
           <div className="prf-pic-icon">

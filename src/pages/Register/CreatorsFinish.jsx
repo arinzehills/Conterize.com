@@ -4,12 +4,23 @@ import "../../components/Payment/Payment.css";
 import "./Register.css";
 import DropDownField from "../../components/Inputfield/DropDownField";
 import { Icon } from "@iconify/react";
-const ChoseNationality = ({ className }) => {
+import Loader from "../../components/Loader/Loader";
+import useToken from "../../useToken";
+const ChoseNationality = ({
+  className,
+  nationality,
+  setNationality,
+  countries,
+}) => {
   return (
     <>
       <div className={className}>
         <h2>Country of residence</h2>
-        <DropDownField />
+        <DropDownField
+          options={countries}
+          selected={nationality}
+          setSelected={setNationality}
+        />
       </div>
       {/* <Payment /> */}
     </>
@@ -79,41 +90,105 @@ const ChoseRole = ({ roleType, setRoleType, error }) => {
 };
 const CreatorsFinish = ({ next, back, index }) => {
   const [review, setReview] = useState(false);
+  const [showNational, setShowNational] = useState(false);
+  const [nationality, setNationality] = useState("Select Nationality");
+  const countries = ["nigeria", "ghana"];
   const [roleType, setRoleType] = useState("");
   const [error, setError] = useState("");
-  //   const nextWrapper = (e) => {
-  //     e.preventDefault();
-  //     // increaseIndex();
-  //     setReview(true);
-  //     index = +1;
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [responseError, setResponseError] = useState("");
+  const { token, setToken } = useToken();
 
-  //     // setReview(true);
-  //   };
+  // const setRoleandData = () => {
+  //   setShowNational(true);
+  //   setData({ nationality: nationality, role_type: roleType });
+  // };
+  useEffect(() => {
+    setData({ nationality: nationality, role_type: roleType });
+  }, [roleType, nationality]);
+
   useEffect(() => {
     setTimeout(() => {
       setReview(true);
     }, 100);
   }, []);
-  console.log(error);
+  console.log(data);
+  const finishReg = async () => {
+    setLoading(true);
+
+    // const url="http://localhost/buyenergy_api/public/api/login";
+    const url = window.baseUrl + `update?token=${token}`;
+
+    fetch(url, {
+      // credentials: 'include
+      // Authorization:'http://localhost:8000/api/user',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        // 'Authorization': 'http://localhost:8000/api/user',
+      },
+      method: "POST",
+      body: JSON.stringify(
+        Object.assign(data, { user_type: "content_creator" })
+      ),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // console.log( data['token']);
+
+        if (data["success"] === true) {
+          next();
+          setLoading(false);
+        } else {
+          const error = data["message"];
+          console.log(error);
+          setResponseError(error);
+          setLoading(false);
+        }
+        // console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.warn("Error:", error);
+      });
+  };
   return (
     <>
-      <div className={review ? "payment " : "payment none"}>
-        <ChoseRole
-          roleType={roleType}
-          setRoleType={setRoleType}
-          error={error}
+      {loading ? (
+        <div style={{ height: "40%", marginTop: "3rem" }}>
+          <Loader position={"relative"} />
+        </div>
+      ) : showNational ? (
+        <ChoseNationality
+          nationality={nationality}
+          setNationality={setNationality}
+          countries={countries}
         />
-      </div>
+      ) : (
+        <div className={review ? "payment " : "payment none"}>
+          <ChoseRole
+            roleType={roleType}
+            setRoleType={setRoleType}
+            error={error}
+          />
+        </div>
+      )}
+      <p className="errors">{responseError ?? ""}</p>
 
       <Button
         buttonColor="gradient"
         buttonSize="btn--large"
         style={{ width: "100%", opacity: roleType === "" && 0.3 }}
         onClick={() => {
-          roleType === "" ? setError("Please select your role") : next();
+          roleType === ""
+            ? setError("Please select your role")
+            : nationality === "Select Nationality"
+            ? setShowNational(true)
+            : finishReg();
         }}
       >
-        Next{" "}
+        Next
       </Button>
 
       <Button

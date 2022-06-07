@@ -1,0 +1,9 @@
+.close_freelancers_modal:hover {
+  padding: 0.3rem;
+  /* transition: all ease-in 2.1; */
+  transition: all 0.5s ease;
+  /* color: grey; */
+  background: rgba(242, 92, 50, 0.243);
+  border-radius: 15px;
+  color: rgb(255, 114, 74);
+}

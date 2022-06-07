@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   gap: 20px;
+  margin-top: 2rem;
 }
 .company-container {
   background: white;
@@ -13,6 +14,8 @@
 }
 .company-row {
   display: flex;
+  /* grid-template-columns: repeat(3fr, 12rem); */
+
   gap: 5px;
   margin-top: 1rem;
   max-width: 100%;
@@ -39,6 +42,12 @@
   padding-top: 0;
   font-size: 14px;
   /* line-height: 3px; */
+}
+@media screen and (max-width: 960px) {
+  .company-row {
+    flex-wrap: wrap;
+    /* display: none; */
+  }
 }
 @media screen and (max-width: 760px) {
   .company-container {
