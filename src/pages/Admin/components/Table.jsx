@@ -4,6 +4,7 @@ import { Button } from "../../../components/Button/Button";
 import Loader from "../../../components/Loader/Loader";
 import Modal2 from "../../../components/Modal/Modal2";
 import DraftReqestModal from "../../../components/RequestHero/DraftReqestModal";
+import NoDataFound from "../../Dashboard/Request/NoDataFound";
 import "./Table.css";
 const Table = ({
   data,
@@ -13,6 +14,7 @@ const Table = ({
   isAdmin,
   setAssignFreelancerName,
   handleAssignFreelancer,
+  messageNotFound,
 }) => {
   const [showAssignModal, setShowAssignModal] = useState(false);
 
@@ -69,6 +71,8 @@ const Table = ({
             ) : (
               <Loader position={"fixed"} top={"10%"} left={"20%"} />
             )
+          ) : data?.length === 0 ? (
+            <NoDataFound message={messageNotFound} />
           ) : (
             data.map((item, index) => (
               <TableRow

@@ -146,6 +146,11 @@ const RequestTable = ({
                 title={item[`${columnItem.value}`] ?? "Content Marketing"}
                 type={item[`category`] ?? ""}
               />
+            ) : columnItem.value === "submitted_by" ? (
+              <IconAndName
+                title={item[`${columnItem.value}`] ?? "date"}
+                type={"calendar"}
+              />
             ) : columnItem.value === "status" ? (
               <StatusWidget
                 title={item[`${columnItem.value}`] ?? ""}

@@ -219,6 +219,7 @@ const Signup = ({
         buttonSize="btn--large"
         style={{ width: "100%" }}
         onClick={onSubmit}
+        // onClick={next}
       >
         NEXT
       </Button>

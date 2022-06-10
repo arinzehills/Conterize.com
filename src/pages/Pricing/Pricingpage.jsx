@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../components/Button/Button";
 import "./Pricing.css";
 import "../../components/HowitWorks/HowitWorks.css";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
 import Faq from "../../components/Faq/Faq";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -60,6 +60,8 @@ const data = [
   },
 ];
 const Pricingpage = () => {
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const navigate = useNavigate();
   return (
     <>
       <div className="pricing-container" id="pricing">
@@ -72,7 +74,14 @@ const Pricingpage = () => {
           </p>
           <div className="pricing_card_container">
             {data.map((item) => (
-              <div className="pricing_card">
+              <div
+                className="pricing_card"
+                key={item.heading}
+                onClick={() => {
+                  setSelectedPrice(item.price);
+                  console.log(selectedPrice);
+                }}
+              >
                 <div className="item_header">
                   <h3>{item.heading}</h3>
                   <div
@@ -83,11 +92,12 @@ const Pricingpage = () => {
                 <h2 className="price">
                   {item.price} <span>/month</span>
                 </h2>
-                <Link to="/register">
+                <Link to="/register" state={{ item }}>
                   <Button
                     style={{ lineHeight: 0, marginTop: 0, width: "90%" }}
                     buttonColor="blue"
                     buttonSize="btn--large"
+                    // onClick={useNavi}
                   >
                     Get Started
                   </Button>

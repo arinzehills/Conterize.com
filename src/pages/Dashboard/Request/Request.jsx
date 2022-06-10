@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import useFetch from "../../../useFetch";
 import useUser from "../../../useUser";
@@ -9,6 +9,7 @@ const Request = () => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const { user, setUser } = useUser();
+  const [activeRow, setActiveRow] = useState(false); //the rows that is clicked or selected
 
   const {
     data: requests,
@@ -22,7 +23,8 @@ const Request = () => {
     { heading: "Request Name", value: "request_name" },
     { heading: "Category", value: "category" },
     { heading: "Assign to", value: "assign_to" },
-    { heading: "submmitted by", value: "submmitted_by" },
+    // { heading: "submmitted by", value: "created_at" },
+    { heading: "submitted by", value: "submitted_by" },
     { heading: "Status", value: "status" },
   ];
   // console.log(loading);
@@ -51,6 +53,8 @@ const Request = () => {
           // data={req}
           messageNotFound={"You have not placed any requests yet"} //this displays if no request was placed
           loading={loading}
+          activeRow={activeRow}
+          setActiveRow={setActiveRow}
         />
       </div>
     </>

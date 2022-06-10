@@ -127,6 +127,7 @@ const FreelancersModal = ({
             height: "auto",
             width: "70vw",
             boxShadow: "var(--box-shadow)",
+            // minHeight: "290px",
           }}
         >
           <div

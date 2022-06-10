@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import useFetch from "../../../useFetch";
 import useUser from "../../../useUser";
@@ -10,6 +10,7 @@ const Customers = () => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const { user, setUser } = useUser();
+  const [activeRow, setActiveRow] = useState(false); //the rows that is clicked or selected
 
   const {
     data: requests,
@@ -50,6 +51,8 @@ const Customers = () => {
           loading={loading}
           data={req}
           columnData={columnData}
+          activeRow={activeRow}
+          setActiveRow={setActiveRow}
         />
       </div>
     </>

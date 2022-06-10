@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import MyProgress from "../../components/MyProgress/MyProgress";
 import Payment from "../../components/Payment/Payment";
 import Stepper from "../../components/StepperComponent/Stepper";
 import Signup from "./Signup";
 import Thankyou from "./Thankyou";
+import StripeContainer from "../../components/Payment/StripeContainer";
 function Register() {
+  const location = useLocation();
+  console.log(location.state.item);
   const initialValues = {
     firstname: "",
     secondname: "",
@@ -132,7 +135,11 @@ function Register() {
   //   return errors;
   // };
 
-  const steps = ["Sign up", "Payment Details", "Thank You"];
+  const steps = [
+    "Sign up",
+    `Payment Details(${location.state.item.price})`,
+    "Thank You",
+  ];
   const [activeStep, setActiveStep] = useState(1);
 
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -164,7 +171,13 @@ function Register() {
         user_type="normal_user"
       />
     ) : (
-      <Payment next={nextStep} back={backStep} activeStep={activeStep} />
+      <StripeContainer
+        next={nextStep}
+        back={backStep}
+        activeStep={activeStep}
+        planData={location.state.item}
+      />
+      // <Payment next={nextStep} back={backStep} activeStep={activeStep} />
     );
   };
 
@@ -232,7 +245,7 @@ function Register() {
           <h1 style={{ color: "var(--mypurple)" }}>{steps[activeStep - 1]}</h1>
 
           {activeStep === 3 ? (
-            <Thankyou message={"Thanks for the purchase"} />
+            <Thankyou message={"You have successfully subscribe! thank you!"} />
           ) : (
             <Form />
           )}

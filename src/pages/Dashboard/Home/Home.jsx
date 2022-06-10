@@ -159,6 +159,8 @@ const Home = () => {
   const [date, setDate] = useState(new Date());
   const { user, setUser } = useUser();
   const { token, setToken } = useToken();
+  const [activeRow, setActiveRow] = useState(false); //the rows that is clicked or selected
+
   const {
     data: requests,
     loading,
@@ -254,8 +256,11 @@ const Home = () => {
               title={"Draft Request"}
               data={requests?.["requests"]}
               // data={req}
+              messageNotFound={"You have not placed any requests yet"} //this displays if no request was placed
               columnData={columnData}
               loading={loading}
+              activeRow={activeRow}
+              setActiveRow={setActiveRow}
             />
             {/* <Calendar
               onChange={onChange}

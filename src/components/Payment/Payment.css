@@ -35,4 +35,11 @@
   display: flex;
   justify-content: space-between;
   line-height: 0;
+  /* overflow-wrap: wrap; */
+  /* text-overflow: ellipsis; */
+}
+@media screen and (max-width: 960px) {
+  /* .review-order-contents {
+    line-height: unset;
+  } */
 }

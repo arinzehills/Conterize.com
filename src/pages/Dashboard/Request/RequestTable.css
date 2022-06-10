@@ -32,3 +32,47 @@ td:nth-child(2) {
   text-transform: capitalize;
   padding-left: 1rem;
 }
+@media screen and (max-width: 1200px) {
+  /* display col 1,2,4 and last column */
+  td:nth-child(3),
+  td:nth-child(4),
+  td:nth-child(5),
+  td:nth-last-child(3) {
+    display: none;
+  }
+  /* td:nth-last-child(6) */
+  th:nth-child(3),
+  th:nth-child(4),
+  th:nth-child(5),
+  th:nth-last-child(3) {
+    display: none;
+  }
+  /* td,
+  th {
+    display: none;
+  } */
+  /* td:nth-child(1),
+  td:nth-child(2),
+  td:nth-child(4),
+  td:nth-last-child(1) {
+    display: unset;
+  } */
+  /* th:nth-child(1),
+  th:nth-child(2),
+  th:nth-child(4),
+  th:nth-last-child(1) {
+    display: unset;
+  } */
+  /* 
+
+
+  td:nth-last-child(3) {
+    display: block;
+  }
+  th:nth-last-child(3) {
+    display: block;
+  } */
+}
+@media screen and (max-width: 1200px) {
+  /* display col 1,2, and last column */
+}

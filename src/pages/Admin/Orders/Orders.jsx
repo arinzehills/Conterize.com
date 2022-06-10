@@ -25,12 +25,29 @@ const Orders = () => {
   let columnData = [
     { heading: "Request Name", value: "request_name" },
     { heading: "Customer", value: "request_name" },
-    { heading: "Date Created", value: "request_name" },
+    { heading: "Date Created", value: "submitted_by" },
     { heading: "Category", value: "category" },
     { heading: "Assign To", value: "assign_to" },
     { heading: "Status", value: "status" },
   ];
-
+  const tableData = [
+    {
+      name: "Content Marketing",
+      email: "achill@gmail.com",
+      phone: "904343",
+      category: "content",
+      assign_to: "Arinze",
+      status: "20/04/2022",
+    },
+    {
+      request_name: "aiodasd Marketing",
+      email: "achill@gmail.com",
+      phone: "904343",
+      category: "video",
+      total: "Arinze",
+      status: "under review",
+    },
+  ];
   return (
     <>
       <div>
@@ -46,6 +63,7 @@ const Orders = () => {
           title={"All orders"}
           loading={loading}
           isAdmin={true}
+          // data={tableData}
           data={orders}
           columnData={columnData}
           activeRow={activeRow}
