@@ -36,6 +36,7 @@ const Customers = () => {
       status: "under review",
     },
   ];
+  console.log(requests);
   return (
     <>
       <div className="customers-section">
@@ -49,7 +50,8 @@ const Customers = () => {
         <RequestTable
           isAdmin={true}
           loading={loading}
-          data={req}
+          data={requests}
+          // data={req}
           columnData={columnData}
           activeRow={activeRow}
           setActiveRow={setActiveRow}

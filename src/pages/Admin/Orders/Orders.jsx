@@ -19,6 +19,7 @@ const Orders = () => {
   } = useFetch({
     url: window.baseUrl + "getAllRequest",
     secondParam: activeRow,
+    method: "GET",
   });
 
   useEffect(() => {}, []);

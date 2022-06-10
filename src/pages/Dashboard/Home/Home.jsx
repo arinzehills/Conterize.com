@@ -174,7 +174,7 @@ const Home = () => {
     { heading: "Request Name", value: "request_name" },
     { heading: "Category", value: "category" },
     { heading: "Assign to", value: "assign_to" },
-    { heading: "submmitted by", value: "submmitted_by" },
+    { heading: "submmitted by", value: "submitted_by" },
     { heading: "Status", value: "status" },
   ];
 
