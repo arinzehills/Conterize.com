@@ -46,6 +46,7 @@ const Company = () => {
     short_description: loading ? "" : info?.["short_description"],
     target_audience: loading ? "" : info?.["target_audience"],
     additional_info: loading ? "" : info?.["additional_info"],
+    nationality: nationality,
   };
   const [formValues, setFormValues] = useState(initialValues);
   useEffect(() => {
@@ -84,6 +85,7 @@ const Company = () => {
       short_description: formValues.short_description,
       target_audience: formValues.target_audience,
       additional_info: formValues.additional_info,
+      nationality: nationality,
     };
     // const url="http://localhost/buyenergy_api/public/api/register";
     const url = window.baseUrl + "updateCompany";
