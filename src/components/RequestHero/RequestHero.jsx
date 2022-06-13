@@ -12,6 +12,7 @@ import TextArea from "../Inputfield/TextArea";
 import InputWithIcon from "../InputWithIcon/InputWithIcon";
 import Modal2 from "../Modal/Modal2";
 import DraftReqestModal from "./DraftReqestModal";
+import SupportUpload from "./SupportUpload";
 
 const RequestHero = ({ requestTitle, requestType }) => {
   const [click, setClick] = useOutletContext();
@@ -445,12 +446,14 @@ const RequestHero = ({ requestTitle, requestType }) => {
 
             <h3>Supporting materials </h3>
 
-            <InputWithIcon
+            {/* <InputWithIcon
               onClickIcon={handleClickMaterials}
               value={filesnamesList}
               placeholder={filesnamesList}
               onHandleChange={handleChange}
-            />
+              showbtn={true}
+            /> */}
+            <SupportUpload onClickBtn={handleClickMaterials} />
             <input
               type="file"
               // name=""

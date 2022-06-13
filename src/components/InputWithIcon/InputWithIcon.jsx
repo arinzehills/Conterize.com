@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import DashboardInput from "../../pages/Dashboard/components/DashboardInput/DashboardInput";
+import { Button } from "../Button/Button";
 
 const InputWithIcon = ({
   inputData,
@@ -13,6 +14,7 @@ const InputWithIcon = ({
   ref,
   value,
   inputHeight,
+  showbtn,
 }) => {
   return (
     <>
@@ -51,10 +53,14 @@ const InputWithIcon = ({
             // display: "none",
           }}
         >
-          <Icon
-            icon={iconName ?? "fa-solid:file-upload"}
-            onClick={onClickIcon}
-          />
+          {showbtn ? (
+            <Button>Upload File</Button>
+          ) : (
+            <Icon
+              icon={iconName ?? "fa-solid:file-upload"}
+              onClick={onClickIcon}
+            />
+          )}
         </div>
       </div>
     </>
