@@ -43,7 +43,6 @@ const RequestHero = ({ requestTitle, requestType }) => {
     supporting_info: "",
     supporting_materials: [{}],
     video_format: "ddsadas",
-    overview: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
   const inputValues = [
@@ -57,7 +56,6 @@ const RequestHero = ({ requestTitle, requestType }) => {
     formValues.writing_topics,
     formValues.supporting_info,
     formValues.supporting_materials,
-    formValues.overview,
   ];
 
   const handleAddLinks = () => {
@@ -122,7 +120,6 @@ const RequestHero = ({ requestTitle, requestType }) => {
     data.append("size", formValues.size);
     data.append("description", formValues.description);
     data.append("writing_topics", formValues.writing_topics);
-    data.append("overview", formValues.overview);
     formValues.reference_links.forEach((item) => {
       data.append("reference_links[]", JSON.stringify(item));
     });
@@ -253,11 +250,11 @@ const RequestHero = ({ requestTitle, requestType }) => {
       <div className="request-section">
         <div className="request-first-container">
           <h3>
-            pick your name for your
+            pick a name for your
             {requestType == "video"
-              ? "Video Creation"
+              ? " Video Creation"
               : requestType == "graphics"
-              ? "Graphics Design"
+              ? " Graphics Design"
               : " Writing "}
           </h3>
 
@@ -354,6 +351,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
                 name="links"
                 iconName={"bi:dash-square-fill"}
                 style={{ width: "100%" }}
+                inputHeight="37px"
                 placeholder="Type here or select"
                 onClickIcon={() => handleRemoveLinks(index)}
                 onHandleChange={(e) => handleLinksChange(e, index)}
@@ -376,18 +374,30 @@ const RequestHero = ({ requestTitle, requestType }) => {
             </div>
           ))}
 
-          <h3>Descriptions </h3>
+          <h3>Description </h3>
           <TextArea
             // style={{ width: "100%", height: "70px" }}
             name={"description"}
             width={"98%"}
-            placeholder="type here..."
+            label={
+              requestType == "video"
+                ? "Write a short description your video"
+                : requestType == "graphics"
+                ? "Write a short description your graphic"
+                : "Write a short description your content "
+            }
             value={formValues.description}
             onHandleChange={handleChange}
           />
           <p className="errors">{formErrors.description}</p>
 
-          <h3>Writing Topics/Text </h3>
+          <h3>
+            {requestType == "video"
+              ? "Text"
+              : requestType == "graphics"
+              ? "Text"
+              : "Writing Topics "}
+          </h3>
           <DashboardInput
             style={{ width: "100%" }}
             name="writing_topics"
@@ -402,7 +412,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
           style={{ width: window.innerWidth < 960 && "100%" }}
         >
           <div className="request-scn-container">
-            {requestType === "video" && (
+            {/* {requestType === "video" && (
               <div>
                 <h3>Overview</h3>
                 <TextArea
@@ -415,13 +425,19 @@ const RequestHero = ({ requestTitle, requestType }) => {
                 />
                 <p className="errors">{formErrors.overview}</p>
               </div>
-            )}
+            )} */}
             <h3>supporting info</h3>
             <TextArea
               // style={{ width: "100%", height: "70px" }}
               name={"supporting_info"}
               width={"98%"}
-              placeholder="type here..."
+              label={
+                requestType == "video"
+                  ? "Pls write any other instruction for video creator regarding this request"
+                  : requestType == "graphics"
+                  ? "Pls write any other instruction for your graphic designer regarding this request"
+                  : "Pls write any other instruction for your writer regarding this request "
+              }
               value={formValues.supporting_info}
               onHandleChange={handleChange}
             />

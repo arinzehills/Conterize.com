@@ -12,6 +12,7 @@ const InputWithIcon = ({
   inputType,
   ref,
   value,
+  inputHeight,
 }) => {
   return (
     <>
@@ -33,7 +34,7 @@ const InputWithIcon = ({
           type={inputType}
           {...inputData}
           name={name}
-          style={{ width: "100%", height: 50 }}
+          style={{ width: "100%", height: inputHeight ?? 50 }}
           onHandleChange={onHandleChange}
           ref={ref}
           value={value}
