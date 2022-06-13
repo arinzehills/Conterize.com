@@ -219,7 +219,7 @@ const Home = () => {
                   </p>
                 </div>
                 <div className="greetings-img">
-                  <img src="/svg/womandashboard.svg" alt="" />
+                  {/* <img src="/svg/womandashboard.svg" alt="" /> */}
                 </div>
               </div>
               <div className="dash-card_wrapper">

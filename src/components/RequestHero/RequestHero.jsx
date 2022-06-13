@@ -382,10 +382,10 @@ const RequestHero = ({ requestTitle, requestType }) => {
             width={"98%"}
             label={
               requestType == "video"
-                ? "Write a short description your video"
+                ? "Write a short description  ofyour video"
                 : requestType == "graphics"
-                ? "Write a short description your graphic"
-                : "Write a short description your content "
+                ? "Write a short description of your graphic"
+                : "Write a short description of your content "
             }
             value={formValues.description}
             onHandleChange={handleChange}
