@@ -72,6 +72,7 @@ const Company = () => {
   };
   const updateCompany = async () => {
     // setLoading(true);
+    console.log();
     setShowModal(true);
     const errors = {};
     const data = {
@@ -85,7 +86,7 @@ const Company = () => {
       short_description: formValues.short_description,
       target_audience: formValues.target_audience,
       additional_info: formValues.additional_info,
-      nationality: nationality,
+      nationality: nationality === "Select Nationality" ? null : nationality,
     };
     // const url="http://localhost/buyenergy_api/public/api/register";
     const url = window.baseUrl + "updateCompany";

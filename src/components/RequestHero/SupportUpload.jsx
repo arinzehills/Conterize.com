@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { Button } from "../Button/Button";
 
-const SupportUpload = ({ onClickBtn }) => {
+const SupportUpload = ({ onClickBtn, fileNamesRef }) => {
   return (
     <>
       <div
@@ -25,7 +25,9 @@ const SupportUpload = ({ onClickBtn }) => {
           <Icon icon="akar-icons:circle-plus-fill" fontSize={23} />
           Upload File
         </Button>
-        <p>click to upload a file that your creator will use</p>
+        <p ref={fileNamesRef}>
+          click to upload a file that your creator will use
+        </p>
       </div>
     </>
   );

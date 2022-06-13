@@ -19,6 +19,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
   const handleClick = () => setClick(!click);
   const history = useNavigate();
   let [referenceLinks, setReferenceLinks] = useState([{ links: "" }]);
+  let [writing_topics, setWriting_topics] = useState([{ topics: "" }]);
   const [loading, setLoading] = useState(false);
   const [showDraftModal, setShowDraftModal] = useState(false);
   const [formErrors, setFormErrors] = useState({});
@@ -42,7 +43,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
     description: "",
     writing_topics: "",
     supporting_info: "",
-    supporting_materials: [{}],
+    supporting_materials: [],
     video_format: "ddsadas",
   };
   const [formValues, setFormValues] = useState(initialValues);
@@ -74,11 +75,30 @@ const RequestHero = ({ requestTitle, requestType }) => {
     list[index][name] = value;
     setReferenceLinks(list);
   };
+
   // console.log(referenceLinks);
   useEffect(() => {
     setFormValues({ ...formValues, reference_links: referenceLinks });
   }, [referenceLinks]);
+  useEffect(() => {
+    setFormValues({ ...formValues, writing_topics: writing_topics });
+  }, [writing_topics]);
 
+  const handleAddTopics = () => {
+    setWriting_topics([...writing_topics, { links: "" }]);
+  };
+  const handleRemoveTopics = (index) => {
+    const list = [...writing_topics];
+    list.splice(index, 1); //starting from index zero remove one service
+    setWriting_topics(list); //set links to new list
+  };
+  const handleTopicsChange = (e, index) => {
+    const { name, value } = e.target;
+    console.log(e.target.name);
+    const list = [...writing_topics];
+    list[index][name] = value;
+    setWriting_topics(list);
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -208,8 +228,10 @@ const RequestHero = ({ requestTitle, requestType }) => {
   };
   const [files, setFiles] = useState([]);
   const pickFileRef = React.useRef();
+  const fileNamesRef = React.useRef();
 
   const handlePickFiles = (e) => {
+    setFilesnamesList([]);
     e.preventDefault();
 
     setFiles(e.target.files);
@@ -218,19 +240,24 @@ const RequestHero = ({ requestTitle, requestType }) => {
       supporting_materials: e.target.files,
     });
   };
-  useEffect(() => {
+  const handleAddMaterialsNames = () => {
+    const newArr = [];
     for (let i = 0; i < formValues.supporting_materials.length; i++) {
-      // console.log(formValues.supporting_materials[i].name);
-      setFilesnamesList([
-        ...filesnamesList,
-        formValues.supporting_materials[i].name,
-      ]);
+      console.log(formValues.supporting_materials[i].name);
+      newArr.push(formValues.supporting_materials[i].name);
     }
+    setFilesnamesList([...filesnamesList, ...newArr]);
+  };
+
+  useEffect(() => {
+    handleAddMaterialsNames();
+    // fileNamesRef = "dsjkds";
   }, [formValues.supporting_materials]);
   const handleClickMaterials = () => {
     pickFileRef.current.click();
   };
-  console.log(isDraft);
+  console.log(filesnamesList);
+  console.log(formValues.supporting_materials.length);
   return (
     <>
       <ReactNotifications />
@@ -374,7 +401,37 @@ const RequestHero = ({ requestTitle, requestType }) => {
                 )}
             </div>
           ))}
-
+          {requestType === "content" && <h3>Writing topics </h3>}
+          {requestType === "content" &&
+            writing_topics.map((links, index) => (
+              <div style={{ marginTop: "0.4rem" }} key={index}>
+                <InputWithIcon
+                  // inputkey={index + 1}
+                  name="links"
+                  iconName={"bi:dash-square-fill"}
+                  style={{ width: "100%" }}
+                  inputHeight="37px"
+                  placeholder="Type here or select"
+                  onClickIcon={() => handleRemoveTopics(index)}
+                  onHandleChange={(e) => handleTopicsChange(e, index)}
+                />
+                {writing_topics.length - 1 === index &&
+                  writing_topics.length < 3 && (
+                    <div
+                      style={{
+                        color: "var(--light-purple)",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                      }}
+                      onClick={handleAddTopics}
+                    >
+                      <Icon icon="akar-icons:circle-plus-fill" fontSize={23} />
+                      <p>Add Another</p>
+                    </div>
+                  )}
+              </div>
+            ))}
           <h3>Description </h3>
           <TextArea
             // style={{ width: "100%", height: "70px" }}
@@ -391,22 +448,6 @@ const RequestHero = ({ requestTitle, requestType }) => {
             onHandleChange={handleChange}
           />
           <p className="errors">{formErrors.description}</p>
-
-          <h3>
-            {requestType == "video"
-              ? "Text"
-              : requestType == "graphics"
-              ? "Text"
-              : "Writing Topics "}
-          </h3>
-          <DashboardInput
-            style={{ width: "100%" }}
-            name="writing_topics"
-            placeholder="type here..."
-            value={formValues.writing_topics}
-            onHandleChange={handleChange}
-          />
-          <p className="errors">{formErrors.writing_topics}</p>
         </div>
         <div
           className="div"
@@ -453,7 +494,11 @@ const RequestHero = ({ requestTitle, requestType }) => {
               onHandleChange={handleChange}
               showbtn={true}
             /> */}
-            <SupportUpload onClickBtn={handleClickMaterials} />
+            <p>{filesnamesList.join(",")}</p>
+            <SupportUpload
+              onClickBtn={handleClickMaterials}
+              fileNamesRef={fileNamesRef}
+            />
             <input
               type="file"
               // name=""
