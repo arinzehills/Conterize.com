@@ -125,7 +125,7 @@ const AddCompany = ({ isEdit }) => {
             backgroundColor: "var(--success)",
           });
           console.log(data);
-          history(-1);
+          //   history(-1);
         } else {
           const error = 'data["email"][0]';
           // console.log(error);
