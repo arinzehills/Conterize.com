@@ -29,7 +29,7 @@ const useFetch = ({ fetchParamData, url, secondParam, method }) => {
           setError(error.message);
         });
     }, [1000]);
-  }, [url, secondParam]);
+  }, [url, secondParam, loading]);
 
   return { data, loading, error };
 };
