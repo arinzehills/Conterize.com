@@ -88,6 +88,24 @@ const Company = () => {
       </>
     );
   };
+  const NoCompanyAdded = () => {
+    return (
+      <>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            // width: "100%",
+            // height: "10px",
+          }}
+        >
+          <img src="/images/dullbaby.png" alt="" />
+          <h3>No Companies Added</h3>
+        </div>
+      </>
+    );
+  };
   return (
     <>
       <div>
@@ -112,9 +130,16 @@ const Company = () => {
             <Button buttonColor={"gradient"}>Add Company</Button>
           </Link>
         </div>
-        <div className="companies_section">
+        <div
+          className="companies_section"
+          style={{
+            display: companyInfo?.["company_info"].length === 0 && "flex",
+          }}
+        >
           {loading ? (
             <Modal2 />
+          ) : companyInfo?.["company_info"].length === 0 ? (
+            <NoCompanyAdded />
           ) : (
             companyInfo?.["company_info"].map((item) => (
               <CompaniesContainer
