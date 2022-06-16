@@ -119,7 +119,9 @@ const Company = () => {
             justifyContent: "space-between",
           }}
         >
-          <h3>{companyInfo?.["company_info"].length} Companies added</h3>
+          <h3 style={{ textAlign: "left" }}>
+            {companyInfo?.["company_info"].length} Companies added
+          </h3>
           <Link
             to="/dashboard/addcompany"
             state={{

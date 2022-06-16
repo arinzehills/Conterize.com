@@ -41,7 +41,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
     size: "",
     reference_links: [{}],
     description: "",
-    writing_topics: "",
+    writing_topics: [],
     supporting_info: "",
     supporting_materials: [],
     video_format: "ddsadas",
@@ -141,6 +141,9 @@ const RequestHero = ({ requestTitle, requestType }) => {
     data.append("size", formValues.size);
     data.append("description", formValues.description);
     data.append("writing_topics", formValues.writing_topics);
+    formValues.writing_topics.forEach((item) => {
+      data.append("writing_topics[]", JSON.stringify(item));
+    });
     formValues.reference_links.forEach((item) => {
       data.append("reference_links[]", JSON.stringify(item));
     });
@@ -172,7 +175,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
           console.log("success");
           handleNot({
             title: "Success",
-            message: "Your data have been updated!",
+            message: "Your request have been Placed!",
             backgroundColor: "var(--success)",
           });
           setLoading(false);
@@ -439,7 +442,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
             width={"98%"}
             label={
               requestType == "video"
-                ? "Write a short description  ofyour video"
+                ? "Write a short description  of your video"
                 : requestType == "graphics"
                 ? "Write a short description of your graphic"
                 : "Write a short description of your content "

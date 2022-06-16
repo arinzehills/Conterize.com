@@ -1,0 +1,32 @@
+.request_detail_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+.request_detail_container {
+  background: white;
+  box-shadow: var(--box-shadow);
+  width: 87%;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+.request_detail_contents {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  text-align: left;
+  /* background: red; */
+  line-height: 0.5;
+}
+.request_detail_contents h4 {
+  display: flex;
+  align-items: center;
+  /* gap: 0rem; */
+}
+.request_detail_contents p {
+  color: grey;
+  font-size: 12px;
+  line-height: 0;
+  margin-top: 0;
+}

@@ -27,6 +27,7 @@ import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
 import Orders from "./pages/Admin/Orders/Orders";
 import Freelancers from "./pages/Admin/Freelancers/Freelancers";
 import AddCompany from "./pages/Dashboard/Company/AddCompany";
+import RequestDetail from "./pages/Dashboard/Request/RequestDetail/RequestDetail";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -46,6 +47,7 @@ function App() {
         </Route>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="request" element={<Request />} />
+          <Route path="requestdetail" element={<RequestDetail />} />
           <Route path="addcompany" element={<AddCompany />} />
           <Route path="company" element={<Company />} />
           <Route path="team" element={<Team />} />
@@ -67,7 +69,7 @@ function App() {
         <Route path="/login" exact element={<Login />} />
         <Route path="/register" exact element={<Register />} />
         <Route
-          path="/contentregistration"
+          path="/creatorsregistration"
           exact
           element={<CreatorsRegistration />}
         />

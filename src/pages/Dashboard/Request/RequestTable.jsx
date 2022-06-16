@@ -6,6 +6,7 @@ import ProfilePicsComponent from "../../../components/ProfilePicsComponent/Profi
 import useFetch from "../../../useFetch";
 import useUser from "../../../useUser";
 import FreelancersModal from "../../Admin/Freelancers/FreelancersModal";
+import IconAndName, { StatusWidget } from "./IconsWidget";
 import NoDataFound from "./NoDataFound";
 import "./RequestTable.css";
 const RequestTable = ({
@@ -17,6 +18,8 @@ const RequestTable = ({
   columnData,
   activeRow,
   setActiveRow,
+  onClickRow,
+  runDefualtFunc, //this is to determine wether to run the deafault select multiple items or run your own custom function pass as prop(i.e onClickRow Function) here
 }) => {
   const [showAssignFreelacer, setShowAssignFreelacer] = useState(false);
   const CaretIcon = () => {
@@ -31,87 +34,6 @@ const RequestTable = ({
       </>
     );
   };
-  const IconWrapper = ({ type }) => {
-    return (
-      <>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background:
-              type === "content"
-                ? "#F25B32"
-                : type === "graphics"
-                ? "#00C32B"
-                : type === "video"
-                ? "#00C4F0"
-                : "white",
-            color: type === "calendar" ? "grey" : "white",
-            borderRadius: "50%",
-            padding: "5px",
-            fontSize: "12px",
-          }}
-        >
-          {type === "calendar" && (
-            <Icon
-              icon="healthicons:i-schedule-school-date-time"
-              fontSize={"20px"}
-              color="gray"
-            />
-          )}
-          {type === "content" && (
-            <Icon icon="bxs:bar-chart-square" rotate={1} />
-          )}
-          {type === "graphics" && <Icon icon="fa6-solid:radio" />}
-          {type === "video" && <Icon icon="eva:video-fill" />}
-        </div>
-      </>
-    );
-  };
-
-  const IconAndName = ({ type, title }) => {
-    return (
-      <div className="dashboard-card-row">
-        <IconWrapper type={type} />
-        <p style={{ color: type === "calendar" && "grey" }}>
-          {title ?? "title"}
-        </p>
-      </div>
-    );
-  };
-  const StatusWidget = ({ title, status }) => {
-    return (
-      <div
-        style={{
-          display: "flex",
-          borderRadius: "20px",
-          height: "16px",
-          padding: "5px 0",
-          textTransform: "uppercase",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "10px",
-          fontWeight: "500",
-          background:
-            status === "active"
-              ? "#00c32a59"
-              : status === "under review"
-              ? "#f25c323e"
-              : "var(--grey)",
-          color:
-            status === "active"
-              ? "green"
-              : status === "under review"
-              ? "#FF724A"
-              : "grey",
-        }}
-      >
-        <p>{title ?? "title"}</p>
-      </div>
-    );
-  };
-
   const TableHeadItem = ({ item, index }) => (
     <th key={index}>
       {item.heading} <CaretIcon />
@@ -178,20 +100,15 @@ const RequestTable = ({
   };
 
   let objHasSelected = Object.values(activeRow).some((value) => value === true);
-  console.log(showAssignFreelacer);
-  console.log(activeRow);
+  // console.log(showAssignFreelacer);
+  // console.log(activeRow);
 
   const [requestToReassign, setRequestToReassign] = useState([]);
-  console.log(requestToReassign);
 
   useEffect(() => {
     // setRequestToReassign([]);
     for (const [key, value] of Object.entries(activeRow)) {
       if (value === objHasSelected) {
-        // console.log(`${key}: ${value}`);
-        // console.log(Object.entries(activeRow[0]));
-        console.log(data[`${key}`]);
-        // console.log(data);
         setRequestToReassign([...requestToReassign, data[`${key}`]]);
       }
     }
@@ -263,7 +180,11 @@ const RequestTable = ({
                     activeRow={activeRow[index]}
                     // activeRow={activeRow}
                     // onClick={handleActiveRow}
-                    onClick={handleActiveRow(index)}
+                    onClick={
+                      runDefualtFunc === false
+                        ? () => onClickRow(item)
+                        : handleActiveRow(index)
+                    }
                   />
                 ))
             )}
