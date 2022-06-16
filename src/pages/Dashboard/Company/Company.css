@@ -55,7 +55,7 @@
   /* line-height: 3px; */
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 760px) {
   .company-row {
     flex-wrap: wrap;
     /* display: none; */

@@ -82,6 +82,7 @@ const RequestTable = ({
               <ProfilePicsComponent
                 name={item[`${columnItem.value}`] ?? "Hills"}
                 isCirclular={true}
+                isImage={true}
               />
             ) : (
               item[`${columnItem.value}`]

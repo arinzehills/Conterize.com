@@ -41,7 +41,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
     size: "",
     reference_links: [{}],
     description: "",
-    writing_topics: [],
+    writing_topics: [{}],
     supporting_info: "",
     supporting_materials: [],
     video_format: "ddsadas",
@@ -85,8 +85,10 @@ const RequestHero = ({ requestTitle, requestType }) => {
   }, [writing_topics]);
 
   const handleAddTopics = () => {
-    setWriting_topics([...writing_topics, { links: "" }]);
+    setWriting_topics([...writing_topics, { topics: "" }]);
   };
+  console.log(formValues.writing_topics);
+  console.log(formValues.reference_links);
   const handleRemoveTopics = (index) => {
     const list = [...writing_topics];
     list.splice(index, 1); //starting from index zero remove one service
@@ -119,7 +121,6 @@ const RequestHero = ({ requestTitle, requestType }) => {
     console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       // setLoading(true)
-
       requestContent();
     }
   }, [formErrors]);
@@ -140,7 +141,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
     data.append("quantity", formValues.quantity);
     data.append("size", formValues.size);
     data.append("description", formValues.description);
-    data.append("writing_topics", formValues.writing_topics);
+    // data.append("writing_topics", formValues.writing_topics);
     formValues.writing_topics.forEach((item) => {
       data.append("writing_topics[]", JSON.stringify(item));
     });
@@ -406,11 +407,11 @@ const RequestHero = ({ requestTitle, requestType }) => {
           ))}
           {requestType === "content" && <h3>Writing topics </h3>}
           {requestType === "content" &&
-            writing_topics.map((links, index) => (
+            writing_topics.map((topics, index) => (
               <div style={{ marginTop: "0.4rem" }} key={index}>
                 <InputWithIcon
                   // inputkey={index + 1}
-                  name="links"
+                  name="topics"
                   iconName={"bi:dash-square-fill"}
                   style={{ width: "100%" }}
                   inputHeight="37px"

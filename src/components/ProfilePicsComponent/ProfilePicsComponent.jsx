@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import "./ProfilePicsComponent.css";
-const ProfilePicsComponent = ({ name, isCirclular, userType }) => {
+const ProfilePicsComponent = ({ name, isCirclular, userType, isImage }) => {
   return (
     <>
       <div
@@ -10,7 +10,7 @@ const ProfilePicsComponent = ({ name, isCirclular, userType }) => {
         <div
           className={isCirclular ? "pic-wrapper iscircular" : "pic-wrapper "}
         >
-          <img src="/svg/avatar.svg" alt="" />
+          {isImage ? <img src="/svg/avatar.svg" alt="" /> : name.charAt(0)}
         </div>
 
         <div
