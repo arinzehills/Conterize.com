@@ -46,7 +46,7 @@ const ContentCreators = () => {
   ];
   return (
     <>
-      <Hero {...workData} buttonLink={"/contentregistration"} />
+      <Hero {...workData} buttonLink={"/creatorsregistration"} />
       <GuaranteeHero
         descArr={desArr}
         headline="How does it work for Content creators?"
@@ -55,7 +55,7 @@ const ContentCreators = () => {
         {...dataArr2}
         marginfrBg="-11rem"
         bgheight="550px"
-        buttonLink={"/contentregistration"}
+        buttonLink={"/creatorsregistration"}
       />
       <div style={{ height: "52px", color: "white", marginTop: "2rem" }}>
         dsadsaa
