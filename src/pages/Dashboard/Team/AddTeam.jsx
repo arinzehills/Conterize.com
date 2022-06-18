@@ -99,8 +99,9 @@ const AddTeam = ({ openModal, setOpenModal, children }) => {
                     <SaveButton
                       //   onClick={updateCompany}
                       // onClick={handleNot}
+                      // secondBtnSize={"10rem"}
                       onClick2={() => setOpenModal(false)}
-                      labels={["Cancel", "Save"]}
+                      labels={["Cancel", "Invite "]}
                     />
                   </div>
                 )}
