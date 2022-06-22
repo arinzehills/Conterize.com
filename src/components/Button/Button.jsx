@@ -12,7 +12,7 @@ export const Button = ({
 }) => {
   const COLOR = ["pink", "blue", "gradient"];
   const STYLES = ["btn--normal", "btn--outline", "btn--rounded"];
-  const SIZES = ["btn--medium", "btn--large", "btn--wide"];
+  const SIZES = ["btn--medium", "btn--large", "btn--wide", "btn--small"];
   const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
     : STYLES[0];

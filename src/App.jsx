@@ -28,6 +28,7 @@ import Orders from "./pages/Admin/Orders/Orders";
 import Freelancers from "./pages/Admin/Freelancers/Freelancers";
 import AddCompany from "./pages/Dashboard/Company/AddCompany";
 import RequestDetail from "./pages/Dashboard/Request/RequestDetail/RequestDetail";
+import AcceptInvitation from "./pages/Dashboard/Team/AcceptInvitation";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -67,7 +68,8 @@ function App() {
           <Route index element={<AdminDashboard />} />
         </Route>
         <Route path="/login" exact element={<Login />} />
-        <Route path="/register" exact element={<Register />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/acceptInvite" element={<AcceptInvitation />} />
         <Route
           path="/creatorsregistration"
           exact

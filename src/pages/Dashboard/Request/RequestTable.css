@@ -73,6 +73,9 @@ td:nth-child(2) {
     display: block;
   } */
 }
+.positionClass {
+  position: absolute;
+}
 @media screen and (max-width: 1200px) {
   /* display col 1,2, and last column */
 }

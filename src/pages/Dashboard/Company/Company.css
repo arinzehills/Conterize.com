@@ -8,11 +8,13 @@
 }
 .animate-company-section {
   opacity: 1;
+  scale: 1;
   transition: all 0.82s ease-in-out;
   position: relative;
 }
 .animate-company-section.none {
   opacity: 0;
+  scale: 0;
   transition: all 1.2s ease-in-out;
   transform: translate(-100%);
   position: absolute;

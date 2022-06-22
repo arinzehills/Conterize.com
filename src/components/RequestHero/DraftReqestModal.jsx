@@ -4,28 +4,26 @@ import Loader from "../Loader/Loader";
 import Modal2 from "../Modal/Modal2";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DraftReqestModal = ({ onClick, onClick2, top, message }) => {
+const DraftReqestModal = ({ onClick, setOpenModal, top, message }) => {
   let boolx = true;
   const stopPropagation = (event) => {
     event.stopPropagation();
   };
   return (
     <AnimatePresence>
-      <div className="modalBackground">
+      <div className="addteam_backdrop" onClick={() => setOpenModal(false)}>
         <motion.div
+          className="addteam_content_wrapper"
           style={{
-            top: top ?? "35%",
-            right: "50%",
             borderRadius: "50px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: 9999999,
             position: "absolute",
             flexDirection: "column",
             background: "white",
-            backdropFilter: blur("33px"),
-            transition: "all 0.3s ease-out",
+            // backdropFilter: blur("33px"),
+            // transition: "all 0.3s ease-out",
 
             height: 300,
             width: 250,
@@ -54,7 +52,7 @@ const DraftReqestModal = ({ onClick, onClick2, top, message }) => {
             <SaveButton
               title="Personadsdsal Info"
               labels={["No", "Yes"]}
-              onClick2={onClick2}
+              onClick2={() => setOpenModal(false)}
               onClick={onClick}
             />
           )}

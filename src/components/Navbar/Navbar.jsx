@@ -90,7 +90,7 @@ const Navbar = () => {
             {!button && (
               <div>
                 <li className="nav-btn" onClick={closeMobileMenu}>
-                  <Link to="/dashboard">
+                  <Link to="/login">
                     <Button buttonStyle="btn--outline" buttonSize="btn--large">
                       Sign In
                     </Button>

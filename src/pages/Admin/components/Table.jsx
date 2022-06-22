@@ -15,19 +15,51 @@ const Table = ({
   setAssignFreelancerName,
   handleAssignFreelancer,
   messageNotFound,
+  showNotFoundPosition,
+  onClickRowButton,
+  onClickResendButton,
+  setDeleteModal,
+  isInvition,
+  showCaret,
 }) => {
   const [showAssignModal, setShowAssignModal] = useState(false);
 
   const TableHeadItem = ({ item }) => (
     <th>
-      {item.heading} <CaretIcon />
+      {item.heading} {showCaret && <CaretIcon />}
     </th>
   );
   const handleClickRow = () => {};
   const TableRow = ({ item, column, index }) => (
     <tr onClick={() => console.log(item["firstname"])}>
       {column.map((columnItem, index) => {
-        return <td>{item[`${columnItem.value}`]}</td>;
+        return columnItem.value === "actions" ? (
+          <div>
+            {isInvition && (
+              <Button
+                buttonColor={"gradient"}
+                buttonSize={"btn--small"}
+                onClick={() => {
+                  onClickResendButton(item);
+                }}
+              >
+                Resend
+              </Button>
+            )}
+            <Button
+              buttonColor={"pink"}
+              buttonSize={"btn--small"}
+              onClick={() => {
+                // setDeleteModal(true);
+                onClickRowButton({ ModalState: true, item: item });
+              }}
+            >
+              Delete
+            </Button>
+          </div>
+        ) : (
+          <td>{item[`${columnItem.value}`]}</td>
+        );
       })}
       {isAdmin && (
         <Button
@@ -50,10 +82,7 @@ const Table = ({
           top={0}
           message={"Confirm Assign! "}
           onClick={handleAssignFreelancer}
-          onClick2={() => {
-            // setIsDraft("no");
-            setShowAssignModal(false);
-          }}
+          setOpenModal={setShowAssignModal}
         />
       )}
       <table>
@@ -62,6 +91,7 @@ const Table = ({
             {columnData.map((item, index) => (
               <TableHeadItem item={item} />
             ))}
+            {/* {isAdmin && <Button buttonColor={"pink"}></Button>} */}
           </tr>
         </thead>
         <tbody className="tabel_t_body">
@@ -71,8 +101,6 @@ const Table = ({
             ) : (
               <Loader position={"fixed"} top={"10%"} left={"20%"} />
             )
-          ) : data?.length === 0 ? (
-            <NoDataFound message={messageNotFound} />
           ) : (
             data.map((item, index) => (
               <TableRow
@@ -87,6 +115,12 @@ const Table = ({
           )}
         </tbody>
       </table>
+      {data?.length === 0 && (
+        <NoDataFound
+          message={messageNotFound}
+          showpositionClass={showNotFoundPosition}
+        />
+      )}
     </>
   );
 };

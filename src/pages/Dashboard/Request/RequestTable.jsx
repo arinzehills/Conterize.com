@@ -166,8 +166,6 @@ const RequestTable = ({
           <tbody>
             {loading ? (
               <Modal2 />
-            ) : data?.length === 0 ? (
-              <NoDataFound message={messageNotFound} />
             ) : (
               data
                 // requestss
@@ -211,6 +209,7 @@ const RequestTable = ({
                   </td> */}
           </tbody>
         </table>
+        {data?.length === 0 && <NoDataFound message={messageNotFound} />}
       </div>
     </>
   );
