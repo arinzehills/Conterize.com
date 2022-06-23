@@ -12,6 +12,8 @@ import NavComponent from "../NavComponent/NavComponent";
 import { ReactNotifications } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { Store } from "react-notifications-component";
+import { Button } from "../../../components/Button/Button";
+import { Icon } from "@iconify/react";
 
 const Settings = () => {
   const [click, setClick] = useOutletContext();
@@ -141,6 +143,14 @@ const Settings = () => {
         {/* <Modal2 /> */}
         {showModal && <Modal2 />}
         <ReactNotifications />
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Button buttonStyle={"btn--normal"} buttonColor="pink">
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+              <Icon icon="majesticons:logout-half-circle-line" />
+              Log Out
+            </div>
+          </Button>
+        </div>
         <div className="company-section">
           <div
             className="company-container"

@@ -15,6 +15,7 @@ const AddTeam = ({
   setHandleNot,
   setHandleNotColor,
   className,
+  bkdropclassName,
 }) => {
   const initialValues = { email: "", firstname: "", lastname: "" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -120,7 +121,7 @@ const AddTeam = ({
             exit={{
               opacity: 0,
             }}
-            className={`addteam_backdrop  `}
+            className={`addteam_backdrop ${bkdropclassName}  `}
             onClick={() => setOpenModal(false)}
           >
             <motion.div
