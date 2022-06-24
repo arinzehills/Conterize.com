@@ -6,7 +6,7 @@ import Modal2 from "../../components/Modal/Modal2";
 import useToken from "../../useToken";
 import useUser from "../../useUser";
 
-function Login() {
+function Login({ setHandleNotData }) {
   const initialValues = { email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [responseError, setResponseError] = useState("");
@@ -71,7 +71,7 @@ function Login() {
         if (data["success"] === true) {
           const token = data["token"];
           const user = data["user"];
-
+          setHandleNotData({ message: data.message });
           setToken(token);
           setUser(user);
           history("/dashboard");

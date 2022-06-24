@@ -40,9 +40,7 @@ const IconWrapper = ({ type, IconPadding, iconFontSize }) => {
           fontSize: iconFontSize ?? "12px",
         }}
       >
-        {type === "request" && (
-          <Icon borderRadius="1em" icon="bxs:bar-chart-square" />
-        )}
+        {type === "request" && <Icon icon="bxs:bar-chart-square" />}
         {type === "content" && <Icon icon="bxs:bar-chart-square" rotate={1} />}
         {type === "graphics" && <Icon icon="fa6-solid:radio" />}
         {type === "video" && <Icon icon="eva:video-fill" />}
@@ -153,7 +151,7 @@ const RequestProgressCard = ({ title, value, profileName, userType }) => {
   );
 };
 
-const Home = () => {
+const Home = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const [date, setDate] = useState(new Date());
@@ -201,6 +199,7 @@ const Home = () => {
       <NavComponent
         handleClick={handleClick}
         personsName={user?.["firstname"]}
+        setHandleNotData={setHandleNotData}
       />
       <div className="home">
         <div className="dashboard-wrapper">

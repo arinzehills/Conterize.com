@@ -10,7 +10,7 @@ import NavComponent from "../../NavComponent/NavComponent";
 import IconAndName, { StatusWidget } from "../IconsWidget";
 import "./RequestDetail.css";
 
-const RequestDetail = () => {
+const RequestDetail = ({ setHandleNotData }) => {
   const handleClick = () => setClick(!click);
   const location = useLocation();
   const history = useNavigate();
@@ -58,6 +58,7 @@ const RequestDetail = () => {
       <NavComponent
         pageTitle={`Request>>${location.state.item.request_name}`}
         handleClick={handleClick}
+        setHandleNotData={setHandleNotData}
       />
 
       <div className="request_detail_section">

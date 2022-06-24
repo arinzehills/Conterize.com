@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import DropDownField from "../../../components/Inputfield/DropDownField";
 import Modal2 from "../../../components/Modal/Modal2";
 import useFetch from "../../../useFetch";
@@ -14,8 +14,9 @@ import "react-notifications-component/dist/theme.css";
 import { Store } from "react-notifications-component";
 import { Button } from "../../../components/Button/Button";
 import { Icon } from "@iconify/react";
+import logout from "../../../components/ProfilePicsComponent/logout";
 
-const Settings = () => {
+const Settings = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const { token, setToken } = useToken();
@@ -23,6 +24,7 @@ const Settings = () => {
   const [timeZone, setTimeZone] = useState("Select TimeZone");
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState("");
+  const history = useNavigate();
 
   const timeZones = ["nigeria", "ghana"];
   const initialValues = {
@@ -139,12 +141,27 @@ const Settings = () => {
   return (
     <>
       <div>
-        <NavComponent pageTitle="Settings" handleClick={handleClick} />
+        <NavComponent
+          pageTitle="Settings"
+          handleClick={handleClick}
+          setHandleNotData={setHandleNotData}
+        />
         {/* <Modal2 /> */}
         {showModal && <Modal2 />}
         <ReactNotifications />
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button buttonStyle={"btn--normal"} buttonColor="pink">
+          <Button
+            buttonStyle={"btn--normal"}
+            buttonColor="pink"
+            onClick={() =>
+              logout({
+                token: token,
+                setToken: setToken,
+                history: history,
+                setHandleNotData: setHandleNotData,
+              })
+            }
+          >
             <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
               <Icon icon="majesticons:logout-half-circle-line" />
               Log Out

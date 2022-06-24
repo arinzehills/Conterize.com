@@ -10,7 +10,7 @@ import useUser from "../../../useUser";
 import useFetch from "../../../useFetch";
 import Modal2 from "../../../components/Modal/Modal2";
 
-const Company = () => {
+const Company = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const history = useNavigate();
@@ -109,7 +109,11 @@ const Company = () => {
   return (
     <>
       <div>
-        <NavComponent pageTitle="Companies" handleClick={handleClick} />
+        <NavComponent
+          pageTitle="Companies"
+          handleClick={handleClick}
+          setHandleNotData={setHandleNotData}
+        />
         {/* <DashboardInput inputSize="width-495" /> */}
         {/* this contains the add button */}
         <div

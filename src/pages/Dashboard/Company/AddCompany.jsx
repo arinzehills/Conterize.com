@@ -18,7 +18,7 @@ import { Button } from "../../../components/Button/Button";
 import handleNot from "../../../components/HandleNotification/HandleNot";
 // import "animate.css/animate.min.css";
 // import ''
-const AddCompany = ({ isEdit }) => {
+const AddCompany = ({ isEdit, setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const [nationality, setNationality] = useState("Select Nationality");
@@ -155,7 +155,11 @@ const AddCompany = ({ isEdit }) => {
     <>
       {isEdit ? loading ? <Modal2 /> : "" : ""}
       <div>
-        <NavComponent pageTitle="Add Company" handleClick={handleClick} />
+        <NavComponent
+          pageTitle="Add Company"
+          handleClick={handleClick}
+          setHandleNotData={setHandleNotData}
+        />
         {/* <DashboardInput inputSize="width-495" /> */}
 
         {showModal && <Modal2 />}

@@ -5,7 +5,7 @@ import useUser from "../../../useUser";
 import NavComponent from "../NavComponent/NavComponent";
 import RequestTable from "./RequestTable";
 
-const Request = () => {
+const Request = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const { user, setUser } = useUser();
@@ -47,7 +47,11 @@ const Request = () => {
   return (
     <>
       <div>
-        <NavComponent pageTitle="Request" handleClick={handleClick} />
+        <NavComponent
+          pageTitle="Request"
+          handleClick={handleClick}
+          setHandleNotData={setHandleNotData}
+        />
         <RequestTable
           title={"All Request"}
           data={requests?.["requests"]}

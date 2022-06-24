@@ -13,7 +13,7 @@ import NavComponent from "../NavComponent/NavComponent";
 import RequestTable from "../Request/RequestTable";
 import AddTeam from "./AddTeam";
 
-const Team = () => {
+const Team = ({ setHandleNotForTeam }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const [openModal, setOpenModal] = useState(true);
@@ -180,7 +180,11 @@ const Team = () => {
       <ReactNotifications />
 
       <div>
-        <NavComponent pageTitle="Team" handleClick={handleClick} />
+        <NavComponent
+          pageTitle="Team"
+          handleClick={handleClick}
+          setHandleNotData={setHandleNotForTeam}
+        />
         <div
           style={{
             display: "flex",

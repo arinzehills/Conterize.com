@@ -5,14 +5,18 @@ import "./NewRequest.css";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import NavComponent from "../NavComponent/NavComponent";
 
-const NewRequest = () => {
+const NewRequest = ({ setHandleNotData }) => {
   const navigate = useNavigate();
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
 
   return (
     <>
-      <NavComponent handleClick={handleClick} pageTitle={"New Request"} />
+      <NavComponent
+        handleClick={handleClick}
+        pageTitle={"New Request"}
+        setHandleNotData={setHandleNotData}
+      />
 
       <div className="new-request-section">
         <div className="new-request-container">

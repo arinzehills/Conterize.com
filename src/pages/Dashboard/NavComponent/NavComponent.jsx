@@ -9,6 +9,7 @@ function NavComponent({
   pageTitle,
   handleClick,
   showNotification,
+  setHandleNotData,
 }) {
   const { user, setUser } = useUser();
   return (
@@ -32,7 +33,7 @@ function NavComponent({
         <div className="nav-title-wrapper">
           {window.innerWidth > 960 && <h2>{pageTitle ?? "Dashboard"}</h2>}
         </div>
-        {window.innerWidth > 960 && (
+        {
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             {showNotification && (
               <Icon
@@ -45,14 +46,15 @@ function NavComponent({
               name={personsName ?? user?.["firstname"]}
               isCirclular={true}
               size="120px"
+              setHandleNotData={setHandleNotData}
             />
           </div>
-        )}
-        {window.innerWidth < 960 && (
-          <div className="nav-profile-wrapper">
-            <img src="/svg/avatar.svg" style={{ height: 20 }} alt="" />
-          </div>
-        )}
+        }
+        {/* {window.innerWidth < 960 && (
+            <div className="nav-profile-wrapper">
+              <img src="/svg/avatar.svg" style={{ height: 20 }} alt="" />
+            </div>
+          )} */}
       </div>
     </>
   );

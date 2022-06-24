@@ -1,27 +1,58 @@
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import useToken from "../../useToken";
+import useUser from "../../useUser";
+import logout from "./logout";
 import "./ProfilePicsComponent.css";
-const ProfilePicsComponent = ({ name, isCirclular, userType, isImage }) => {
+const ProfilePicsComponent = ({
+  name,
+  isCirclular,
+  userType,
+  isImage,
+  setHandleNotData,
+}) => {
   const [openDropDown, setOpenDropDown] = useState(false);
   console.log(openDropDown);
-
+  const { token, setToken } = useToken();
+  const { user, setUser } = useUser();
   const ProfileDropDown = ({ openDropDown, setOpenDropDown }) => {
     const stopPropagation = (event) => {
       event.stopPropagation();
     };
-    const IconAndName = ({ iconName, title }) => {
+    const IconAndName = ({ iconName, title, routeLink }) => {
       return (
-        <div className="dashboard-card-row">
+        <Link
+          to={`/dashboard/${routeLink}`}
+          style={{ textDecoration: "none", color: "black", cursor: "pointer" }}
+        >
+          {/* <Link to="/dashboard/team"> */}
+          <div className="dashboard-card-row prfrow">
+            <Icon
+              icon={iconName ?? "healthicons:i-schedule-school-date-time"}
+              fontSize={"20px"}
+              color="gray"
+            />
+            <p>{title}</p>
+          </div>
+        </Link>
+      );
+    };
+    const IconAndLogout = ({ iconName, title, onClick }) => {
+      return (
+        <div className="dashboard-card-row prfrow" onClick={onClick} style={{}}>
           <Icon
-            icon={iconName ?? "healthicons:i-schedule-school-date-time"}
+            icon={iconName ?? "uiw:logout"}
             fontSize={"20px"}
             color="gray"
           />
-          <p>{title}</p>
+          <p>{title ?? "Logout"}</p>
         </div>
       );
     };
+    const history = useNavigate();
+
     return (
       <AnimatePresence>
         {openDropDown && (
@@ -74,17 +105,29 @@ const ProfilePicsComponent = ({ name, isCirclular, userType, isImage }) => {
                 >
                   <IconAndName
                     title={"Teams"}
+                    routeLink={"team"}
                     iconName={"gridicons:multiple-users"}
                   />
                   <IconAndName
+                    routeLink={"settings"}
                     title={"Settings"}
                     iconName={"clarity:settings-outline-badged"}
                   />
                   <IconAndName
                     title={"Profile"}
+                    routeLink={"settings"}
                     iconName={"iconoir:profile-circled"}
                   />
-                  <IconAndName title={"Logout"} iconName={"uiw:logout"} />
+                  <IconAndLogout
+                    onClick={() =>
+                      logout({
+                        token: token,
+                        setToken: setToken,
+                        setHandleNotData: setHandleNotData,
+                        history: history,
+                      })
+                    }
+                  />
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -118,7 +161,7 @@ const ProfilePicsComponent = ({ name, isCirclular, userType, isImage }) => {
         </div>
 
         <div
-          className="pic-text"
+          className={isCirclular ? "pic-text iscircular" : "pic-text"}
           style={{
             justifyContent: isCirclular && "center",
           }}
@@ -131,7 +174,13 @@ const ProfilePicsComponent = ({ name, isCirclular, userType, isImage }) => {
           >
             {name}
           </p>
-          {isCirclular !== true && <span>{userType ?? "User"}</span>}
+          {!isCirclular && (
+            <span>
+              {
+                userType ?? "User" //this shows the type of user/normal/admin etc
+              }
+            </span>
+          )}
         </div>
         {isCirclular && ( //if this is a circlular profile pics component show this icon
           <div className="prf-pic-icon">
