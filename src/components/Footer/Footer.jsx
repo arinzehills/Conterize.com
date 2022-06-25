@@ -88,12 +88,13 @@ function Footer() {
               <div className="footer-logo">
                 <Link to="/" className="social-logo">
                   <img
-                    src="images/conterize.png"
-                    style={{ maxHeight: "160px" }}
+                    src="images/logo_white.png"
+                    style={{ maxHeight: "70px" }}
                     alt=""
                   />
                 </Link>
               </div>
+              <p style={{ color: "white" }}>All Rights Reserve</p>
               <small className="website-rights">Conterize.com © 2022</small>
               {/* <div className="social-icons">
                 <Link

@@ -164,9 +164,7 @@ const RequestTable = ({
             </tr>
           </thead>
           <tbody>
-            {loading ? (
-              <Modal2 />
-            ) : (
+            {!loading &&
               data
                 // requestss
                 .map((item, index) => (
@@ -185,8 +183,7 @@ const RequestTable = ({
                         : handleActiveRow(index)
                     }
                   />
-                ))
-            )}
+                ))}
             {/* /* {window.innerWidth > 740 && <td>{request.category ?? ""}</td>} */}
             {/* {window.innerWidth > 740 && (
                     <td>
@@ -209,6 +206,7 @@ const RequestTable = ({
                   </td> */}
           </tbody>
         </table>
+        {loading && <Modal2 />}
         {data?.length === 0 && <NoDataFound message={messageNotFound} />}
       </div>
     </>
