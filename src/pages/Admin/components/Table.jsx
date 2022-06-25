@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../../../components/Button/Button";
 import Loader from "../../../components/Loader/Loader";
 import Modal2 from "../../../components/Modal/Modal2";
+import OnlineStatus from "../../../components/OnlineStatus";
 import DraftReqestModal from "../../../components/RequestHero/DraftReqestModal";
 import NoDataFound from "../../Dashboard/Request/NoDataFound";
 import "./Table.css";
@@ -57,6 +58,8 @@ const Table = ({
               Delete
             </Button>
           </div>
+        ) : columnItem.value === "online_status" ? (
+          <OnlineStatus value={item[`${columnItem.value}`]} />
         ) : (
           <td>{item[`${columnItem.value}`]}</td>
         );

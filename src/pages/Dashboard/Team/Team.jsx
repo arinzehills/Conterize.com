@@ -16,7 +16,7 @@ import AddTeam from "./AddTeam";
 const Team = ({ setHandleNotForTeam }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const [handleNotData, setHandleNotData] = useState("no");
   const [handleNotColor, setHandleNotColor] = useState("#41f1b6");
   const [activeRow, setActiveRow] = useState(false); //the rows that is clicked or selected
@@ -37,8 +37,8 @@ const Team = ({ setHandleNotForTeam }) => {
     { heading: "First Name", value: "firstname" },
     { heading: "Last Name", value: "lastname" },
     { heading: "Email", value: "email" },
-    { heading: "Online", value: "Online" },
-    { heading: "Last Login", value: "Last Login" },
+    { heading: "Online Status", value: "online_status" },
+    { heading: "Last Login", value: "last_seen" },
     // user?.["id"] === teamMembers?.[0]["owner_id"] &&
     {
       heading: "actions",
@@ -56,10 +56,10 @@ const Team = ({ setHandleNotForTeam }) => {
       value: "actions",
     },
   ];
-  // console.log(user?.["current_team_id"]);
+
   let usersInTeam = teamMembers?.[0]["users"];
   let teamInvites = teamMembers?.[0]["invites"];
-  // console.log(usersInTeam);
+
   useEffect(() => {
     if (handleNotData !== "no") {
       handleNot({

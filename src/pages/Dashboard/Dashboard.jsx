@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import useToken from "../../useToken";
 import NavComponent from "./NavComponent/NavComponent";
 import Sidebar from "./Sidebar/Sidebar";
 
 function Dashboard() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+  const refreshTime = 2000;
+  const { token, setToken } = useToken();
 
+  const fetchCurrentUser = async () => {
+    const data = await fetch(window.baseUrl + "getCurrentUser?token=" + token)
+      .then((ddd) => ddd.json())
+      .then((data) => {
+        console.log(data);
+      });
+    //make sure to set it to false so the component is not in constant loading state
+  };
+  useEffect(() => {
+    const comInterval = setInterval(fetchCurrentUser, refreshTime); //This will refresh the data at regularIntervals of refreshTime
+    return () => clearInterval(comInterval); //Clear interval on component unmount to avoid memory leak
+  }, []);
   // const {user, setUser} = useUser();
-  // const {  token, setToken } = useToken();
   // console.log(token)
   //   if(!token) {
   //       return <Login setToken={setToken} setUser={setUser}/>

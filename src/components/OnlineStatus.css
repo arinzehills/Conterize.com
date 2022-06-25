@@ -1,0 +1,23 @@
+.online_status_wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+}
+.online_status {
+  display: flex;
+  padding: 0.6rem;
+  border-radius: 10px;
+  justify-content: center;
+  width: 100px;
+  margin: 1rem 0 1rem;
+  /* font-size: 10p; */
+}
+.online {
+  color: #00ffaa;
+  background: #00ffaa28;
+}
+.offline {
+  color: var(--danger);
+  background: #ff77821a;
+}
