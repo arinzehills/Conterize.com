@@ -4,6 +4,7 @@ import { Button } from "../../../components/Button/Button";
 import Modal2 from "../../../components/Modal/Modal2";
 import ProfilePicsComponent from "../../../components/ProfilePicsComponent/ProfilePicsComponent";
 import useFetch from "../../../useFetch";
+import useLongPress from "../../../useLongPress";
 import useUser from "../../../useUser";
 import FreelancersModal from "../../Admin/Freelancers/FreelancersModal";
 import IconAndName, { StatusWidget } from "./IconsWidget";
@@ -19,9 +20,20 @@ const RequestTable = ({
   activeRow,
   setActiveRow,
   onClickRow,
+  showCaret,
+
   runDefualtFunc, //this is to determine wether to run the deafault select multiple items or run your own custom function pass as prop(i.e onClickRow Function) here
 }) => {
   const [showAssignFreelacer, setShowAssignFreelacer] = useState(false);
+  const onLongPress = () => {
+    console.log("longpress is triggered");
+  };
+
+  const defaultOptions = {
+    shouldPreventDefault: true,
+    delay: 500,
+  };
+  // const longPressEvent = useLongPress(onLongPress, onClick, defaultOptions);
   const CaretIcon = () => {
     return (
       <>
@@ -34,9 +46,13 @@ const RequestTable = ({
       </>
     );
   };
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
+
   const TableHeadItem = ({ item, index }) => (
     <th key={index}>
-      {item.heading} <CaretIcon />
+      {item.heading} {showCaret && <CaretIcon />}
     </th>
   );
   const TableRow = ({ item, column, isAdmin, index, onClick, activeRow }) => (
@@ -84,6 +100,18 @@ const RequestTable = ({
                 isCirclular={true}
                 isImage={true}
               />
+            ) : columnItem.value === "actions" ? (
+              isAdmin && (
+                <div onClick={stopPropagation}>
+                  <Button
+                    buttonColor={"pink"}
+                    buttonSize={"btn--small"}
+                    onClick={() => onClickRow(item)}
+                  >
+                    View
+                  </Button>
+                </div>
+              )
             ) : (
               item[`${columnItem.value}`]
             )}

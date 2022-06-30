@@ -47,6 +47,7 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
       <Signup
         next={nextStep}
         type="creators"
+        user_type={"content_creator"}
         setFormValues={setFormValues}
         formValues={formValues}
         inputNames={inputNames}

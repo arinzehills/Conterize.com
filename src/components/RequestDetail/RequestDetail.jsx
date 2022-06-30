@@ -1,16 +1,16 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Button } from "../../../../components/Button/Button";
-import Modal2 from "../../../../components/Modal/Modal2";
-import ProfilePicsComponent from "../../../../components/ProfilePicsComponent/ProfilePicsComponent";
-import RequestHero from "../../../../components/RequestHero/RequestHero";
-import useFetch from "../../../../useFetch";
-import useUser from "../../../../useUser";
-import NavComponent from "../../NavComponent/NavComponent";
-import IconAndName, { StatusWidget } from "../IconsWidget";
+import NavComponent from "../../pages/Dashboard/NavComponent/NavComponent";
+import IconAndName, {
+  StatusWidget,
+} from "../../pages/Dashboard/Request/IconsWidget";
+import useFetch from "../../useFetch";
+import useUser from "../../useUser";
+import { Button } from "../Button/Button";
+import Modal2 from "../Modal/Modal2";
 import "./RequestDetail.css";
 
-const RequestDetail = ({ setHandleNotData }) => {
+const RequestDetail = ({ setHandleNotData, user_id }) => {
   const handleClick = () => setClick(!click);
   const location = useLocation();
   const history = useNavigate();
@@ -24,7 +24,7 @@ const RequestDetail = ({ setHandleNotData }) => {
   } = useFetch({
     url: window.baseUrl + "getUserRequestDetail",
     fetchParamData: {
-      user_id: user?.["id"],
+      user_id: location.state.item.user_id,
       request_id: location.state.item.id,
     },
   });

@@ -16,14 +16,17 @@ import Modal2 from "../../../components/Modal/Modal2";
 import useFetch from "../../../useFetch";
 import { Button } from "../../../components/Button/Button";
 import handleNot from "../../../components/HandleNotification/HandleNot";
+import fetchCountries from "../../../utils/fetchCountries";
 // import "animate.css/animate.min.css";
 // import ''
 const AddCompany = ({ isEdit, setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
-  const [nationality, setNationality] = useState("Select Nationality");
+
+  // fetchCurrentUser();
+  // console.log(country);
+
   const [showModal, setShowModal] = useState(false);
-  const countries = ["nigeria", "ghana"];
   const history = useNavigate();
   const location = useLocation();
   const [review, setReview] = useState(false);
@@ -43,7 +46,17 @@ const AddCompany = ({ isEdit, setHandleNotData }) => {
       company_id: location.state.company_id,
     },
   });
-  console.log(companyInfo?.["company_info"]);
+  const initialNationality = isEdit && companyInfo?.["company_info"]["name"];
+  const [nationality, setNationality] = useState(
+    loading ? "Select Nationality" : initialNationality
+  );
+  const [countries, setCountries] = useState(["nigeria"]);
+  // const countries = ["nigeria", "ghana"];
+
+  useEffect(() => {
+    fetchCountries(setCountries);
+  }, []);
+  console.log(companyInfo?.["company_info"]["name"]);
   var info = companyInfo?.["company_info"];
 
   const initialValues = {
@@ -160,8 +173,6 @@ const AddCompany = ({ isEdit, setHandleNotData }) => {
           handleClick={handleClick}
           setHandleNotData={setHandleNotData}
         />
-        {/* <DashboardInput inputSize="width-495" /> */}
-
         {showModal && <Modal2 />}
         <ReactNotifications />
         <div

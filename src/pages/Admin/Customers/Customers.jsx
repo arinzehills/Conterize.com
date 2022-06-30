@@ -26,6 +26,8 @@ const Customers = () => {
     { heading: "Phone", value: "phone" },
     { heading: "Country", value: "nationality" },
     { heading: "Plan", value: "plan" },
+    { heading: "Last Login", value: "last_seen" },
+
     { heading: "Status", value: "status" },
   ];
   const req = [

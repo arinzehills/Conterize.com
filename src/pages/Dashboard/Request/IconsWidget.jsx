@@ -52,8 +52,9 @@ const StatusWidget = ({ title, status }) => {
       style={{
         display: "flex",
         borderRadius: "20px",
-        height: "16px",
-        padding: "5px 0",
+        height: "auto",
+        maxHeight: "26px",
+        padding: "5px 5px",
         textTransform: "uppercase",
         justifyContent: "center",
         alignItems: "center",

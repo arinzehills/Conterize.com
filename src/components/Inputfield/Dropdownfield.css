@@ -17,6 +17,8 @@
   box-shadow: 0 10px 10px 10px rgba(131, 8, 255, 0.2);
   width: 95%;
   z-index: 99;
+  max-height: 400px;
+  overflow: scroll;
 }
 .dropdown .dropdown-content .dropdown-item {
   padding: 10px;

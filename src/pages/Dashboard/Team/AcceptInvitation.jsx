@@ -61,6 +61,7 @@ const AcceptInvitation = ({ children }) => {
       password_confirmation: formValues.password_confirmation,
       password: formValues.password,
       invite_token: invite_token,
+      user_type: "team_member",
     };
     const url = window.baseUrl + "acceptInvite";
 

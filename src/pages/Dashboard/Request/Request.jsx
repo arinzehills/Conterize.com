@@ -54,6 +54,7 @@ const Request = ({ setHandleNotData }) => {
         />
         <RequestTable
           title={"All Request"}
+          showCaret={true}
           data={requests?.["requests"]}
           columnData={columnData}
           // data={req}

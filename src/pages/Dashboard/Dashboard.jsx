@@ -19,9 +19,10 @@ function Dashboard() {
     //make sure to set it to false so the component is not in constant loading state
   };
   useEffect(() => {
-    const comInterval = setInterval(fetchCurrentUser, refreshTime); //This will refresh the data at regularIntervals of refreshTime
-    return () => clearInterval(comInterval); //Clear interval on component unmount to avoid memory leak
+    // const comInterval = setInterval(fetchCurrentUser, refreshTime); //This will refresh the data at regularIntervals of refreshTime
+    // return () => clearInterval(comInterval); //Clear interval on component unmount to avoid memory leak
   }, []);
+
   // const {user, setUser} = useUser();
   // console.log(token)
   //   if(!token) {

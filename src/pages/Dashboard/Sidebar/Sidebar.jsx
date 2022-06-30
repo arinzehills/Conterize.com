@@ -1,10 +1,12 @@
 import { Icon } from "@iconify/react";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useUser from "../../../useUser";
 import "./Sidebar.css";
 const Sidebar = ({ click, handleClick, setClick }) => {
   const [currentLink, setCurrentLink] = useState(1);
   const closeMobileMenu = () => setClick(!click);
+  const { user, setUser } = useUser();
 
   function handleAllClick(linkNumber) {
     setCurrentLink(linkNumber);
@@ -52,24 +54,28 @@ const Sidebar = ({ click, handleClick, setClick }) => {
                   <span> Request</span>
                 </Link>
               </li>
-              <li
-                onClick={() => handleAllClick(3)}
-                className={currentLink === 3 ? "active-nav" : "nonactive-nav"}
-              >
-                <Link to="/dashboard/company">
-                  <Icon icon="fa6-solid:bag-shopping" />
-                  <span> Company</span>
-                </Link>
-              </li>
-              <li
-                onClick={() => handleAllClick(4)}
-                className={currentLink === 4 ? "active-nav" : "nonactive-nav"}
-              >
-                <Link to="/dashboard/team">
-                  <Icon icon="gridicons:multiple-users" />
-                  <span> Team</span>
-                </Link>
-              </li>
+              {user?.user_type === "normal_user" && (
+                <li
+                  onClick={() => handleAllClick(3)}
+                  className={currentLink === 3 ? "active-nav" : "nonactive-nav"}
+                >
+                  <Link to="/dashboard/company">
+                    <Icon icon="fa6-solid:bag-shopping" />
+                    <span> Company</span>
+                  </Link>
+                </li>
+              )}
+              {user?.user_type === "normal_user" && (
+                <li
+                  onClick={() => handleAllClick(4)}
+                  className={currentLink === 4 ? "active-nav" : "nonactive-nav"}
+                >
+                  <Link to="/dashboard/team">
+                    <Icon icon="gridicons:multiple-users" />
+                    <span> Team</span>
+                  </Link>
+                </li>
+              )}
               <li
                 onClick={() => handleAllClick(5)}
                 className={currentLink === 5 ? "active-nav" : "nonactive-nav"}
@@ -82,18 +88,36 @@ const Sidebar = ({ click, handleClick, setClick }) => {
             </ul>
           </div>
         </div>
-        <div className="down">
-          <Link to="/dashboard/newrequest">
-            <div className="new-request-btn-wrapper" onClick={closeMobileMenu}>
-              <div className="newrequest-container">
-                <div className="request-icon-container">
-                  <Icon icon="eva:edit-2-fill" />
-                </div>
-                <h3>New Request</h3>
-              </div>
+        {user?.user_type === "content_creator" ? (
+          <div
+            className="newrequest-container"
+            style={{ flexDirection: "row", height: "30px" }}
+          >
+            <div
+              className="request-icon-container"
+              style={{ marginRight: "30px" }}
+            >
+              <Icon icon="ic:twotone-logout" />
             </div>
-          </Link>
-        </div>
+            <h3>Log out</h3>
+          </div>
+        ) : (
+          <div className="down">
+            <Link to="/dashboard/newrequest">
+              <div
+                className="new-request-btn-wrapper"
+                onClick={closeMobileMenu}
+              >
+                <div className="newrequest-container">
+                  <div className="request-icon-container">
+                    <Icon icon="eva:edit-2-fill" />
+                  </div>
+                  <h3>New Request</h3>
+                </div>
+              </div>
+            </Link>
+          </div>
+        )}
       </div>
     </>
   );

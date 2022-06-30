@@ -32,12 +32,14 @@ import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
 import Orders from "./pages/Admin/Orders/Orders";
 import Freelancers from "./pages/Admin/Freelancers/Freelancers";
 import AddCompany from "./pages/Dashboard/Company/AddCompany";
-import RequestDetail from "./pages/Dashboard/Request/RequestDetail/RequestDetail";
 import AcceptInvitation from "./pages/Dashboard/Team/AcceptInvitation";
 import { ReactNotifications } from "react-notifications-component";
 import handleNot from "./components/HandleNotification/HandleNot";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import useToken from "./useToken";
+import AdminLogin from "./pages/Admin/AdminLogin/AdminLogin";
+import UserRequestDetail from "./pages/Dashboard/UserRequestDetail/UserRequestDetail";
+import OrderDetail from "./pages/Admin/Orders/OrderDetail";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -82,7 +84,9 @@ function App() {
             />
             <Route
               path="requestdetail"
-              element={<RequestDetail setHandleNotData={setHandleNotData} />}
+              element={
+                <UserRequestDetail setHandleNotData={setHandleNotData} />
+              }
             />
             <Route
               path="addcompany"
@@ -122,10 +126,27 @@ function App() {
             />
           </Route>
         </Route>
+        <Route
+          path="adminlogin"
+          element={<AdminLogin setHandleNotData={setHandleNotData} />}
+        />
         <Route path="/admin" element={<Admin />}>
-          <Route path="freelancers" element={<Freelancers />} />
+          <Route
+            path="freelancers"
+            element={
+              <Freelancers
+                handleNotData={handleNotData}
+                setHandleNotData={setHandleNotData}
+              />
+            }
+          />
+
           <Route path="customers" element={<Customers />} />
           <Route path="orders" element={<Orders />} />
+          <Route
+            path="orderdetail"
+            element={<OrderDetail setHandleNotData={setHandleNotData} />}
+          />
           <Route path="managerdiscount" element={<Customers />} />
           <Route path="settings" element={<Customers />} />
           <Route index element={<AdminDashboard />} />

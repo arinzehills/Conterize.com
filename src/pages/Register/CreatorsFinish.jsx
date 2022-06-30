@@ -6,6 +6,7 @@ import DropDownField from "../../components/Inputfield/DropDownField";
 import { Icon } from "@iconify/react";
 import Loader from "../../components/Loader/Loader";
 import useToken from "../../useToken";
+import fetchCountries from "../../utils/fetchCountries";
 const ChoseNationality = ({
   className,
   nationality,
@@ -92,14 +93,20 @@ const CreatorsFinish = ({ next, back, index }) => {
   const [review, setReview] = useState(false);
   const [showNational, setShowNational] = useState(false);
   const [nationality, setNationality] = useState("Select Nationality");
-  const countries = ["nigeria", "ghana"];
+  // const countries = ["nigeria", "ghana"];
+
   const [roleType, setRoleType] = useState("");
   const [error, setError] = useState("");
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [responseError, setResponseError] = useState("");
   const { token, setToken } = useToken();
+  const [countries, setCountries] = useState(["nigeria"]);
+  // const countries = ["nigeria", "ghana"];
 
+  useEffect(() => {
+    fetchCountries(setCountries);
+  }, []);
   // const setRoleandData = () => {
   //   setShowNational(true);
   //   setData({ nationality: nationality, role_type: roleType });

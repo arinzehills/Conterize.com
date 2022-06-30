@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import DraftReqestModal from "../../../components/RequestHero/DraftReqestModal";
 import useFetch from "../../../useFetch";
 import NavComponent from "../../Dashboard/NavComponent/NavComponent";
@@ -11,6 +11,7 @@ const Orders = () => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const [activeRow, setActiveRow] = useState(false); //the rows that is clicked or selected
+  const history = useNavigate();
 
   const {
     data: orders,
@@ -30,6 +31,7 @@ const Orders = () => {
     { heading: "Category", value: "category" },
     { heading: "Assign To", value: "assign_to" },
     { heading: "Status", value: "status" },
+    { heading: "Actions", value: "actions" },
   ];
   const tableData = [
     {
@@ -69,6 +71,14 @@ const Orders = () => {
           columnData={columnData}
           activeRow={activeRow}
           setActiveRow={setActiveRow}
+          // showCaret={fa}
+          onClickRow={(item) =>
+            history("/admin/orderdetail", {
+              state: {
+                item: item,
+              },
+            })
+          }
         />
       </div>
     </>

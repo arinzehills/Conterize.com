@@ -9,114 +9,11 @@ import { Calendar } from "react-calendar";
 import useUser from "../../../useUser";
 import useToken from "../../../useToken";
 import useFetch from "../../../useFetch";
+import { Line } from "react-chartjs-2";
+import CreatorsEarning from "./CreatorsEarning";
+import DashbaordCardContainer from "./DashbaordCardContainer";
+import IconAndName from "../Request/IconsWidget";
 
-const IconWrapper = ({ type, IconPadding, iconFontSize }) => {
-  return (
-    <>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background:
-            type === "content"
-              ? "#f25c3240"
-              : type === "graphics"
-              ? "#00c32a3e"
-              : type === "video"
-              ? "#00c4f03d"
-              : "#35448c36",
-          // color: type === "request" ? "grey" : "white",
-          color:
-            type === "content"
-              ? "#F25B32"
-              : type === "graphics"
-              ? "#00C32B"
-              : type === "video"
-              ? "#00C4F0"
-              : "var(--dashboard-dark-blue)",
-          borderRadius: "50%",
-          padding: IconPadding ?? "5px",
-          fontSize: iconFontSize ?? "12px",
-        }}
-      >
-        {type === "request" && <Icon icon="bxs:bar-chart-square" />}
-        {type === "content" && <Icon icon="bxs:bar-chart-square" rotate={1} />}
-        {type === "graphics" && <Icon icon="fa6-solid:radio" />}
-        {type === "video" && <Icon icon="eva:video-fill" />}
-      </div>
-    </>
-  );
-};
-
-const DashboardCard = ({ title, value, color, type }) => {
-  return (
-    <div className="dashboard-card">
-      <div
-        className="dashboard-card-row"
-        style={{
-          color:
-            type === "content"
-              ? "#F25B32"
-              : type === "graphics"
-              ? "#00C32B"
-              : type === "video"
-              ? "#00C4F0"
-              : "var(--dashboard-dark-blue)",
-          fontWeight: "500",
-        }}
-      >
-        <IconWrapper type={type ?? "content"} />
-        <p style={{ fontSize: "24px" }}>{value ?? "value"}</p>
-      </div>
-      <h3
-        style={{
-          color: "grey",
-          fontWeight: "500",
-          fontSize: window.innerWidth < 960 ? "10px" : "16px",
-          textTransform: "capitalize",
-        }}
-      >
-        {title ?? "title"}
-      </h3>
-    </div>
-  );
-};
-const IconAndName = ({ type, title, quantity }) => {
-  return (
-    <div
-      className="dashboard-card-row"
-      style={{
-        gap: "0",
-        marginTop: "1rem",
-        textAlign: "left",
-        textOverflow: "clip",
-      }}
-    >
-      <IconWrapper type={type} iconFontSize="20px" IconPadding="15px" />
-      <div
-        className="pic-text" //this comes from profilepicscomponent
-        style={{
-          textOverflow: "clip",
-          display: "flex",
-          justifyContent: "left",
-          alignItems: "flex-start",
-        }}
-      >
-        <p
-          style={{
-            fontWeight: "500",
-            color: "black",
-            textOverflow: "clip",
-          }}
-        >
-          {title ?? "title"}
-        </p>
-        {<span>{quantity ?? 23}</span>}
-      </div>
-    </div>
-  );
-};
 const RequestProgressCard = ({ title, value, profileName, userType }) => {
   return (
     <div
@@ -194,6 +91,28 @@ const Home = ({ setHandleNotData }) => {
       status: "under review",
     },
   ];
+  const chartOptions = {
+    responsive: true,
+    scales: {
+      xAxis: {
+        display: false,
+      },
+      yAxis: {
+        display: false,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    elements: {
+      point: {
+        radius: 0,
+        backgroundColor: "#ff724a",
+      },
+    },
+  };
   return (
     <>
       <NavComponent
@@ -206,42 +125,34 @@ const Home = ({ setHandleNotData }) => {
           <div className="dash-fst-container">
             {/* the first row for dashboard */}
             <div className="greetings-and-card-wrapper">
-              <div className="greetings-wrapper">
-                <div className="greetings-text">
-                  <h2 color="var(--dark-blue)">
-                    Good Evening, {user?.["firstname"]}
-                  </h2>
-                  <p>
-                    you have 4 draft to complete. Do you need help in requesting
-                    content? Invite team members or contact your content
-                    director to assist you.
-                  </p>
+              <div style={{ display: window.innerWidth > 960 && "flex" }}>
+                <div>
+                  <div className="greetings-wrapper">
+                    <div className="greetings-text">
+                      <h2 color="var(--dark-blue)">
+                        Good Evening, {user?.["firstname"]}
+                      </h2>
+                      {user?.user_type === "normal_user" ? (
+                        <p>
+                          you have 4 draft to complete. Do you need help in
+                          requesting content? Invite team members or contact
+                          your content director to assist you.
+                        </p>
+                      ) : (
+                        <p>
+                          You have 4 ongoing projects to complete. Please finish
+                          up as soon as possible. as clients are waiting for
+                          your delivery. Regards, Conterize Team
+                        </p>
+                      )}
+                    </div>
+                    <div className="greetings-img">
+                      {/* <img src="/svg/womandashboard.svg" alt="" /> */}
+                    </div>
+                  </div>
+                  <DashbaordCardContainer user_type={user?.["user_type"]} />
                 </div>
-                <div className="greetings-img">
-                  {/* <img src="/svg/womandashboard.svg" alt="" /> */}
-                </div>
-              </div>
-              <div className="dash-card_wrapper">
-                <DashboardCard
-                  type={"request"}
-                  title={"Total request"}
-                  value={"123"}
-                />
-                <DashboardCard
-                  type={"content"}
-                  title={"Content Writing"}
-                  value={"12"}
-                />
-                <DashboardCard
-                  type={"graphics"}
-                  title={"Graphics Design"}
-                  value={"13"}
-                />
-                <DashboardCard
-                  type={"video"}
-                  title={"Video creation"}
-                  value={"23"}
-                />
+                {user?.user_type === "content_creator" && <CreatorsEarning />}
               </div>
             </div>
             <RequestProgressCard

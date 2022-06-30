@@ -12,6 +12,12 @@ function NavComponent({
   setHandleNotData,
 }) {
   const { user, setUser } = useUser();
+  let isOnline;
+  // const data = await fetch(window.baseUrl + "getCurrentUser?token=" + token)
+  //     .then((ddd) => ddd.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     });
   return (
     <>
       <div className="nav-cmpt-section">
@@ -44,6 +50,7 @@ function NavComponent({
             )}
             <ProfilePicsComponent
               name={personsName ?? user?.["firstname"]}
+              // isOnline={"Online" ?? user?.["online_status"]}
               isCirclular={true}
               size="120px"
               setHandleNotData={setHandleNotData}
