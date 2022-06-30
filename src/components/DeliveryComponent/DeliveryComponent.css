@@ -1,0 +1,38 @@
+.delivery_upload_area {
+  width: 78vw;
+  position: fixed;
+  bottom: 0;
+  /* left: 0; */
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--light-purple);
+}
+.send_delivery {
+  /* background: var();
+     */
+  padding: 1.5rem;
+  font-size: 33px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.3rem 0;
+}
+.delivery_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 960px) {
+  .delivery_upload_area {
+    width: 100vw;
+  }
+  .send_delivery {
+    font-size: 23px;
+    padding: 0.9rem;
+  }
+}

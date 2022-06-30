@@ -11,4 +11,8 @@
     padding: 0;
     margin: 0;
   }
+  .nav-title-wrapper h2 {
+    font-size: 16px;
+    text-align: left;
+  }
 }
