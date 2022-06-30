@@ -13,6 +13,8 @@ const ProfilePicsComponent = ({
   userType,
   isImage,
   setHandleNotData,
+  showCaret,
+  circularWidth,
 }) => {
   const [openDropDown, setOpenDropDown] = useState(false);
   console.log(openDropDown);
@@ -148,6 +150,7 @@ const ProfilePicsComponent = ({
       <div
         className={isCirclular ? "prf-container iscircular " : "prf-container "}
         onClick={() => setOpenDropDown(!openDropDown)}
+        style={{ width: circularWidth }}
       >
         <div
           className={isCirclular ? "pic-wrapper iscircular" : "pic-wrapper "}
@@ -193,11 +196,18 @@ const ProfilePicsComponent = ({
             </span>
           )}
         </div>
-        {isCirclular && ( //if this is a circlular profile pics component show this icon
-          <div className="prf-pic-icon">
-            <Icon icon="ant-design:caret-up-filled" color="gray" vFlip={true} />
-          </div>
-        )}
+        {isCirclular && //if this is a circlular profile pics component show this icon
+          (showCaret === false ? (
+            ""
+          ) : (
+            <div className="prf-pic-icon">
+              <Icon
+                icon="ant-design:caret-up-filled"
+                color="gray"
+                vFlip={true}
+              />
+            </div>
+          ))}
       </div>
     </>
   );

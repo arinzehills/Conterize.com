@@ -28,6 +28,7 @@ const IconWrapper = ({ type }) => {
             icon="healthicons:i-schedule-school-date-time"
             fontSize={"20px"}
             color="gray"
+            style={{ marginRight: "-5px" }}
           />
         )}
         {type === "content" && <Icon icon="bxs:bar-chart-square" rotate={1} />}
@@ -42,7 +43,9 @@ const IconAndName = ({ type, title }) => {
   return (
     <div className="dashboard-card-row">
       <IconWrapper type={type} />
-      <p style={{ color: type === "calendar" && "grey" }}>{title}</p>
+      <p style={{ color: type === "calendar" && "grey", marginLeft: "-10px" }}>
+        {title}
+      </p>
     </div>
   );
 };

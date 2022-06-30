@@ -4,7 +4,7 @@ import RequestDetail from "../../../components/RequestDetail/RequestDetail";
 const OrderDetail = () => {
   return (
     <>
-      <RequestDetail />
+      <RequestDetail isAdmin={true} />
     </>
   );
 };

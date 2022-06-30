@@ -31,6 +31,18 @@
   line-height: 0;
   margin-top: 0;
 }
+#icon_goback {
+  padding: 1rem;
+  background: rgba(231, 230, 230, 0.604);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  font-size: 30px;
+}
+#icon_goback:hover {
+  padding: 1rem;
+  color: var(--danger);
+  background: #ff77821a;
+}
 @media screen and (max-width: 760px) {
   .request_detail_contents {
     grid-template-columns: 1fr;

@@ -99,6 +99,8 @@ const RequestTable = ({
                 name={item[`${columnItem.value}`] ?? "Hills"}
                 isCirclular={true}
                 isImage={true}
+                showCaret={false}
+                circularWidth="90px"
               />
             ) : columnItem.value === "actions" ? (
               isAdmin && (
@@ -107,6 +109,7 @@ const RequestTable = ({
                     buttonColor={"pink"}
                     buttonSize={"btn--small"}
                     onClick={() => onClickRow(item)}
+                    style={{ marginRight: "-10px" }}
                   >
                     View
                   </Button>

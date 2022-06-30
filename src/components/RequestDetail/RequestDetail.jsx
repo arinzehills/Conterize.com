@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import NavComponent from "../../pages/Dashboard/NavComponent/NavComponent";
@@ -10,7 +11,7 @@ import { Button } from "../Button/Button";
 import Modal2 from "../Modal/Modal2";
 import "./RequestDetail.css";
 
-const RequestDetail = ({ setHandleNotData, user_id }) => {
+const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
   const handleClick = () => setClick(!click);
   const location = useLocation();
   const history = useNavigate();
@@ -63,10 +64,48 @@ const RequestDetail = ({ setHandleNotData, user_id }) => {
 
       <div className="request_detail_section">
         <div className="request_detail_container">
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <Button onClick={() => history(-1)} buttonColor={"gradient"}>
-              Back
-            </Button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "2rem",
+            }}
+          >
+            <Icon
+              icon="carbon:drill-back"
+              onClick={() => history(-1)}
+              id="icon_goback"
+            />
+            {isAdmin ? (
+              <Button
+                onClick={() =>
+                  history("/admin/deliver", {
+                    state: {
+                      item: location.state.item,
+                    },
+                  })
+                }
+                buttonColor={"gradient"}
+                style={{ marginTop: 0 }}
+              >
+                Deliver
+              </Button>
+            ) : (
+              <Button
+                onClick={() =>
+                  history("/dashboard/delivery", {
+                    state: {
+                      item: location.state.item,
+                    },
+                  })
+                }
+                style={{ marginTop: 0 }}
+                buttonColor={"gradient"}
+              >
+                Check Delivery
+              </Button>
+            )}
           </div>
           {loading ? (
             <Modal2 />

@@ -40,6 +40,8 @@ import useToken from "./useToken";
 import AdminLogin from "./pages/Admin/AdminLogin/AdminLogin";
 import UserRequestDetail from "./pages/Dashboard/UserRequestDetail/UserRequestDetail";
 import OrderDetail from "./pages/Admin/Orders/OrderDetail";
+import Deliver from "./pages/Admin/Deliver/Deliver";
+import { CheckDelivery } from "./pages/Dashboard/Delivery/CheckDelivery";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -87,6 +89,10 @@ function App() {
               element={
                 <UserRequestDetail setHandleNotData={setHandleNotData} />
               }
+            />
+            <Route
+              path="delivery"
+              element={<CheckDelivery setHandleNotData={setHandleNotData} />}
             />
             <Route
               path="addcompany"
@@ -146,6 +152,10 @@ function App() {
           <Route
             path="orderdetail"
             element={<OrderDetail setHandleNotData={setHandleNotData} />}
+          />
+          <Route
+            path="deliver"
+            element={<Deliver setHandleNotData={setHandleNotData} />}
           />
           <Route path="managerdiscount" element={<Customers />} />
           <Route path="settings" element={<Customers />} />
