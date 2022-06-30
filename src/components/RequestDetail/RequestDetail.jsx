@@ -45,7 +45,7 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
     // referenceLinksMap.push(JSON.parse(item));
     const itemJson = JSON.parse(item);
     writingTopicsMap.push(itemJson.topics);
-    console.log(itemJson.topics);
+    // console.log(itemJson.topics);
   });
   // var referenceLinks = [];
   // for (var key in referenceLinksMap) {
