@@ -5,6 +5,7 @@ import NavComponent from "../../pages/Dashboard/NavComponent/NavComponent";
 import NoDataFound from "../../pages/Dashboard/Request/NoDataFound";
 import TextArea from "../Inputfield/TextArea";
 import "./DeliveryComponent.css";
+import MessageContainer from "./MessageContainer";
 const DeliveryComponent = () => {
   const location = useLocation();
   return (
@@ -15,7 +16,11 @@ const DeliveryComponent = () => {
         // setHandleNotData={setHandleNotData}
       />
       <div className="delivery_body">
-        <NoDataFound message={"No delivery yet"} />
+        {/* <NoDataFound message={"No delivery yet"} /> */}
+        <MessageContainer userSide={"sender"} />
+        <MessageContainer userSide={"reciever"} />
+        <MessageContainer userSide={"sender"} />
+        <MessageContainer userSide={"reciever"} />
       </div>
       <div className="delivery_upload_area">
         <div className=" gradient send_delivery">
