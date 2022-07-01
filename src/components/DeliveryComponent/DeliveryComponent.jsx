@@ -1,34 +1,72 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import SaveButton from "../../pages/Dashboard/components/SaveButton/SaveButton";
 import NavComponent from "../../pages/Dashboard/NavComponent/NavComponent";
 import NoDataFound from "../../pages/Dashboard/Request/NoDataFound";
 import useFetch from "../../useFetch";
 import useUser from "../../useUser";
+import { Button } from "../Button/Button";
 import TextArea from "../Inputfield/TextArea";
 import "./DeliveryComponent.css";
 import MessageContainer from "./MessageContainer";
 const DeliveryComponent = () => {
   const fileNamesRef = React.useRef();
-
+  const messagesEndRef = React.useRef(null);
   const [trigger, setTrigger] = useState(false);
   const handleClick = () => setTrigger(!trigger);
   const [filesnamesList, setFilesnamesList] = useState([]);
   const location = useLocation();
+  const refreshTime = 11000;
   const { user, setUser } = useUser();
-  const {
-    data: deliveriesData,
-    loading,
-    error,
-  } = useFetch({
-    url: window.baseUrl + "getRequestDeliveries",
-    fetchParamData: {
-      // user_id: location.state.item.user_id,
+  const [deliveriesData, setDeliveriesData] = useState(null);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // const {
+  //   data: deliveriesData,
+  //   loading,
+  //   error,
+  // } = useFetch({
+  //   url: window.baseUrl + "getRequestDeliveries",
+  //   fetchParamData: {
+  //     // user_id: location.state.item.user_id,
+  //     request_id: location.state.item.id,
+  //   },
+  //   secondParam: trigger,
+  // });
+  const fetchCurrentDeliveryData = async () => {
+    const data = {
       request_id: location.state.item.id,
-    },
-    secondParam: trigger,
-  });
+    };
+
+    const fetchdata = await fetch(window.baseUrl + "getRequestDeliveries", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((ddd) => ddd.json())
+      .then((data) => {
+        setDeliveriesData(data);
+        console.log(data);
+      });
+    //make sure to set it to false so the component is not in constant loading state
+  };
+  useEffect(() => {
+    const comInterval = setInterval(fetchCurrentDeliveryData, refreshTime); //This will refresh the data at regularIntervals of refreshTime
+    return () => clearInterval(comInterval); //Clear interval on component unmount to avoid memory leak
+  }, [trigger]);
+  useEffect(() => {
+    fetchCurrentDeliveryData(); //Clear interval on component unmount to avoid memory leak
+  }, [trigger]);
   var deliveries = deliveriesData?.deliveries;
+  useEffect(() => {
+    scrollToBottom();
+  }, [trigger, deliveries]);
   // console.log(deliveries);
   const pickFileRef = React.useRef();
   const [files, setFiles] = useState([]);
@@ -66,11 +104,19 @@ const DeliveryComponent = () => {
   }, [formValues.uploads_materials]);
 
   const deliver = () => {
-    const data = {
-      senders_id: user?.id,
-      comments: formValues.comments,
-      request_id: location.state.item.id,
-    };
+    const data = new FormData();
+    data.append("senders_id", user?.id);
+    data.append("comments", formValues.comments);
+    data.append("request_id", location.state.item.id);
+    // const data = {
+    //   senders_id: user?.id,
+    //   comments: formValues.comments,
+    //   request_id: location.state.item.id,
+    // };
+    for (let i = 0; i < formValues.uploads_materials.length; i++) {
+      // console.log(formValues.supporting_materials[i].name);
+      data.append("uploads_materials[]", formValues.uploads_materials[i]);
+    }
     const url = window.baseUrl + "deliver";
 
     fetch(url, {
@@ -80,7 +126,7 @@ const DeliveryComponent = () => {
         // 'Authorization': 'http://localhost:8000/api/user',
       },
       method: "POST",
-      body: JSON.stringify(data),
+      body: data,
     })
       .then((response) => response.json())
       .then((data) => {
@@ -119,17 +165,28 @@ const DeliveryComponent = () => {
         // setHandleNotData={setHandleNotData}
       />
       <div className="delivery_body">
-        {/* <NoDataFound message={"No delivery yet"} /> */}
+        {deliveries?.length === 0 && (
+          <NoDataFound message={"No delivery yet"} />
+        )}
+
         {deliveries?.map((item) => (
           <MessageContainer
+            key={item.id}
             userSide={user?.id === item.senders_id ? "sender" : "reciever"}
             message={item.comments}
           />
         ))}
+        <div ref={messagesEndRef} />
       </div>
       <div className="delivery_upload_area">
         <div className="delivery_filenames_area">
           <span>{filesnamesList.join(",")}</span>
+        </div>
+        <div style={{ position: "absolute", right: 0, marginTop: "-4rem" }}>
+          <SaveButton
+            secondBtnSize={"160px"}
+            labels={["Accept", "Request Revision"]}
+          />
         </div>
         <div className="delivery_upload_area_inner">
           <div

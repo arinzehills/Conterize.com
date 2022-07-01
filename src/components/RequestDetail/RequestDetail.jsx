@@ -131,11 +131,11 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                 </div>
                 <div>
                   <p>Quantity</p>
-                  <h4>{location.state.item.request_name}</h4>
+                  <h4>{requestData?.quantity}</h4>
                 </div>
                 <div>
                   <p>Size</p>
-                  <h4>{location.state.item.request_name}</h4>
+                  <h4>{requestData?.size}</h4>
                 </div>
                 <div>
                   <p>Submitted By</p>
@@ -194,11 +194,15 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                 </div>
                 <div>
                   <p>Description</p>
-                  <h4>{requestData?.description}</h4>
+                  <h4 style={{ lineHeight: "1.5rem" }}>
+                    {requestData?.description}
+                  </h4>
                 </div>
                 <div>
                   <p>Additional Supporting Info</p>
-                  <h4>{requestData?.description}</h4>
+                  <h4 style={{ lineHeight: "1.5rem" }}>
+                    {requestData?.description}
+                  </h4>
                 </div>
                 {/* end of second colum sub divs */}
               </div>

@@ -28,7 +28,7 @@ const useFetch = ({ fetchParamData, url, secondParam, method }) => {
           console.warn("Error:", error);
           setError(error.message);
         });
-    }, [1000]);
+    }, [100]);
   }, [url, secondParam, loading]);
 
   return { data, loading, error };
