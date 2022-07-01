@@ -44,6 +44,7 @@
   padding: 1rem;
   color: white;
   position: relative;
+  z-index: 0;
 }
 .message_container:hover {
   transition: all 0.5s ease;
@@ -63,6 +64,7 @@
   background: white;
   box-shadow: var(--box-shadow);
   border-radius: 10px;
+  /* height: 1px; */
 }
 @media screen and (max-width: 960px) {
   .delivery_upload_area {

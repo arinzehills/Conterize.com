@@ -1,11 +1,11 @@
 import React from "react";
 
-const MessageContainer = ({ userSide }) => {
+const MessageContainer = ({ userSide, message }) => {
   return (
     <>
       <div className="message_section">
         <div className={`message_container ${userSide}`}>
-          Hey this is ur delivery
+          {message ?? "Hey this is ur delivery"}
         </div>
       </div>
     </>

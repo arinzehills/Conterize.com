@@ -73,6 +73,7 @@
 .profile_pics_drop_content {
   position: fixed;
   height: 210px;
+  z-index: 999;
   /* max-height: 300px; */
   z-index: 99999999;
   width: 150px;
