@@ -56,7 +56,7 @@ const AddCompany = ({ isEdit, setHandleNotData }) => {
   useEffect(() => {
     fetchCountries(setCountries);
   }, []);
-  console.log(companyInfo?.["company_info"]["name"]);
+  // console.log(companyInfo?.["company_info"]["name"]);
   var info = companyInfo?.["company_info"];
 
   const initialValues = {
