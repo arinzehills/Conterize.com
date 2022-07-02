@@ -29,7 +29,7 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
       request_id: location.state.item.id,
     },
   });
-
+  console.log(location.state.item);
   const requestData = requestdetail?.["requests"][0];
   console.log(requestData);
   var referenceLinksMap = [];
@@ -82,7 +82,7 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                 onClick={() =>
                   history("/admin/deliver", {
                     state: {
-                      item: location.state.item,
+                      item: requestData,
                     },
                   })
                 }
@@ -96,7 +96,7 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                 onClick={() =>
                   history("/dashboard/delivery", {
                     state: {
-                      item: location.state.item,
+                      item: requestData,
                     },
                   })
                 }
@@ -151,11 +151,29 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                 </div>
                 <div>
                   <p>Status</p>
-                  <h4>
-                    <StatusWidget
-                      status={requestData?.status}
-                      title={requestData?.status}
-                    />
+                  <h4
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      color:
+                        requestData?.status === "active"
+                          ? "green"
+                          : requestData?.status === "under review"
+                          ? "#FF724A"
+                          : "grey",
+                      background:
+                        requestData?.status === "active"
+                          ? "#00c32a59"
+                          : requestData?.status === "under review"
+                          ? "#f25c323e"
+                          : "var(--grey)",
+                      width: "120px",
+                      padding: "1rem",
+                      borderRadius: "1.6rem",
+                    }}
+                  >
+                    {requestData?.status}
+
                     {/* {requestData?.submitted_by} */}
                   </h4>
                 </div>

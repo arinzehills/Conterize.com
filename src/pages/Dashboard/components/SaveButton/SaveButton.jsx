@@ -8,6 +8,7 @@ function SaveButton({
   onClick2,
   firstBtnColor,
   secondBtnSize,
+  secondBtnColor,
   flexWrap,
 }) {
   return (
@@ -41,7 +42,7 @@ function SaveButton({
             height: "43px",
             color: "white",
             // background: "#35438C",
-            background: "var(--light-purple)",
+            background: secondBtnColor ?? "var(--light-purple)",
           }}
         >
           {labels[1]}

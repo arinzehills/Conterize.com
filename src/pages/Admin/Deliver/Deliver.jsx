@@ -5,7 +5,7 @@ const Deliver = () => {
   return (
     <>
       <div>
-        <DeliveryComponent />
+        <DeliveryComponent isAdmin={true} />
       </div>
     </>
   );

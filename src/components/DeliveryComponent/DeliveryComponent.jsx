@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SaveButton from "../../pages/Dashboard/components/SaveButton/SaveButton";
 import NavComponent from "../../pages/Dashboard/NavComponent/NavComponent";
 import NoDataFound from "../../pages/Dashboard/Request/NoDataFound";
@@ -9,15 +9,17 @@ import useUser from "../../useUser";
 import { Button } from "../Button/Button";
 import TextArea from "../Inputfield/TextArea";
 import "./DeliveryComponent.css";
+import acceptOrReviewDelivery from "./deliveryfunctions";
 import MessageContainer from "./MessageContainer";
-const DeliveryComponent = () => {
+const DeliveryComponent = ({ isAdmin }) => {
   const fileNamesRef = React.useRef();
   const messagesEndRef = React.useRef(null);
   const [trigger, setTrigger] = useState(false);
   const handleClick = () => setTrigger(!trigger);
   const [filesnamesList, setFilesnamesList] = useState([]);
   const location = useLocation();
-  const refreshTime = 11000;
+  const history = useNavigate();
+  const refreshTime = 1111000;
   const { user, setUser } = useUser();
   const [deliveriesData, setDeliveriesData] = useState(null);
   const scrollToBottom = () => {
@@ -36,6 +38,7 @@ const DeliveryComponent = () => {
   //   },
   //   secondParam: trigger,
   // });
+  console.log(location.state.item);
   const fetchCurrentDeliveryData = async () => {
     const data = {
       request_id: location.state.item.id,
@@ -108,6 +111,7 @@ const DeliveryComponent = () => {
     data.append("senders_id", user?.id);
     data.append("comments", formValues.comments);
     data.append("request_id", location.state.item.id);
+
     // const data = {
     //   senders_id: user?.id,
     //   comments: formValues.comments,
@@ -117,18 +121,22 @@ const DeliveryComponent = () => {
       // console.log(formValues.supporting_materials[i].name);
       data.append("uploads_materials[]", formValues.uploads_materials[i]);
     }
+    console.log(Object.fromEntries(data));
     const url = window.baseUrl + "deliver";
 
     fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        // 'Authorization': 'http://localhost:8000/api/user',
-      },
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   Accept: "application/json",
+      //   // 'Authorization': 'http://localhost:8000/api/user',
+      // },
       method: "POST",
       body: data,
     })
-      .then((response) => response.json())
+      .then((response) =>
+        // response.text()
+        response.json()
+      )
       .then((data) => {
         console.log(data);
         // console.log( data['token']);
@@ -174,53 +182,110 @@ const DeliveryComponent = () => {
             key={item.id}
             userSide={user?.id === item.senders_id ? "sender" : "reciever"}
             message={item.comments}
+            materials={item.uploads_materials}
+            urls={item?.uploaded_file_urls}
           />
         ))}
-        <div ref={messagesEndRef} />
+        <div ref={messagesEndRef} style={{ maxHeight: 0 }} />
       </div>
       <div className="delivery_upload_area">
-        <div className="delivery_filenames_area">
-          <span>{filesnamesList.join(",")}</span>
-        </div>
-        <div style={{ position: "absolute", right: 0, marginTop: "-4rem" }}>
-          <SaveButton
-            secondBtnSize={"160px"}
-            labels={["Accept", "Request Revision"]}
-          />
-        </div>
-        <div className="delivery_upload_area_inner">
+        {location.state.item.status === "archived" ? (
           <div
-            className=" gradient send_delivery"
-            onClick={handleClickMaterials}
-          >
-            <input
-              type="file"
-              // name=""
-              name="uploads_materials"
-              ref={pickFileRef}
-              onChangeCapture={handlePickFiles}
-              hidden
-              multiple
-            />
-            <Icon icon="ant-design:file-add-outlined" />
-          </div>
-          <TextArea
-            label={"Write a comment..."}
-            width={"60%"}
-            name={"comments"}
-            value={formValues.comments}
-            onHandleChange={handleChange}
-          />
-          <div
-            className="gradient send_delivery"
-            onClick={() => {
-              deliver();
-              handleClick();
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            <Icon icon="bi:send" />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Icon
+                icon="carbon:checkmark-filled-error"
+                fontSize={"53px"}
+                style={{ color: "var(--danger)" }}
+              />
+              Sorry This has been archived and completed
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            <div className="delivery_filenames_area">
+              <span>{filesnamesList.join(",")}</span>
+            </div>
+            {!isAdmin && (
+              <div
+                style={{ position: "absolute", right: 0, marginTop: "-4rem" }}
+              >
+                <SaveButton
+                  secondBtnSize={"160px"}
+                  onClick={() =>
+                    acceptOrReviewDelivery({
+                      request_id: location.state.item.id,
+                      urlPath: "requestRevision",
+                      history: history,
+                    })
+                  }
+                  onClick2={() =>
+                    acceptOrReviewDelivery({
+                      request_id: location.state.item.id,
+                      urlPath: "acceptDelivery",
+                      history: history,
+                    })
+                  }
+                  labels={[
+                    "Accept",
+                    location.state.item.status === "under review"
+                      ? "Under Review"
+                      : "Request Revision",
+                  ]}
+                  secondBtnColor={
+                    location.state.item.status === "under review"
+                      ? "var(--danger)"
+                      : null
+                  }
+                />
+              </div>
+            )}
+            <div className="delivery_upload_area_inner">
+              <div
+                className=" gradient send_delivery"
+                onClick={handleClickMaterials}
+              >
+                <input
+                  type="file"
+                  // name=""
+                  name="uploads_materials"
+                  ref={pickFileRef}
+                  onChangeCapture={handlePickFiles}
+                  hidden
+                  multiple
+                />
+                <Icon icon="ant-design:file-add-outlined" />
+              </div>
+              <TextArea
+                label={"Write a comment..."}
+                width={"60%"}
+                name={"comments"}
+                value={formValues.comments}
+                onHandleChange={handleChange}
+              />
+              <div
+                className="gradient send_delivery"
+                onClick={() => {
+                  deliver();
+                  handleClick();
+                }}
+              >
+                <Icon icon="bi:send" />
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </>
   );
