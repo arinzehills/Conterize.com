@@ -10,6 +10,7 @@ function NavComponent({
   handleClick,
   showNotification,
   setHandleNotData,
+  isSticky,
 }) {
   const { user, setUser } = useUser();
   let isOnline;
@@ -20,7 +21,11 @@ function NavComponent({
   //     });
   return (
     <>
-      <div className="nav-cmpt-section">
+      <div
+        className={
+          isSticky ? "nav-cmpt-section withstickybar " : "nav-cmpt-section"
+        }
+      >
         {window.innerWidth < 960 && (
           <>
             <Icon

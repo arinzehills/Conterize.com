@@ -1,12 +1,13 @@
 .nav-cmpt-section {
   display: flex;
   justify-content: space-between;
-  position: sticky;
   align-items: center;
   top: 0;
-  z-index: 999999;
+}
+.nav-cmpt-section.withstickybar {
+  position: sticky;
   background: #eff3ff;
-  /* width: 80vw; */
+  z-index: 9999;
 }
 @media screen and (max-width: 960px) {
   .nav-cmpt-section {

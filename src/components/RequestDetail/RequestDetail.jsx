@@ -8,6 +8,7 @@ import IconAndName, {
 import useFetch from "../../useFetch";
 import useUser from "../../useUser";
 import { Button } from "../Button/Button";
+import { FilesContainer } from "../DeliveryComponent/MessageContainer";
 import Modal2 from "../Modal/Modal2";
 import "./RequestDetail.css";
 
@@ -47,6 +48,7 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
     writingTopicsMap.push(itemJson.topics);
     // console.log(itemJson.topics);
   });
+
   // var referenceLinks = [];
   // for (var key in referenceLinksMap) {
   //   if (referenceLinksMap.hasOwnProperty(key)) {
@@ -129,12 +131,20 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                     {requestData?.category}
                   </h4>
                 </div>
+                {requestData?.request_type === "video" ? (
+                  <></>
+                ) : (
+                  <div>
+                    <p>Quantity</p>
+                    <h4>{requestData?.quantity}</h4>
+                  </div>
+                )}
                 <div>
-                  <p>Quantity</p>
-                  <h4>{requestData?.quantity}</h4>
-                </div>
-                <div>
-                  <p>Size</p>
+                  <p>
+                    {requestData?.request_type === "video"
+                      ? "Video Length"
+                      : "Size"}
+                  </p>
                   <h4>{requestData?.size}</h4>
                 </div>
                 <div>
@@ -185,7 +195,7 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                 <div>
                   <p>Refrence Links</p>
                   {/* {requestData?.reference_links.map((item) => ( */}
-                  {referenceLinksMap.map((item) => (
+                  {referenceLinksMap?.map((item) => (
                     <a href={`http://${item}`} target="_blank">
                       <h4 key={item}>{item}</h4>
                     </a>
@@ -193,22 +203,43 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                 </div>
                 <div>
                   <p>Writing Topics</p>
-                  {writingTopicsMap.map((item) => (
-                    // <a href={`http://${item}`} target="_blank">
-                    <h4 style={{ textTransform: "capitalize" }} key={item}>
-                      {item}
-                    </h4>
-                    // </a>
-                  ))}
+                  {writingTopicsMap?.length === 0 ? (
+                    <h4>No topics added</h4>
+                  ) : (
+                    writingTopicsMap?.map((item) => (
+                      // <a href={`http://${item}`} target="_blank">
+                      <h4 style={{ textTransform: "capitalize" }} key={item}>
+                        {item + writingTopicsMap.length}
+                      </h4>
+                      // </a>
+                    ))
+                  )}
                 </div>
-                <div>
+                <div style={{ marginBottom: "1rem" }}>
                   <p>Supporting Materials</p>
                   {/* <h4>{requestData?.supporting_materials.join(",")}</h4> */}
-                  {requestData?.supporting_materials.map((item) => (
-                    <Link to={item}>
-                      <h4 key={item}>{item}</h4>
-                    </Link>
-                  ))}
+                  {requestData?.supporting_materials.length === 0 ? (
+                    <h4>No supporting materials added</h4>
+                  ) : (
+                    requestData?.supporting_materials.map((item, index) => (
+                      // <Link to={item}>
+                      //   <h4 key={item}>{item}</h4>
+                      // </Link>
+                      <a
+                        href={requestData?.uploaded_file_urls[`${index}`]}
+                        target="_blank"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <FilesContainer
+                          filename={item}
+                          url={requestData?.uploaded_file_urls[`${index}`]}
+                          height={"5px"}
+                        >
+                          {item}
+                        </FilesContainer>
+                      </a>
+                    ))
+                  )}
                 </div>
                 <div>
                   <p>Description</p>

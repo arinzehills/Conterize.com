@@ -171,6 +171,7 @@ const DeliveryComponent = ({ isAdmin }) => {
         pageTitle={`Delivery>>${location.state.item.request_name}`}
         // handleClick={handleClick}
         // setHandleNotData={setHandleNotData}
+        isSticky={true}
       />
       <div className="delivery_body">
         {deliveries?.length === 0 && (
@@ -221,34 +222,36 @@ const DeliveryComponent = ({ isAdmin }) => {
               <div
                 style={{ position: "absolute", right: 0, marginTop: "-4rem" }}
               >
-                <SaveButton
-                  secondBtnSize={"160px"}
-                  onClick={() =>
-                    acceptOrReviewDelivery({
-                      request_id: location.state.item.id,
-                      urlPath: "requestRevision",
-                      history: history,
-                    })
-                  }
-                  onClick2={() =>
-                    acceptOrReviewDelivery({
-                      request_id: location.state.item.id,
-                      urlPath: "acceptDelivery",
-                      history: history,
-                    })
-                  }
-                  labels={[
-                    "Accept",
-                    location.state.item.status === "under review"
-                      ? "Under Review"
-                      : "Request Revision",
-                  ]}
-                  secondBtnColor={
-                    location.state.item.status === "under review"
-                      ? "var(--danger)"
-                      : null
-                  }
-                />
+                {deliveries?.length !== 0 && (
+                  <SaveButton
+                    secondBtnSize={"160px"}
+                    onClick={() =>
+                      acceptOrReviewDelivery({
+                        request_id: location.state.item.id,
+                        urlPath: "requestRevision",
+                        history: history,
+                      })
+                    }
+                    onClick2={() =>
+                      acceptOrReviewDelivery({
+                        request_id: location.state.item.id,
+                        urlPath: "acceptDelivery",
+                        history: history,
+                      })
+                    }
+                    labels={[
+                      "Accept",
+                      location.state.item.status === "under review"
+                        ? "Under Review"
+                        : "Request Revision",
+                    ]}
+                    secondBtnColor={
+                      location.state.item.status === "under review"
+                        ? "var(--danger)"
+                        : null
+                    }
+                  />
+                )}
               </div>
             )}
             <div className="delivery_upload_area_inner">

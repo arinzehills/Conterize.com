@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { saveAs } from "file-saver";
 
-const FilesContainer = ({ children, userSide, url, filename }) => {
+const FilesContainer = ({ children, userSide, url, filename, height }) => {
   const saveFile = (e) => {
     e.stopPropagation();
     saveAs(url, filename);
@@ -11,7 +11,7 @@ const FilesContainer = ({ children, userSide, url, filename }) => {
   return (
     <>
       {/* <div className="message_section"> */}
-      <div className={`files_container ${userSide}`}>
+      <div className={`files_container ${userSide}`} style={{ height: height }}>
         <Icon icon="ant-design:file-filled" color="rgb(4, 63, 241)" />
         {children}
         <div style={{}} id={"try"} onClick={saveFile}>
@@ -55,3 +55,4 @@ const MessageContainer = ({ userSide, message, materials, urls }) => {
 };
 
 export default MessageContainer;
+export { FilesContainer };
