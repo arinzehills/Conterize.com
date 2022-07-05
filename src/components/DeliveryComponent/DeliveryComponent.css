@@ -68,6 +68,30 @@
   font-size: 27px;
   margin-top: 0.5rem;
 }
+.files_container:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -40px;
+  right: auto;
+  top: -8px;
+  bottom: auto;
+  border: 32px solid;
+  border-color: rgb(236, 235, 235) transparent transparent transparent;
+}
+.files_container:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -20px;
+  right: auto;
+  top: 0px;
+  bottom: auto;
+  border: 22px solid;
+  border-color: lightyellow transparent transparent transparent;
+}
 .files_container.reciever {
   box-shadow: var(--box-shadow);
 }

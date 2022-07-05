@@ -8,10 +8,12 @@ import NavComponent from "../../pages/Dashboard/NavComponent/NavComponent";
 import useUser from "../../useUser";
 import { Button } from "../Button/Button";
 import handleNot from "../HandleNotification/HandleNot";
+import DropDownField from "../Inputfield/DropDownField";
 import TextArea from "../Inputfield/TextArea";
 import InputWithIcon from "../InputWithIcon/InputWithIcon";
 import Modal2 from "../Modal/Modal2";
 import DraftReqestModal from "./DraftReqestModal";
+import SelectRequestType from "./SelectRequestType";
 import SupportUpload from "./SupportUpload";
 
 const RequestHero = ({ requestTitle, requestType }) => {
@@ -28,6 +30,8 @@ const RequestHero = ({ requestTitle, requestType }) => {
   const { user, setUser } = useUser();
   const [isDraft, setIsDraft] = useState("no");
   const user_id = user?.["id"];
+
+  const [requestType2nd, setRequestType2nd] = useState({});
   const user_name = user?.["firstname"];
   const [filesnamesList, setFilesnamesList] = useState([]);
   // let filesnames = filesnamesList.toString();
@@ -136,7 +140,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
     // this is data for request detail
     data.append("user_id", user_id);
     data.append("request_name", formValues.request_name);
-    data.append("request_type", formValues.request_type);
+    data.append("request_type", requestType2nd);
     data.append("category", formValues.category);
     data.append("quantity", formValues.quantity);
     data.append("size", formValues.size);
@@ -260,8 +264,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
   const handleClickMaterials = () => {
     pickFileRef.current.click();
   };
-  console.log(filesnamesList);
-  console.log(formValues.supporting_materials.length);
+  console.log(requestType2nd);
   return (
     <>
       <ReactNotifications />
@@ -306,13 +309,18 @@ const RequestHero = ({ requestTitle, requestType }) => {
               ? "Design Type"
               : "Content Writing Type"}
           </h3>
-          <DashboardInput
+          {/* <DashboardInput
             name={"request_type"}
             value={formValues.request_type}
             onHandleChange={handleChange}
             style={{ width: "100%" }}
             placeholder="Select Type"
+          > */}
+          <SelectRequestType
+            requestCategory={requestType}
+            setRequestType={setRequestType2nd}
           />
+          {/* </DashboardInput> */}
           <p className="errors">{formErrors.request_type}</p>
           {(requestType === "graphics" || requestType === "content") && (
             <div>

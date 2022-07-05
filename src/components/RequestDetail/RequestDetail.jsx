@@ -131,7 +131,7 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                     {requestData?.category}
                   </h4>
                 </div>
-                {requestData?.request_type === "video" ? (
+                {requestData?.category === "video" ? (
                   <></>
                 ) : (
                   <div>
@@ -141,9 +141,11 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
                 )}
                 <div>
                   <p>
-                    {requestData?.request_type === "video"
+                    {requestData?.category === "video"
                       ? "Video Length"
-                      : "Size"}
+                      : requestData?.category === "graphics"
+                      ? "Dimension"
+                      : "Word Count"}
                   </p>
                   <h4>{requestData?.size}</h4>
                 </div>

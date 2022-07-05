@@ -12,6 +12,7 @@ function DropDownField({
   selected,
   setSelected,
   options,
+  children,
   // isActive,
   // setIsActive
 }) {
@@ -64,7 +65,7 @@ function DropDownField({
                 }}
                 className="dropdown-item"
               >
-                {option}
+                {children} {option}
               </div>
             ))}
           </div>
