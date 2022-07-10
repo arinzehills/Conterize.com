@@ -107,16 +107,23 @@ const Pricingpage = () => {
                   <div
                     className="guarantee_row"
                     key={des}
-                    // style={{ lineHeight: 6 }}
+                    style={
+                      {
+                        //  lineHeight: 6
+                        // display: "flex",
+                        // alignItems: "self-start",
+                        // alignContent: "center",
+                        // background: "red",
+                        // marginTop: "1px",
+                      }
+                    }
                   >
                     <HiOutlineBadgeCheck
                       className="g_icon"
                       size="22"
                       style={{ color: "var(--mypurple)" }}
                     />
-                    <p style={{ alignContent: "center", fontSize: "13.2px" }}>
-                      {des}
-                    </p>
+                    <p style={{ fontSize: "16.2px" }}>{des}</p>
                   </div>
                 ))}
               </div>
