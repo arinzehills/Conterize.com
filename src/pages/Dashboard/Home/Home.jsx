@@ -132,7 +132,7 @@ const Home = ({ setHandleNotData }) => {
                       <h2 color="var(--dark-blue)">
                         Good Evening, {user?.["firstname"]}
                       </h2>
-                      {user?.user_type === "normal_user" ? (
+                      {user?.user_type === "business_user" ? (
                         <p>
                           you have 4 draft to complete. Do you need help in
                           requesting content? Invite team members or contact

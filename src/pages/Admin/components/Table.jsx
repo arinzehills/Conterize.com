@@ -70,7 +70,8 @@ const Table = ({
           style={{ height: "40px", marginBottom: "0.5rem", width: "105px" }}
           onClick={() => {
             setShowAssignModal(true);
-            setAssignFreelancerName(item["firstname"]);
+            setAssignFreelancerName(item);
+            console.log(item);
           }}
         >
           Assign

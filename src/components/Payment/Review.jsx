@@ -46,9 +46,9 @@ const Review = ({ className, firstname, lastname, email, planData }) => {
               gap: window.innerWidth < 760 && "1rem",
             }}
           >
-            <p>Contents/month</p>
+            {/* <p>Contents/month</p>
             <br />
-            <p>{planData.desc[0] ?? ""}</p>
+            <p>{planData.desc[0] ?? ""}</p> */}
           </div>
           {/* <p>last name</p>
           <p>Email</p>

@@ -149,13 +149,13 @@ const Payment = ({ next, back, planData }) => {
               readonly={true}
               value={"Price: " + planData.price}
             />
-            <InputField
+            {/* <InputField
               inputStyle="input--outline"
               label="Enter email address"
               // style={{ width: "93.5%" }}
               readonly={true}
               value={"Contents: " + planData.desc[0]}
-            />
+            /> */}
           </div>
 
           <Review

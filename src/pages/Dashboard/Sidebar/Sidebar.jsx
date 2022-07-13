@@ -54,7 +54,7 @@ const Sidebar = ({ click, handleClick, setClick }) => {
                   <span> Request</span>
                 </Link>
               </li>
-              {user?.user_type === "normal_user" && (
+              {user?.user_type === "business_user" && (
                 <li
                   onClick={() => handleAllClick(3)}
                   className={currentLink === 3 ? "active-nav" : "nonactive-nav"}
@@ -65,7 +65,7 @@ const Sidebar = ({ click, handleClick, setClick }) => {
                   </Link>
                 </li>
               )}
-              {user?.user_type === "normal_user" && (
+              {user?.user_type === "business_user" && (
                 <li
                   onClick={() => handleAllClick(4)}
                   className={currentLink === 4 ? "active-nav" : "nonactive-nav"}

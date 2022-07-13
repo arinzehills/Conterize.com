@@ -168,7 +168,7 @@ function Register() {
         inputNames={inputNames}
         inputValues={inputValues}
         handleChange={handleChange}
-        user_type="normal_user"
+        user_type="business_user"
       />
     ) : (
       <StripeContainer

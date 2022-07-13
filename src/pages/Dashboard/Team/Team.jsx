@@ -59,7 +59,7 @@ const Team = ({ setHandleNotForTeam }) => {
 
   let usersInTeam = teamMembers?.[0]["users"];
   let teamInvites = teamMembers?.[0]["invites"];
-
+  console.log(teamInvites);
   useEffect(() => {
     if (handleNotData !== "no") {
       handleNot({

@@ -30,7 +30,11 @@ const Signup = ({
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value.trimLeft().trimRight() });
+    setFormValues({
+      ...formValues,
+      // [name]: value.trimLeft().trimRight(),
+      [name]: name === "email" ? value.trimLeft().trimRight() : value,
+    });
 
     console.log(formValues);
     // console.log(e.target)

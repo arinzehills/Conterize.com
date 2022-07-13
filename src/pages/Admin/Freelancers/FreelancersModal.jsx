@@ -33,8 +33,8 @@ const FreelancersModal = ({
     // { heading: "Actions", value: "" },
     // { heading: "Ongoing Projects", value: "ongoing_projects" },
   ];
-  const [assignFreelancerName, setAssignFreelancerName] = useState("");
-  console.log(assignFreelancerName);
+  const [assignFreelancerName, setAssignFreelancerName] = useState({});
+  // console.log(assignFreelancerName);
   // Object.entries(activeRow).forEach((key, value) => {
   //   console.log(value);
   //   // if(objHasSelected){}
@@ -55,7 +55,9 @@ const FreelancersModal = ({
     // setLoading(true);
     // const errors={}
     const data = {
-      freelancer_name: freelancer_name, //name of the freelancer to assign the request to
+      // freelancer_name: freelancer_name, //name of the freelancer to assign the request to
+      // freelancer_id:''
+      ...assignFreelancerName,
       id: request_id, //id of the request to update
     };
     // const url="http://localhost/buyenergy_api/public/api/register";

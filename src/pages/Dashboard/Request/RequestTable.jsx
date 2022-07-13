@@ -6,6 +6,7 @@ import ProfilePicsComponent from "../../../components/ProfilePicsComponent/Profi
 import useFetch from "../../../useFetch";
 import useLongPress from "../../../useLongPress";
 import useUser from "../../../useUser";
+import CustomerStatus from "../../Admin/Customers/CustomerStatus";
 import FreelancersModal from "../../Admin/Freelancers/FreelancersModal";
 import IconAndName, { StatusWidget } from "./IconsWidget";
 import NoDataFound from "./NoDataFound";
@@ -93,6 +94,11 @@ const RequestTable = ({
               <StatusWidget
                 title={item[`${columnItem.value}`] ?? ""}
                 status={item[`${columnItem.value}`] ?? ""}
+              />
+            ) : columnItem.value === "payment_status" ? (
+              <CustomerStatus //this is for customers table on admin dashboard for wether customer paid or not
+                title={item[`${columnItem.value}`] ?? ""}
+                payment_status={item[`${columnItem.value}`] ?? ""}
               />
             ) : columnItem.value === "assign_to" ? (
               <ProfilePicsComponent

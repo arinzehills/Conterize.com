@@ -24,10 +24,13 @@ const AddTeam = ({
   const [responseError, setResponseError] = useState("");
   const [loading, setLoading] = useState(false);
   const { token, setToken } = useToken();
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value.trimLeft().trimRight() });
+    setFormValues({
+      ...formValues,
+      [name]: name === "email" ? value.trimLeft().trimRight() : value,
+    });
+    console.log(formValues);
   };
   const onSubmit = (e) => {
     e.preventDefault();

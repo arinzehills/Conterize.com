@@ -37,7 +37,7 @@ const DashbaordCardContainer = ({ user_type }) => {
   };
   return (
     <>
-      {user_type === "normal_user" ? (
+      {user_type === "business_user" ? (
         <div className="dash-card_wrapper">
           <DashboardCard
             type={"request"}
