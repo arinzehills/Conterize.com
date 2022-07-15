@@ -18,6 +18,7 @@ import logout from "../../../components/ProfilePicsComponent/logout";
 import Billing from "./Billing";
 import SettingsComponent from "./SettingsComponent";
 import SettingsTabs from "./SettingsTabs";
+import NoDataFound from "../Request/NoDataFound";
 
 const Settings = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
@@ -188,6 +189,11 @@ const Settings = ({ setHandleNotData }) => {
         <div className="company-section">
           {currentTab === 1 ? (
             <SettingsComponent savePassword={savePassword} error={error} />
+          ) : user?.payment_status === "unpaid" ? (
+            <>
+              <NoDataFound message={"You have not subscribe yet!"} />
+              <Button buttonColor={"gradient"}>Compare Plans</Button>
+            </>
           ) : (
             <Billing />
           )}

@@ -22,6 +22,7 @@ const Table = ({
   setDeleteModal,
   isInvition,
   showCaret,
+  onClickRow,
 }) => {
   const [showAssignModal, setShowAssignModal] = useState(false);
 
@@ -32,7 +33,7 @@ const Table = ({
   );
   const handleClickRow = () => {};
   const TableRow = ({ item, column, index }) => (
-    <tr onClick={() => console.log(item["firstname"])}>
+    <tr onClick={() => onClickRow(item)}>
       {column.map((columnItem, index) => {
         return columnItem.value === "actions" ? (
           <div>

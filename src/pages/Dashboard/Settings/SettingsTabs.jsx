@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import "./SettingsTab.css";
 
-const SettingsTabs = ({ currentTab, setCurrentTab }) => {
+const SettingsTabs = ({
+  currentTab,
+  setCurrentTab,
+  title1,
+  title2,
+  title3,
+}) => {
   return (
     <>
       <div
@@ -14,7 +20,7 @@ const SettingsTabs = ({ currentTab, setCurrentTab }) => {
           }
           onClick={() => setCurrentTab(1)}
         >
-          Account
+          {title1 ?? "Account"}
         </div>
         <div
           className={
@@ -22,7 +28,15 @@ const SettingsTabs = ({ currentTab, setCurrentTab }) => {
           }
           onClick={() => setCurrentTab(2)}
         >
-          Billing
+          {title2 ?? "Billing"}
+        </div>
+        <div
+          className={
+            currentTab === 3 ? "settings_tabs showtab" : "settings_tabs"
+          }
+          onClick={() => setCurrentTab(3)}
+        >
+          {title3}
         </div>
       </div>
     </>

@@ -10,6 +10,7 @@ const DraftReqestModal = ({
   top,
   message,
   seconBtnLabel,
+  firstBtnLabel,
   seconBtnSize,
 }) => {
   let boolx = true;
@@ -58,7 +59,7 @@ const DraftReqestModal = ({
           ) : (
             <SaveButton
               title="Personadsdsal Info"
-              labels={["No", seconBtnLabel ?? "Yes"]}
+              labels={[firstBtnLabel ?? "No", seconBtnLabel ?? "Yes"]}
               onClick2={() => setOpenModal(false)}
               onClick={onClick}
               secondBtnSize={seconBtnSize}
