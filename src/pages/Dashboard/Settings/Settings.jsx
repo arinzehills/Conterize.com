@@ -154,11 +154,19 @@ const Settings = ({ setHandleNotData }) => {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent:
+              user?.user_type === "business_user"
+                ? "space-between"
+                : "flex-end",
             alignItems: "center",
           }}
         >
-          <SettingsTabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
+          {user?.user_type === "business_user" && (
+            <SettingsTabs
+              currentTab={currentTab}
+              setCurrentTab={setCurrentTab}
+            />
+          )}
           <Button
             buttonStyle={"btn--normal"}
             buttonColor="pink"

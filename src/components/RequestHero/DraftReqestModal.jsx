@@ -4,7 +4,14 @@ import Loader from "../Loader/Loader";
 import Modal2 from "../Modal/Modal2";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DraftReqestModal = ({ onClick, setOpenModal, top, message }) => {
+const DraftReqestModal = ({
+  onClick,
+  setOpenModal,
+  top,
+  message,
+  seconBtnLabel,
+  seconBtnSize,
+}) => {
   let boolx = true;
   const stopPropagation = (event) => {
     event.stopPropagation();
@@ -51,9 +58,10 @@ const DraftReqestModal = ({ onClick, setOpenModal, top, message }) => {
           ) : (
             <SaveButton
               title="Personadsdsal Info"
-              labels={["No", "Yes"]}
+              labels={["No", seconBtnLabel ?? "Yes"]}
               onClick2={() => setOpenModal(false)}
               onClick={onClick}
+              secondBtnSize={seconBtnSize}
             />
           )}
         </motion.div>

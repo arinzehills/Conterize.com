@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { Button } from "../Button/Button";
 
-const NotPermittedComponent = () => {
+const NotPermittedComponent = ({ type, setShowPermissionModal, message }) => {
   return (
     <>
       <div style={{ paddingBottom: "2rem" }}>
@@ -15,19 +15,40 @@ const NotPermittedComponent = () => {
             position: "fixed",
             //   marginBottom: "1em",
             display: "flex",
-            justifyContent: "space-evenly",
+            justifyContent: "space-around",
             alignItems: "center",
           }}
         >
-          <div>
-            Sorry u have not completed your subscription
-            <Icon icon="bx:error-alt" />
-            <Icon icon="carbon:incomplete-error" />
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+            >
+              {message ??
+                "Sorry u have not completed your subscription,Complete to start placing request"}
+              {type === "payment" ? (
+                <Icon icon="carbon:incomplete-error" fontSize={"25px"} />
+              ) : (
+                <Icon icon="bx:error-alt" fontSize={"25px"} />
+              )}
+            </div>
+            <div>
+              {type === "payment" ? (
+                <Button buttonColor={"blue"} buttonSize="btn--small">
+                  Complete
+                </Button>
+              ) : (
+                <Button
+                  buttonColor={"blue"}
+                  buttonSize="btn--small"
+                  style={{ width: "auto" }}
+                >
+                  Contact Admin
+                </Button>
+              )}
+            </div>
           </div>
-          <div>
-            <Button buttonColor={"blue"} buttonSize="btn--small">
-              Complete
-            </Button>
+          <div onClick={() => setShowPermissionModal(false)}>
+            <Icon icon="akar-icons:circle-x-fill" fontSize={"20px"} />
           </div>
         </div>
       </div>

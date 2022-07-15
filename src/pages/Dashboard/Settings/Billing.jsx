@@ -128,6 +128,15 @@ const Billing = () => {
               placeholder={user?.["email"]}
             />
           </div>
+          <div className="company-col">
+            <h3>Payment Status</h3>
+
+            <DashboardInput
+              // value={user?.["payment_status"]}
+              readOnly={true}
+              label={user?.["payment_status"]}
+            />
+          </div>
         </div>
       </div>
     </>

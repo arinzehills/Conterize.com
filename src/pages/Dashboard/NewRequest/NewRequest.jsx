@@ -1,15 +1,25 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../../components/Button/Button";
 import "./NewRequest.css";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import NavComponent from "../NavComponent/NavComponent";
+import Modal from "../../../components/Modal/Modal";
+import DraftReqestModal from "../../../components/RequestHero/DraftReqestModal";
+import useUser from "../../../useUser";
 
 const NewRequest = ({ setHandleNotData }) => {
   const navigate = useNavigate();
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
+  const [showAssignModal, setShowAssignModal] = useState(false);
+  const { user, setUser } = useUser();
 
+  const checkUserStatus = () => {
+    user?.payment_status === "unpaid"
+      ? setShowAssignModal(true)
+      : navigate("/dashboard/contentrequest");
+  };
   return (
     <>
       <NavComponent
@@ -17,7 +27,14 @@ const NewRequest = ({ setHandleNotData }) => {
         pageTitle={"New Request"}
         setHandleNotData={setHandleNotData}
       />
-
+      {showAssignModal && (
+        <DraftReqestModal
+          message={"Sorry you can't place a request have not subscribe yet,"}
+          seconBtnLabel="Choose Plan"
+          seconBtnSize="115px"
+          setOpenModal={setShowAssignModal}
+        />
+      )}
       <div className="new-request-section">
         <div className="new-request-container">
           <h2>Select You Request type</h2>
@@ -25,40 +42,38 @@ const NewRequest = ({ setHandleNotData }) => {
             <img src="/images/dullbaby.png" alt="" />
 
             <div className="new-request-btn">
-              <Link to="/dashboard/contentrequest">
-                <Button
+              <Button
+                style={{
+                  width: "295px",
+                  color: "white",
+                  background: "var(--dashboard-dark-blue)",
+                }}
+                onClick={checkUserStatus}
+              >
+                <div
+                  className="request-inner-btn"
                   style={{
-                    width: "295px",
-                    color: "white",
-                    background: "var(--dashboard-dark-blue)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "11px",
+                    justifyContent: "center",
                   }}
-                  // onClick={() => navigate("/dashboard/contentrequest")}
                 >
-                  <div
-                    className="request-inner-btn"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "11px",
-                      justifyContent: "center",
-                    }}
-                  >
-                    Content Creation{" "}
-                    <Icon
-                      icon="bi:arrow-down-circle-fill"
-                      color="white"
-                      rotate={3}
-                    />
-                  </div>
-                </Button>
-              </Link>
+                  Content Creation{" "}
+                  <Icon
+                    icon="bi:arrow-down-circle-fill"
+                    color="white"
+                    rotate={3}
+                  />
+                </div>
+              </Button>
               <Button
                 style={{
                   width: "295px",
                   color: "white",
                   background: "#ff724a",
                 }}
-                onClick={() => navigate("/dashboard/graphicsrequest")}
+                onClick={checkUserStatus}
               >
                 <div
                   className="request-inner-btn"
@@ -86,7 +101,7 @@ const NewRequest = ({ setHandleNotData }) => {
                     gap: "11px",
                     justifyContent: "center",
                   }}
-                  onClick={() => navigate("/dashboard/videorequest")}
+                  onClick={checkUserStatus}
                 >
                   Video Creation{" "}
                   <Icon
