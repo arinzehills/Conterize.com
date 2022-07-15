@@ -6,6 +6,7 @@
   border-radius: 10px;
   background: white;
   height: 50px;
+  cursor: pointer;
 }
 
 .prf-container.iscircular {

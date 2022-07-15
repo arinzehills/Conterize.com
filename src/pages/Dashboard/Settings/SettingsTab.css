@@ -1,0 +1,13 @@
+.settings_tabs {
+  background: rgba(255, 0, 242, 0.007);
+  padding: 0.9rem;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.settings_tabs.showtab {
+  border-bottom: 5px solid var(--pink);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  /* border-radius: 1rem; */
+  transition: all 0.5s ease-in-out;
+}

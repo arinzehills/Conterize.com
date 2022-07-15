@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import NotPermittedComponent from "../../components/NotPermittedComponent/NotPermittedComponent";
 import useToken from "../../useToken";
 import NavComponent from "./NavComponent/NavComponent";
 import Sidebar from "./Sidebar/Sidebar";
@@ -32,6 +33,7 @@ function Dashboard() {
     <>
       <Sidebar click={click} handleClick={handleClick} setClick={setClick} />
 
+      <NotPermittedComponent />
       <div className="section">
         {/* <NavComponent handleClick={handleClick} /> */}
         <Outlet context={[click, setClick]} />

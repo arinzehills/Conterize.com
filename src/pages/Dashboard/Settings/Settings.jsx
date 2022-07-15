@@ -15,18 +15,19 @@ import { Store } from "react-notifications-component";
 import { Button } from "../../../components/Button/Button";
 import { Icon } from "@iconify/react";
 import logout from "../../../components/ProfilePicsComponent/logout";
+import Billing from "./Billing";
+import SettingsComponent from "./SettingsComponent";
+import SettingsTabs from "./SettingsTabs";
 
 const Settings = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const { token, setToken } = useToken();
   const { user, setUser } = useUser();
-  const [timeZone, setTimeZone] = useState("Select TimeZone");
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState("");
   const history = useNavigate();
 
-  const timeZones = ["nigeria", "ghana"];
   const initialValues = {
     personal_info: user?.["firstname"] + " " + user?.["lastname"],
     industry: "",
@@ -137,6 +138,7 @@ const Settings = ({ setHandleNotData }) => {
     console.log(formValues);
     // console.log(e.target)
   };
+  const [currentTab, setCurrentTab] = useState(1);
 
   return (
     <>
@@ -149,7 +151,14 @@ const Settings = ({ setHandleNotData }) => {
         {/* <Modal2 /> */}
         {showModal && <Modal2 />}
         <ReactNotifications />
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <SettingsTabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
           <Button
             buttonStyle={"btn--normal"}
             buttonColor="pink"
@@ -169,123 +178,11 @@ const Settings = ({ setHandleNotData }) => {
           </Button>
         </div>
         <div className="company-section">
-          <div
-            className="company-container"
-            style={{ width: window.innerWidth > 960 && "110%" }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <h3
-                style={{
-                  textAlign: "left",
-                  fontSize: "20px",
-                  fontWeight: "500",
-                }}
-              >
-                {"Personal Info"}
-              </h3>
-              {window.innerWidth > 763 && (
-                <SaveButton title="Personal Info" labels={["Cancel", "Save"]} />
-              )}
-            </div>
-            <div className="company-row">
-              <div className="company-col">
-                {/* goes bottom-to-top */}
-                <h3>Person info</h3>
-                <DashboardInput
-                  value={formValues.personal_info}
-                  name="personal_info"
-                  label={user?.["firstname"] + " " + user?.["lastname"]}
-                  onHandleChange={handleChange}
-                />
-              </div>
-              <div className="company-col">
-                <h3>Email</h3>
-
-                <DashboardInput
-                  value={user?.["email"]}
-                  placeholder={user?.["email"]}
-                />
-              </div>
-              <div className="company-col">
-                <h3>Time Zone</h3>
-
-                <DropDownField
-                  options={timeZones}
-                  selected={timeZone}
-                  setSelected={setTimeZone}
-                  inputSize="width-353  "
-                  style={{ height: 190 }}
-                />
-              </div>
-            </div>
-            {/* person info for smaller screens */}
-            {window.innerWidth < 763 && (
-              <SaveButton title="Personal Info" labels={["Cancel", "Save"]} />
-            )}
-          </div>
-
-          <div
-            className="company-container"
-            style={{ width: window.innerWidth > 960 && "110%" }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <h3
-                style={{
-                  textAlign: "left",
-                  fontSize: "20px",
-                  fontWeight: "500",
-                }}
-              >
-                {"Change password"}
-              </h3>
-              {/* change password for large screens */}
-              {window.innerWidth > 763 && (
-                <SaveButton
-                  labels={["Cancel", "Save"]}
-                  onClick={savePassword}
-                />
-              )}
-            </div>
-
-            <div className="company-row">
-              <div className="company-col">
-                {/* goes bottom-to-top */}
-                <h3>Old Password</h3>
-                <DashboardInput
-                  name={"oldpassword"}
-                  value={formValues.oldpassword}
-                  onHandleChange={handleChange}
-                />
-              </div>
-              <div className="company-col">
-                <h3>New Password</h3>
-
-                <DashboardInput
-                  name={"password"}
-                  value={formValues.password}
-                  onHandleChange={handleChange}
-                />
-              </div>
-              <div className="company-col">
-                <h3>Retype Password</h3>
-
-                <DashboardInput
-                  name={"password_confirmation"}
-                  value={formValues.password_confirmation}
-                  onHandleChange={handleChange}
-                />
-                <p className="errors">{error}</p>
-              </div>
-            </div>
-            {/* for smaller screens */}
-            {window.innerWidth < 763 && (
-              <SaveButton
-                title="Personadsdsal Info"
-                labels={["Cancel", "Save"]}
-                onClick={savePassword}
-              />
-            )}
-          </div>
+          {currentTab === 1 ? (
+            <SettingsComponent savePassword={savePassword} error={error} />
+          ) : (
+            <Billing />
+          )}
         </div>
       </div>
     </>
