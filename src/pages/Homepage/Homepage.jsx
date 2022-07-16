@@ -27,6 +27,7 @@ const homeData2 = {
     "Get the right content your business need to attract, convert and scale.",
   subdescriptionFont: "f18px",
   img: "images/twomen.png",
+  imgalt1: "Your Startup Content Partner",
   // showButton: true,
   withBg: true,
   buttonLabel: "Get Started",
@@ -38,6 +39,7 @@ const homeData3 = {
     "We will handle all your content needs and so you got to spend your" +
     " time where it is most useful. Its high time you focus on sales and growth.",
   img: "images/post.png",
+  imgalt1: "consistent content creation and content marketing",
   withBg: true,
   showButton: true,
   buttonLabel: "Pick a Plan",
@@ -57,6 +59,7 @@ const dataArr = {
   isList: true,
   imgStart: "start",
   img: "images/single-post.png",
+  imgalt1: "Conterize Guaranteed Quality Assurance",
   showButton: true,
   buttonLabel: "Pick a plan",
 };
@@ -71,13 +74,15 @@ const dataArr2 = {
   ],
   isList: true,
   img: "images/oneman.png",
+  imgalt1: "We help you skip:",
+
   showButton: true,
   buttonLabel: "Get Started",
   withBg: true,
 };
 const whyConterize = [
   {
-    heading: "Vetted Content Creators    ",
+    heading: "Vetted Content Creators",
     desc: "All our content creators are fully vetted, tested and trusted from content writers, graphic designers to video creators. ",
     img: "/images/web-content1.png",
     icon: "arcticons:androits-gps-test",
