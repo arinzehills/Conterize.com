@@ -125,14 +125,7 @@ function Hero({
             >
               {/* <img src='../../images/studio.png' alt='hero image' className='home__hero-img' /> */}
 
-              <img
-                src={img}
-                alt={
-                  imgalt1 ??
-                  "Conterize: Content Creation & Content Marketing Platform"
-                }
-                className="home__hero-img"
-              />
+              <img src={img} alt={imgalt1} className="home__hero-img" />
             </div>
           </div>
         </div>
