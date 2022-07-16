@@ -11,11 +11,13 @@ function Hero({
   subdescription,
   subdescriptionFont,
   img,
+  imgalt1,
   withBg,
   bgColor,
   marginfrBg,
   isList,
   imgStart,
+
   showButton,
   buttonLabel,
   buttonLink,
@@ -123,7 +125,14 @@ function Hero({
             >
               {/* <img src='../../images/studio.png' alt='hero image' className='home__hero-img' /> */}
 
-              <img src={img} alt="hero image" className="home__hero-img" />
+              <img
+                src={img}
+                alt={
+                  imgalt1 ??
+                  "Conterize: Content Creation & Content Marketing Platform"
+                }
+                className="home__hero-img"
+              />
             </div>
           </div>
         </div>
