@@ -15,6 +15,7 @@ const homeData = {
   // subdescription:
   //   "Content Writing, Social media graphics and Videos at scale monthly",
   img: "images/twowomen.png",
+  imgalt1: "Conterize: Content Creation & Content Marketing Platform",
   showButton: true,
   buttonLabel: "Get Started",
 };
