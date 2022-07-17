@@ -5,7 +5,7 @@ import "../../components/HowitWorks/HowitWorks.css";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
 import Faq from "../../components/Faq/Faq";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -59,9 +59,11 @@ const data = [
     ],
   },
 ];
-const Pricingpage = () => {
+const Pricingpage = ({}) => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location.state.isRegisteredUser);
   return (
     <>
       <div className="pricing-container" id="pricing">
@@ -92,7 +94,16 @@ const Pricingpage = () => {
                 <h2 className="price">
                   {item.price} <span>/month</span>
                 </h2>
-                <Link to="/register" state={{ item }}>
+                <Link
+                  to="/register"
+                  state={{
+                    item,
+                    isRegisteredUser:
+                      location.state !== null
+                        ? location.state.isRegisteredUser
+                        : false,
+                  }}
+                >
                   <Button
                     style={{ lineHeight: 0, marginTop: 0, width: "90%" }}
                     buttonColor="blue"

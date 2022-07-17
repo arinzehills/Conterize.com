@@ -42,6 +42,7 @@ import UserRequestDetail from "./pages/Dashboard/UserRequestDetail/UserRequestDe
 import OrderDetail from "./pages/Admin/Orders/OrderDetail";
 import Deliver from "./pages/Admin/Deliver/Deliver";
 import { CheckDelivery } from "./pages/Dashboard/Delivery/CheckDelivery";
+import NoDataFound from "./pages/Dashboard/Request/NoDataFound";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -185,6 +186,11 @@ function App() {
           path="/creatorsregistration"
           exact
           element={<CreatorsRegistration />}
+        />
+        <Route
+          path="*"
+          exact
+          element={<NoDataFound message={"404 Route not Found"} />}
         />
       </Switch>
     </div>

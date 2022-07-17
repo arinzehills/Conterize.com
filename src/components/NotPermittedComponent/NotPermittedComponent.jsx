@@ -1,8 +1,11 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import { Button } from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const NotPermittedComponent = ({ type, setShowPermissionModal, message }) => {
+  const history = useNavigate();
+  const isRegisteredUser = "chds";
   return (
     <>
       <div style={{ paddingBottom: "2rem" }}>
@@ -33,7 +36,17 @@ const NotPermittedComponent = ({ type, setShowPermissionModal, message }) => {
             </div>
             <div>
               {type === "payment" ? (
-                <Button buttonColor={"blue"} buttonSize="btn--small">
+                <Button
+                  buttonColor={"blue"}
+                  buttonSize="btn--small"
+                  onClick={() =>
+                    history("/pricing", {
+                      state: {
+                        isRegisteredUser: true,
+                      },
+                    })
+                  }
+                >
                   Complete
                 </Button>
               ) : (

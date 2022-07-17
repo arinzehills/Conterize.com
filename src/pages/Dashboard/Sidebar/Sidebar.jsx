@@ -21,9 +21,7 @@ const Sidebar = ({ click, handleClick, setClick }) => {
               <Icon
                 icon="bxs:category"
                 style={{ color: "#FF724A", fontSize: "25px" }}
-                onClick={() => {
-                  handleClick();
-                }}
+                onClick={handleClick}
               />
             )}
             <Link onClick={handleClick} to="">

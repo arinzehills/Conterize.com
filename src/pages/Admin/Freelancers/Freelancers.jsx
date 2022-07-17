@@ -4,18 +4,21 @@ import { useOutletContext } from "react-router-dom";
 import { Button } from "../../../components/Button/Button";
 import DraftReqestModal from "../../../components/RequestHero/DraftReqestModal";
 import useFetch from "../../../useFetch";
+import useToken from "../../../useToken";
 import NavComponent from "../../Dashboard/NavComponent/NavComponent";
 import SettingsTabs from "../../Dashboard/Settings/SettingsTabs";
 import AddTeam from "../../Dashboard/Team/AddTeam";
 import Subnav from "../components/Subnav";
 import Table from "../components/Table";
 import AddFreelancer from "./AddFreelancer";
+import handleApproveFreelancer from "./handleApproveFreelancer";
 
 const Freelancers = ({ handleNotData, setHandleNotData }) => {
   const [openModal, setOpenModal] = useState(false);
+  const [approveFreelancer, setApproveFreelancer] = useState({});
   const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [currentTab, setCurrentTab] = useState(1);
-
+  const { token, setToken } = useToken();
   // const [handleNotData, setHandleNotData] = useState("no");
   const tableData = [
     {
@@ -80,6 +83,7 @@ const Freelancers = ({ handleNotData, setHandleNotData }) => {
     { heading: "Last Login", value: "last_seen" },
     // { heading: "Actions", value: "actions" },
   ];
+
   return (
     <>
       <AddFreelancer
@@ -93,6 +97,14 @@ const Freelancers = ({ handleNotData, setHandleNotData }) => {
         <DraftReqestModal
           message={"Approve Freelancer?"}
           seconBtnLabel="Yes"
+          onClick={() =>
+            handleApproveFreelancer({
+              data: { user_id: approveFreelancer.user_id },
+              setHandleNotData: setHandleNotData,
+              token: token,
+              setShowPermissionModal: setShowPermissionModal,
+            })
+          }
           firstBtnLabel={"Reject"}
           // seconBtnSize="115px"
           setOpenModal={setShowPermissionModal}
@@ -146,7 +158,10 @@ const Freelancers = ({ handleNotData, setHandleNotData }) => {
               loading={unApprovedloading}
               data={unApprovedFreelancers}
               columnData={columnDataForPending}
-              onClickRow={(item) => setShowPermissionModal(true)}
+              onClickRow={(item) => {
+                setShowPermissionModal(true);
+                setApproveFreelancer(item);
+              }}
             />
           </>
         )}

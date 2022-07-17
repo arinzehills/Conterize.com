@@ -192,7 +192,18 @@ const Settings = ({ setHandleNotData }) => {
           ) : user?.payment_status === "unpaid" ? (
             <>
               <NoDataFound message={"You have not subscribe yet!"} />
-              <Button buttonColor={"gradient"}>Compare Plans</Button>
+              <Button
+                buttonColor={"gradient"}
+                onClick={() =>
+                  history("/pricing", {
+                    state: {
+                      isRegisteredUser: true,
+                    },
+                  })
+                }
+              >
+                Compare Plans
+              </Button>
             </>
           ) : (
             <Billing />

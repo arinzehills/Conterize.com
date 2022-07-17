@@ -65,6 +65,7 @@ const AddFreelancer = ({
       lastname: formValues.lastname,
       email: formValues.email,
       token: token,
+      role_type: selectRole,
     };
     const url = window.baseUrl + "addFreelancer?token=" + token;
     fetch(url, {
