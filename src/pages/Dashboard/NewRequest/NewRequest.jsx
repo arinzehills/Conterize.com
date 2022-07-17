@@ -33,6 +33,13 @@ const NewRequest = ({ setHandleNotData }) => {
           seconBtnLabel="Choose Plan"
           seconBtnSize="115px"
           setOpenModal={setShowAssignModal}
+          onClick={() =>
+            navigate("/pricing", {
+              state: {
+                isRegisteredUser: true,
+              },
+            })
+          }
         />
       )}
       <div className="new-request-section">
