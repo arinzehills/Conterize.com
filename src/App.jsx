@@ -43,6 +43,7 @@ import OrderDetail from "./pages/Admin/Orders/OrderDetail";
 import Deliver from "./pages/Admin/Deliver/Deliver";
 import { CheckDelivery } from "./pages/Dashboard/Delivery/CheckDelivery";
 import NoDataFound from "./pages/Dashboard/Request/NoDataFound";
+import AdminPrivateRoute from "./utils/AdminPrivateRoute";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -137,30 +138,32 @@ function App() {
           path="adminlogin"
           element={<AdminLogin setHandleNotData={setHandleNotData} />}
         />
-        <Route path="/admin" element={<Admin />}>
-          <Route
-            path="freelancers"
-            element={
-              <Freelancers
-                handleNotData={handleNotData}
-                setHandleNotData={setHandleNotData}
-              />
-            }
-          />
+        <Route element={<AdminPrivateRoute token={token} />}>
+          <Route path="/admin" element={<Admin />}>
+            <Route
+              path="freelancers"
+              element={
+                <Freelancers
+                  handleNotData={handleNotData}
+                  setHandleNotData={setHandleNotData}
+                />
+              }
+            />
 
-          <Route path="customers" element={<Customers />} />
-          <Route path="orders" element={<Orders />} />
-          <Route
-            path="orderdetail"
-            element={<OrderDetail setHandleNotData={setHandleNotData} />}
-          />
-          <Route
-            path="deliver"
-            element={<Deliver setHandleNotData={setHandleNotData} />}
-          />
-          <Route path="managerdiscount" element={<Customers />} />
-          <Route path="settings" element={<Customers />} />
-          <Route index element={<AdminDashboard />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="orders" element={<Orders />} />
+            <Route
+              path="orderdetail"
+              element={<OrderDetail setHandleNotData={setHandleNotData} />}
+            />
+            <Route
+              path="deliver"
+              element={<Deliver setHandleNotData={setHandleNotData} />}
+            />
+            <Route path="managerdiscount" element={<Customers />} />
+            <Route path="settings" element={<Customers />} />
+            <Route index element={<AdminDashboard />} />
+          </Route>
         </Route>
         <Route
           path="/login"
