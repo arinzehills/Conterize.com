@@ -83,7 +83,7 @@ const chartData = {
   ],
 };
 
-const AdminDashboard = () => {
+const AdminDashboard = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const IconWrapper = ({ type, IconPadding, iconFontSize }) => {
@@ -202,6 +202,7 @@ const AdminDashboard = () => {
         showNotification={true}
         handleClick={handleClick}
         pageTitle="Admin Dashboard"
+        setHandleNotData={setHandleNotData}
       />
       <div className="admin_section">
         <div className="admin_grid">

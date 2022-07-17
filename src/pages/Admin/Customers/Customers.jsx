@@ -6,7 +6,7 @@ import NavComponent from "../../Dashboard/NavComponent/NavComponent";
 import RequestTable from "../../Dashboard/Request/RequestTable";
 import Subnav from "../components/Subnav";
 
-const Customers = () => {
+const Customers = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const { user, setUser } = useUser();
@@ -47,6 +47,7 @@ const Customers = () => {
           showNotification={true}
           handleClick={handleClick}
           pageTitle=""
+          setHandleNotData={setHandleNotData}
         />
         <Subnav title={"Customers"} icon="bi:people" />
         <RequestTable

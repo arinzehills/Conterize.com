@@ -139,7 +139,10 @@ function App() {
           element={<AdminLogin setHandleNotData={setHandleNotData} />}
         />
         <Route element={<AdminPrivateRoute token={token} />}>
-          <Route path="/admin" element={<Admin />}>
+          <Route
+            path="/admin"
+            element={<Admin setHandleNotData={setHandleNotData} />}
+          >
             <Route
               path="freelancers"
               element={
@@ -150,8 +153,14 @@ function App() {
               }
             />
 
-            <Route path="customers" element={<Customers />} />
-            <Route path="orders" element={<Orders />} />
+            <Route
+              path="customers"
+              element={<Customers setHandleNotData={setHandleNotData} />}
+            />
+            <Route
+              path="orders"
+              element={<Orders setHandleNotData={setHandleNotData} />}
+            />
             <Route
               path="orderdetail"
               element={<OrderDetail setHandleNotData={setHandleNotData} />}
@@ -160,9 +169,18 @@ function App() {
               path="deliver"
               element={<Deliver setHandleNotData={setHandleNotData} />}
             />
-            <Route path="managerdiscount" element={<Customers />} />
-            <Route path="settings" element={<Customers />} />
-            <Route index element={<AdminDashboard />} />
+            <Route
+              path="managerdiscount"
+              element={<Customers setHandleNotData={setHandleNotData} />}
+            />
+            <Route
+              path="settings"
+              element={<Customers setHandleNotData={setHandleNotData} />}
+            />
+            <Route
+              index
+              element={<AdminDashboard setHandleNotData={setHandleNotData} />}
+            />
           </Route>
         </Route>
         <Route

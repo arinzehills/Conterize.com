@@ -1,10 +1,10 @@
 import React from "react";
 import RequestDetail from "../../../components/RequestDetail/RequestDetail";
 
-const OrderDetail = () => {
+const OrderDetail = ({ setHandleNotData }) => {
   return (
     <>
-      <RequestDetail isAdmin={true} />
+      <RequestDetail isAdmin={true} setHandleNotData={setHandleNotData} />
     </>
   );
 };

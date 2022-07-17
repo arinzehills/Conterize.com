@@ -1,11 +1,11 @@
 import React from "react";
 import DeliveryComponent from "../../../components/DeliveryComponent/DeliveryComponent";
 
-const Deliver = () => {
+const Deliver = ({ setHandleNotData }) => {
   return (
     <>
       <div>
-        <DeliveryComponent isAdmin={true} />
+        <DeliveryComponent isAdmin={true} setHandleNotData={setHandleNotData} />
       </div>
     </>
   );

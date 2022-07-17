@@ -116,6 +116,7 @@ const Freelancers = ({ handleNotData, setHandleNotData }) => {
           showNotification={true}
           handleClick={handleClick}
           pageTitle=""
+          setHandleNotData={setHandleNotData}
         />
         <Subnav title={"Freelancers"} icon="fa6-solid:people-carry-box" />
         <div

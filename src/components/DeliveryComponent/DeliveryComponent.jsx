@@ -11,7 +11,7 @@ import TextArea from "../Inputfield/TextArea";
 import "./DeliveryComponent.css";
 import acceptOrReviewDelivery from "./deliveryfunctions";
 import MessageContainer from "./MessageContainer";
-const DeliveryComponent = ({ isAdmin }) => {
+const DeliveryComponent = ({ isAdmin, setHandleNotData }) => {
   const fileNamesRef = React.useRef();
   const messagesEndRef = React.useRef(null);
   const [trigger, setTrigger] = useState(false);
@@ -172,6 +172,7 @@ const DeliveryComponent = ({ isAdmin }) => {
         // handleClick={handleClick}
         // setHandleNotData={setHandleNotData}
         isSticky={true}
+        setHandleNotData={setHandleNotData}
       />
       <div className="delivery_body">
         {deliveries?.length === 0 && (

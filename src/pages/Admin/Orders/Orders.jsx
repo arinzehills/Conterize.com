@@ -7,7 +7,7 @@ import NavComponent from "../../Dashboard/NavComponent/NavComponent";
 import RequestTable from "../../Dashboard/Request/RequestTable";
 import Subnav from "../components/Subnav";
 import "./Orders.css";
-const Orders = () => {
+const Orders = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
   const handleClick = () => setClick(!click);
   const [activeRow, setActiveRow] = useState(false); //the rows that is clicked or selected
@@ -59,6 +59,7 @@ const Orders = () => {
           showNotification={true}
           handleClick={handleClick}
           pageTitle=""
+          setHandleNotData={setHandleNotData}
         />
         <Subnav />
 
