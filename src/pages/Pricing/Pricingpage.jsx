@@ -6,6 +6,7 @@ import { HiOutlineBadgeCheck } from "react-icons/hi";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
 import Faq from "../../components/Faq/Faq";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const data = [
   {
@@ -66,6 +67,13 @@ const Pricingpage = ({}) => {
   // console.log(location.state.isRegisteredUser);
   return (
     <>
+      <Helmet>
+        <title>Conterize | Pricing</title>
+        <meta
+          name="description"
+          content="Conterize Simple Pricing for your Business"
+        />
+      </Helmet>
       <div className="pricing-container" id="pricing">
         <div className="pricing-wrapper">
           <h2 className="pricing-header">Simple Pricing for your Business</h2>
