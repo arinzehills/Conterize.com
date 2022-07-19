@@ -5,6 +5,7 @@ import Hero from "../../components/Hero/Hero";
 import Partners from "../../components/PatnersComponent/Partners";
 import HowitWorks from "../../components/HowitWorks/HowitWorks";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
+import { Helmet } from "react-helmet";
 
 const homeData = {
   headline: "Power Your Business Growth with On-Demand Content",
@@ -155,6 +156,13 @@ const howitWorks = [
 function Homepage() {
   return (
     <>
+      <Helmet>
+        <title>Conterize Content Creation & Content Marketing Platform</title>
+        <meta
+          name="description"
+          content="Conterize Simple Pricing for your Business"
+        />
+      </Helmet>
       <Hero {...homeData} />
       <Partners />
       <Hero {...homeData2} />
