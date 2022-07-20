@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Button } from "../../components/Button/Button";
 import InputField from "../../components/Inputfield/InputField";
 import Loader from "../../components/Loader/Loader";
@@ -136,6 +137,10 @@ const Signup = ({
     <>
       {/* <img src="/images/conterize.png" height={"120px"} alt="" />
        */}
+      <Helmet>
+        <title>Register at Conterize</title>
+        <meta name="description" content="Conterize Registration Page" />
+      </Helmet>
       {loading ? (
         <div style={{ height: "70%", marginTop: "3rem" }}>
           <Loader position={"relative"} />

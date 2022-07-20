@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import Formhero from "../../components/FormHero/FormHero";
 import Loader from "../../components/Loader/Loader";
@@ -120,6 +121,10 @@ function Login({ setHandleNotData }) {
   };
   return (
     <>
+      <Helmet>
+        <title>Login to Conterize</title>
+        <meta name="description" content="Conterize Login Page" />
+      </Helmet>
       <Modal2 zIndex={0} />
       {loading ? (
         <Loader />

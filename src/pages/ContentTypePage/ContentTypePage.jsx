@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import ContentType from "../../components/ContenType/ContentType";
 
 const contentWrt = {
@@ -130,6 +131,13 @@ const videoCrt = {
 const ContentTypePage = () => {
   return (
     <>
+      <Helmet>
+        <title>Login to Conterize</title>
+        <meta
+          name="description"
+          content="Various Content types that conterize.com supports"
+        />
+      </Helmet>
       <ContentType {...contentWrt} />
       <ContentType {...graphicsDsn} />
       <ContentType {...videoCrt} />

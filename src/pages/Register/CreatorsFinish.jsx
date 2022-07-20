@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react";
 import Loader from "../../components/Loader/Loader";
 import useToken from "../../useToken";
 import fetchCountries from "../../utils/fetchCountries";
+import { Helmet } from "react-helmet";
 const ChoseNationality = ({
   className,
   nationality,
@@ -162,6 +163,9 @@ const CreatorsFinish = ({ next, back, index }) => {
   };
   return (
     <>
+      <Helmet>
+        <title>Finish Content Creators Registration at Conterize</title>
+      </Helmet>
       {loading ? (
         <div style={{ height: "40%", marginTop: "3rem" }}>
           <Loader position={"relative"} />

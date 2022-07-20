@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Button } from "../../components/Button/Button";
 import GuaranteeHero from "../../components/GuaranteeHero/GuaranteeHero";
 import Hero from "../../components/Hero/Hero";
@@ -46,6 +47,13 @@ const ContentCreators = () => {
   ];
   return (
     <>
+      <Helmet>
+        <title>Content Creators | Work at Conterize as Content Creators</title>
+        <meta
+          name="description"
+          content="Want to work with Conterize as a freelancer and make your work unique, this is the page that will describe it"
+        />
+      </Helmet>
       <Hero {...workData} buttonLink={"/creatorsregistration"} />
       <GuaranteeHero
         descArr={desArr}

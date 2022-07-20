@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import MyProgress from "../../components/MyProgress/MyProgress";
 import Stepper from "../../components/StepperComponent/Stepper";
@@ -71,6 +72,9 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
         <Loader />
       ) : 
       ( */}
+      <Helmet>
+        <title>Content Creators Registration at Conterize</title>
+      </Helmet>
       <Link to="/" className="navbar-logo">
         <img
           src="images/conterize.png"
