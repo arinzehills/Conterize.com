@@ -90,7 +90,7 @@ function Footer() {
                   <img
                     src="images/logo_white.png"
                     style={{ maxHeight: "70px" }}
-                    alt=""
+                    alt="conterize white logo"
                   />
                 </Link>
               </div>

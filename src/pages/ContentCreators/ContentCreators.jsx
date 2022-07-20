@@ -13,6 +13,7 @@ const ContentCreators = () => {
       "match our high quality standard at the same time willing to work in a" +
       "rewarding environment.",
     img: "/images/contentcreators1.jpg",
+    imgalt1: "work with conterize",
     showButton: true,
     buttonLabel: "Join Now",
 
@@ -33,6 +34,7 @@ const ContentCreators = () => {
     ],
     isList: true,
     img: "images/oneman.png",
+    imgalt1: "Reasons to work with conterize",
     showButton: true,
     buttonLabel: "Apply Now",
     withBg: true,
