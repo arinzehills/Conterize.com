@@ -156,6 +156,13 @@ const howitWorks = [
 function Homepage() {
   return (
     <>
+      <Helmet>
+        <title>Conterize Content Creation & Content Marketing Platform</title>
+        <meta
+          name="description"
+          content="Conterize helps you scale your business through effortless content creation automation from content writing, and graphics to videos."
+        />
+      </Helmet>
       <Hero {...homeData} />
       <Partners />
       <Hero {...homeData2} />
