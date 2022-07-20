@@ -123,8 +123,6 @@ function Hero({
                   : "hero__image"
               }
             >
-              {/* <img src='../../images/studio.png' alt='hero image' className='home__hero-img' /> */}
-
               <img src={img} alt={imgalt1} className="home__hero-img" />
             </div>
           </div>
