@@ -41,7 +41,7 @@ const Navbar = () => {
           <Link
             to="/"
             className="navbar-logo"
-            onClick={() => closeMobileMenu(0)}
+            onClick={() => closeMobileMenu(1)}
           >
             <img src="images/conterize.png" style={{ height: 190 }} alt="h" />
           </Link>
