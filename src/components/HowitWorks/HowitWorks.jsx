@@ -36,7 +36,9 @@ const HowitWorks = ({
                     stopColor1={item.stopColor1}
                     stopColor2={item.stopColor2}
                   /> */}
-                  {showImg && <img src={item.img} className="img" alt="" />}
+                  {showImg && (
+                    <img src={item.img} className="img" alt={item.imgalt} />
+                  )}
                   <div className={`pricing_icon ${item.iconColorClass}`}>
                     <Icon icon={item.icon} fontSize="36px" />
                   </div>

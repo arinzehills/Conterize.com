@@ -87,6 +87,7 @@ const whyConterize = [
     heading: "Vetted Content Creators",
     desc: "All our content creators are fully vetted, tested and trusted from content writers, graphic designers to video creators. ",
     img: "/images/web-content1.png",
+    imgalt: "vetted content creators",
     icon: "arcticons:androits-gps-test",
     iconColorClass: "blue",
   },
@@ -97,6 +98,7 @@ const whyConterize = [
       " of the content creation team and the quality of the delivery so" +
       " you don’t have to. ",
     img: "/images/calculations1.png",
+    imgalt: "dedicated conterize director",
     icon: "fluent:window-inprivate-account-20-filled",
     iconColorClass: "red",
   },
@@ -117,6 +119,7 @@ const whyConterize = [
       " creators, creative directors and our quality assurance, you can" +
       "  only expect the top notch and reliable deliveries. ",
     img: "/images/high-quality1.png",
+    imgalt: "quality content creation",
     icon: "cib:when-i-work",
     iconColorClass: "darkpurple",
   },
@@ -128,6 +131,7 @@ const howitWorks = [
       "Choose a plan and request Content from your dashboard by submitting the requirements." +
       " You can also invite your team members to manage content request.    ",
     img: "/images/lightbulb 1.png",
+    imgalt: "Select Conterize Plan",
     icon: "fluent:select-all-on-20-filled",
     iconColorClass: "blue",
   },
@@ -137,6 +141,7 @@ const howitWorks = [
       "Our system matches your request with " +
       "the best content creators suitable for your specific content needs. ",
     img: "/images/content-marketing 1.png",
+    imgalt: "Select Plan that matches your request",
     iconColorClass: "red",
     icon: "simple-icons:yourtraveldottv",
     // icon: "logos:chromatic-icon",
@@ -148,6 +153,8 @@ const howitWorks = [
       "your content on your dashboard in few days." +
       " You can then accept or request for revision.      ",
     img: "/images/dashboard 1.png",
+    imgalt: "Relax and recieve content from conterize",
+
     // icon: "logos:adonisjs-icon",
     icon: "cib:open-collective",
     iconColorClass: "purple",
