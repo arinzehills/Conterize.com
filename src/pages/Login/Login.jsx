@@ -122,7 +122,7 @@ function Login({ setHandleNotData }) {
   return (
     <>
       <Helmet>
-        <title>Login to Conterize</title>
+        <title>Conterize - Login to Conterize</title>
         <meta name="description" content="Conterize Login Page" />
       </Helmet>
       <Modal2 zIndex={0} />

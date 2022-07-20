@@ -73,7 +73,7 @@ const CreatorsRegistration = ({ setSuccessMessage }) => {
       ) : 
       ( */}
       <Helmet>
-        <title>Content Creators Registration at Conterize</title>
+        <title>Conterize - Content Creators Registration</title>
       </Helmet>
       <Link to="/" className="navbar-logo">
         <img

@@ -132,7 +132,7 @@ const ContentTypePage = () => {
   return (
     <>
       <Helmet>
-        <title>Content types at Conterize</title>
+        <title> Conterize - Content Types</title>
         <meta
           name="description"
           content="Various Content types that conterize.com supports"

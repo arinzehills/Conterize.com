@@ -72,7 +72,7 @@ function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Conterize Support</title>
+        <title>Conterize - Contact Support</title>
         <meta
           name="description"
           content="This is a page to contact conterize support team"

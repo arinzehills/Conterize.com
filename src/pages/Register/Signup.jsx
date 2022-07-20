@@ -137,10 +137,7 @@ const Signup = ({
     <>
       {/* <img src="/images/conterize.png" height={"120px"} alt="" />
        */}
-      <Helmet>
-        <title>Register at Conterize</title>
-        <meta name="description" content="Conterize Registration Page" />
-      </Helmet>
+
       {loading ? (
         <div style={{ height: "70%", marginTop: "3rem" }}>
           <Loader position={"relative"} />

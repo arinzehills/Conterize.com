@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Hero from "../../components/Hero/Hero";
 import ReadyComponent from "../../components/ReadyComponent/ReadyComponent";
 import "./WhyConterize.css";
@@ -44,6 +45,10 @@ const WhyConterize = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>Conterize -Why Conterize?</title>
+        <meta name="description" content="Conterize Registration Page" />
+      </Helmet>
       <div
         className="pricing_bottom_header"
         style={{

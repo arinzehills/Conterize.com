@@ -7,6 +7,7 @@ import Stepper from "../../components/StepperComponent/Stepper";
 import Signup from "./Signup";
 import Thankyou from "./Thankyou";
 import StripeContainer from "../../components/Payment/StripeContainer";
+import { Helmet } from "react-helmet";
 function Register() {
   const location = useLocation();
   console.log(location.state.isRegisteredUser);
@@ -82,6 +83,10 @@ function Register() {
 
   return (
     <>
+      <Helmet>
+        <title>Conterize - Registration</title>
+        <meta name="description" content="Conterize Registration Page" />
+      </Helmet>
       {/* {loading ? (
         <Loader />
       ) : 

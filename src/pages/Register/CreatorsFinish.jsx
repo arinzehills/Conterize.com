@@ -164,7 +164,7 @@ const CreatorsFinish = ({ next, back, index }) => {
   return (
     <>
       <Helmet>
-        <title>Finish Content Creators Registration at Conterize</title>
+        <title>Conterize - Finish Content Creators Registration</title>
       </Helmet>
       {loading ? (
         <div style={{ height: "40%", marginTop: "3rem" }}>

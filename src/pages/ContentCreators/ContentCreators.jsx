@@ -48,7 +48,7 @@ const ContentCreators = () => {
   return (
     <>
       <Helmet>
-        <title>Content Creators | Work at Conterize as Content Creators</title>
+        <title>Conterize - Content Creators | Work at Conterize</title>
         <meta
           name="description"
           content="Want to work with Conterize as a freelancer and make your work unique, this is the page that will describe it"

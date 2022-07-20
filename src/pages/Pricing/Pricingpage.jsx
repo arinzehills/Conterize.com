@@ -68,7 +68,7 @@ const Pricingpage = ({}) => {
   return (
     <>
       <Helmet>
-        <title>Conterize | Pricing</title>
+        <title>Conterize - Pricing</title>
         <meta
           name="description"
           content="Conterize Simple Pricing for your Business"

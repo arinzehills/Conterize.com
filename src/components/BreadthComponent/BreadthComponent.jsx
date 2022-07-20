@@ -25,7 +25,7 @@ function BreadthComponent() {
               </div>
             </div>
           </div>
-          <img src="images/people.png" alt="" />
+          <img src="images/people.png" alt="conterize will do your content" />
         </div>
       </div>
     </>
