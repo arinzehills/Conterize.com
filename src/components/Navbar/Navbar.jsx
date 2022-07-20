@@ -8,13 +8,9 @@ import { Button } from "../Button/Button";
 import "./Navbar.css";
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const [currentTab, setCurrentTab] = useState(1);
   const handleClick = () => setClick(!click);
   const [button, setButton] = useState(true);
-  const closeMobileMenu = (currentTab) => {
-    setClick(!click);
-    setCurrentTab(currentTab);
-  };
+  const closeMobileMenu = () => setClick(!click);
   // const [onHover, setOnHover] = useState(false);
   // const hoverEvent= () =>{
   //     onmouseenter{()=>setOnHover(!onHover)};
@@ -38,11 +34,7 @@ const Navbar = () => {
     <>
       <div className="navbar">
         <div className="navbar-container container">
-          <Link
-            to="/"
-            className="navbar-logo"
-            onClick={() => closeMobileMenu(1)}
-          >
+          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <img src="images/conterize.png" style={{ height: 190 }} alt="h" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
@@ -53,54 +45,34 @@ const Navbar = () => {
             )}
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"} style={{}}>
-            <li
-              className={
-                currentTab === 1 ? "underline_link nav-items" : "nav-items"
-              }
-            >
-              <Link
-                to="/"
-                className="nav-links"
-                onClick={() => closeMobileMenu(1)}
-              >
+            <li className="nav-items">
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
-            <li
-              className={
-                currentTab === 2 ? "underline_link nav-items" : "nav-items"
-              }
-            >
+            <li className="nav-items">
               <Link
                 to="/pricing"
                 className="nav-links"
-                onClick={() => closeMobileMenu(2)}
+                onClick={closeMobileMenu}
               >
                 Pricing
               </Link>
             </li>
-            <li
-              className={
-                currentTab === 3 ? "underline_link nav-items" : "nav-items"
-              }
-            >
+            <li className="nav-items">
               <Link
-                to="/content-types"
+                to="/contenttypes"
                 className="nav-links"
-                onClick={() => closeMobileMenu(3)}
+                onClick={closeMobileMenu}
               >
                 Content Types
               </Link>
             </li>
-            <li
-              className={
-                currentTab === 4 ? "underline_link nav-items" : "nav-items"
-              }
-            >
+            <li className="nav-items">
               <Link
-                to="/content-creators"
+                to="/contentcreators"
                 className="nav-links"
-                onClick={() => closeMobileMenu(4)}
+                onClick={closeMobileMenu}
               >
                 Content Creators
               </Link>

@@ -96,6 +96,7 @@
   font-size: 18px;
   font-family: "Montserrat";
   background-size: 200% 100%;
+  border-top-left-radius: 10rem;
   background-position: -100%;
   display: inline-block;
   position: relative;
