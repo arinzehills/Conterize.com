@@ -2,6 +2,7 @@ import React from "react";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import "./ContentType.css";
 import { Button } from "../Button/Button";
+import { Helmet } from "react-helmet";
 
 const ContentType = ({ headline, detail, subcontents, img, reverse }) => {
   return (

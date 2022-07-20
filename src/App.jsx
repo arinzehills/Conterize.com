@@ -75,10 +75,10 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/pricing" element={<Pricingpage />} />
-          <Route path="/contenttypes" element={<ContentTypePage />} />
+          <Route path="/content-types" element={<ContentTypePage />} />
           <Route path="/whyconterize" element={<WhyConterize />} />
 
-          <Route path="/contentcreators" element={<ContentCreators />} />
+          <Route path="/content-creators" element={<ContentCreators />} />
         </Route>
         <Route element={<PrivateRoutes token={token} />}>
           <Route path="/dashboard" element={<Dashboard />}>
