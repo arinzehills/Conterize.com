@@ -210,7 +210,7 @@ function App() {
         />
         <Route
           path="*"
-          exact
+          status={404}
           element={<NoDataFound message={"404 Route not Found"} />}
         />
       </Switch>
