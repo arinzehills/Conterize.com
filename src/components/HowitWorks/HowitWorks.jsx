@@ -23,7 +23,7 @@ const HowitWorks = ({
           </h2>
           <div className="itworks-card-container">
             {data.map((item) => (
-              <div className="pricing_card_wrapper" key={item.key}>
+              <div className="pricing_card_wrapper" key={item.img}>
                 <div
                   className={
                     alignCenter ? "pricing-card alignCenter" : "pricing-card"
