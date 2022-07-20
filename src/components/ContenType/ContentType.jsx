@@ -6,6 +6,13 @@ import { Button } from "../Button/Button";
 const ContentType = ({ headline, detail, subcontents, img, reverse }) => {
   return (
     <>
+      {/* <Helmet>
+        <title>Conterize | Pricing</title>
+        <meta
+          name="description"
+          content="Conterize Simple Pricing for your Business"
+        />
+      </Helmet> */}
       <div className="content_section">
         <div
           className="content_container "
