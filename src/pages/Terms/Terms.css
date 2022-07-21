@@ -1,0 +1,7 @@
+.terms_of_service p {
+  font-size: 1.2rem;
+}
+.terms_of_service h2 {
+  font-size: 25px;
+  color: var(--dark-blue);
+}

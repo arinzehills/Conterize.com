@@ -48,7 +48,7 @@ function Footer() {
                 <h2>About Us</h2>
                 <Link to="/">How it works</Link>
                 <Link to="/">Testimonials</Link>
-                <Link to="/">Terms of Service</Link>
+                <Link to="/Terms">Terms of Service</Link>
               </div>
               <div className="footer-link-items">
                 <h2>Contact Us</h2>
@@ -62,14 +62,14 @@ function Footer() {
                 <h2>Pages</h2>
                 <Link to="/">Home</Link>
                 <Link to="/pricing">Pricing</Link>
-                <Link to="/contenttypes">Content types</Link>
-                <Link to="/contentcreators">Content creators</Link>
+                <Link to="/content-types">Content types</Link>
+                <Link to="/content-creators">Content creators</Link>
               </div>
               '{" "}
               <div className="footer-link-items">
                 <h2>More</h2>
                 <Link to="/contact">Contact us</Link>
-                <Link to="/about">About</Link>
+                <Link to="/PrivacyPolicy">Privacy Policy</Link>
                 {/* <Link to="/">Contribute</Link> */}
               </div>
               '

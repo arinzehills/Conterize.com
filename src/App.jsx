@@ -44,6 +44,8 @@ import Deliver from "./pages/Admin/Deliver/Deliver";
 import { CheckDelivery } from "./pages/Dashboard/Delivery/CheckDelivery";
 import NoDataFound from "./pages/Dashboard/Request/NoDataFound";
 import AdminPrivateRoute from "./utils/AdminPrivateRoute";
+import Terms from "./pages/Terms/Terms";
+import Privacy from "./pages/Terms/Privacy";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -79,6 +81,8 @@ function App() {
           <Route exact path="/whyconterize" element={<WhyConterize />} />
 
           <Route exact path="/content-creators" element={<ContentCreators />} />
+          <Route exact path="/Terms" element={<Terms />} />
+          <Route exact path="/PrivacyPolicy" element={<Privacy />} />
         </Route>
         <Route element={<PrivateRoutes token={token} />}>
           <Route path="/dashboard" element={<Dashboard />}>
