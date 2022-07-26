@@ -46,6 +46,7 @@ import NoDataFound from "./pages/Dashboard/Request/NoDataFound";
 import AdminPrivateRoute from "./utils/AdminPrivateRoute";
 import Terms from "./pages/Terms/Terms";
 import Privacy from "./pages/Terms/Privacy";
+import ScrollTop from "./components/ScrollToTop/ScrollTop";
 
 function App() {
   const [count, setCount] = useState(0);

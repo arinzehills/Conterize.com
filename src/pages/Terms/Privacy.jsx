@@ -27,7 +27,7 @@ const Privacy = () => {
       <Hero {...homeData} />
       <div
         style={{
-          padding: "70px 120px",
+          // padding: "70px 120px",
           textAlign: "left",
           marginTop: "-6rem",
           fontFamily:
