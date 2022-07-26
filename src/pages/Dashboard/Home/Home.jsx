@@ -151,7 +151,7 @@ const Home = ({ setHandleNotData }) => {
                       </h2>
                       {user?.user_type === "business_user" ? (
                         <p>
-                          you have {requests?.["draft"]?.length} draft to
+                          you have {requests?.["draft"].length} draft to
                           complete. Do you need help in requesting content?
                           Invite team members or contact your content director
                           to assist you.
