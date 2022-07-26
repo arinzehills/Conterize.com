@@ -12,6 +12,8 @@ const DraftReqestModal = ({
   seconBtnLabel,
   firstBtnLabel,
   seconBtnSize,
+  draftModalHeight,
+  draftModalWidth,
 }) => {
   let boolx = true;
   const stopPropagation = (event) => {
@@ -19,7 +21,10 @@ const DraftReqestModal = ({
   };
   return (
     <AnimatePresence>
-      <div className="addteam_backdrop" onClick={() => setOpenModal(false)}>
+      <motion.div
+        className="addteam_backdrop"
+        onClick={() => setOpenModal(false)}
+      >
         <motion.div
           className="addteam_content_wrapper"
           style={{
@@ -33,8 +38,8 @@ const DraftReqestModal = ({
             // backdropFilter: blur("33px"),
             // transition: "all 0.3s ease-out",
 
-            height: 300,
-            width: 250,
+            height: draftModalHeight ?? 300,
+            width: draftModalWidth ?? 250,
             boxShadow: "var(--box-shadow)",
           }}
           initial={{
@@ -66,7 +71,7 @@ const DraftReqestModal = ({
             />
           )}
         </motion.div>
-      </div>
+      </motion.div>
     </AnimatePresence>
   );
 };

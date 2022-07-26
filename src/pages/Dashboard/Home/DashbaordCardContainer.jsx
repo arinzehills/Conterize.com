@@ -1,7 +1,7 @@
 import React from "react";
 import { IconWrapper } from "../Request/IconsWidget";
 
-const DashbaordCardContainer = ({ user_type }) => {
+const DashbaordCardContainer = ({ user_type, requests }) => {
   const DashboardCard = ({ title, value, color, type, width }) => {
     return (
       <div className="dashboard-card" style={{ width: width }}>
@@ -42,19 +42,23 @@ const DashbaordCardContainer = ({ user_type }) => {
           <DashboardCard
             type={"request"}
             title={"Total request"}
-            value={"123"}
+            value={requests?.total_request}
           />
           <DashboardCard
             type={"content"}
             title={"Content Writing"}
-            value={"12"}
+            value={requests?.content_writing}
           />
           <DashboardCard
             type={"graphics"}
             title={"Graphics Design"}
-            value={"13"}
+            value={requests?.graphics}
           />
-          <DashboardCard type={"video"} title={"Video creation"} value={"23"} />
+          <DashboardCard
+            type={"video"}
+            title={"Video creation"}
+            value={requests?.video}
+          />
         </div>
       ) : (
         <div className="dash-card_wrapper">

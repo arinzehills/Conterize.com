@@ -13,8 +13,16 @@ import { Line } from "react-chartjs-2";
 import CreatorsEarning from "./CreatorsEarning";
 import DashbaordCardContainer from "./DashbaordCardContainer";
 import IconAndName from "../Request/IconsWidget";
+import NoDataFound from "../Request/NoDataFound";
 
-const RequestProgressCard = ({ title, value, profileName, userType }) => {
+const RequestProgressCard = ({
+  title,
+  value,
+  profileName,
+  userType,
+  requests,
+}) => {
+  console.log(requests);
   return (
     <div
       //  style={{ width: "auto" }}
@@ -41,9 +49,18 @@ const RequestProgressCard = ({ title, value, profileName, userType }) => {
       </div>
       <ProfilePicsComponent name={profileName} userType={userType} />
       <h4>Request in progress</h4>
-      <IconAndName type={"content"} title="Write articles..." />
-      <IconAndName type={"graphics"} title="Design social ..." />
-      <IconAndName type={"video"} title="Create explainer..." />
+      {requests?.length === 0 ? (
+        <div>No Request in progress yet!!!</div>
+      ) : (
+        requests
+          ?.slice(0, 3)
+          .map((request) => (
+            <IconAndName
+              type={request?.category}
+              title={request?.request_name}
+            />
+          ))
+      )}
     </div>
   );
 };
@@ -134,9 +151,10 @@ const Home = ({ setHandleNotData }) => {
                       </h2>
                       {user?.user_type === "business_user" ? (
                         <p>
-                          you have 4 draft to complete. Do you need help in
-                          requesting content? Invite team members or contact
-                          your content director to assist you.
+                          you have {requests?.["draft"].length} draft to
+                          complete. Do you need help in requesting content?
+                          Invite team members or contact your content director
+                          to assist you.
                         </p>
                       ) : (
                         <p>
@@ -150,7 +168,10 @@ const Home = ({ setHandleNotData }) => {
                       {/* <img src="/svg/womandashboard.svg" alt="" /> */}
                     </div>
                   </div>
-                  <DashbaordCardContainer user_type={user?.["user_type"]} />
+                  <DashbaordCardContainer
+                    user_type={user?.["user_type"]}
+                    requests={requests}
+                  />
                 </div>
                 {user?.user_type === "content_creator" && <CreatorsEarning />}
               </div>
@@ -158,15 +179,16 @@ const Home = ({ setHandleNotData }) => {
             <RequestProgressCard
               profileName={user?.["firstname"]}
               userType={user?.["user_type"]}
+              requests={requests?.requests}
             />
           </div>
           <div className="dash-sec-container">
             {/* second row for dashboard */}
             <RequestTable
               title={"Draft Request"}
-              data={requests?.["requests"]}
+              data={requests?.["draft"]}
               // data={req}
-              messageNotFound={"You have not placed any requests yet"} //this displays if no request was placed
+              messageNotFound={"You have no request in your draft"} //this displays if no request was placed
               columnData={columnData}
               loading={loading}
               activeRow={activeRow}

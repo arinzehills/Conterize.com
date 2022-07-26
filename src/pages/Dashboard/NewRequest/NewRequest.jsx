@@ -15,10 +15,10 @@ const NewRequest = ({ setHandleNotData }) => {
   const [showAssignModal, setShowAssignModal] = useState(false);
   const { user, setUser } = useUser();
 
-  const checkUserStatus = () => {
+  const checkUserStatus = (pageType) => {
     user?.payment_status === "unpaid"
       ? setShowAssignModal(true)
-      : navigate("/dashboard/contentrequest");
+      : navigate("/dashboard/" + pageType);
   };
   return (
     <>
@@ -29,7 +29,12 @@ const NewRequest = ({ setHandleNotData }) => {
       />
       {showAssignModal && (
         <DraftReqestModal
-          message={"Sorry you can't place a request have not subscribe yet,"}
+          message={
+            "Sorry you can't place a request yet. You need to subscribe" +
+            "to a plan before you can start placing content requests."
+          }
+          draftModalHeight={400}
+          draftModalWidth={300}
           seconBtnLabel="Choose Plan"
           seconBtnSize="115px"
           setOpenModal={setShowAssignModal}
@@ -55,7 +60,7 @@ const NewRequest = ({ setHandleNotData }) => {
                   color: "white",
                   background: "var(--dashboard-dark-blue)",
                 }}
-                onClick={checkUserStatus}
+                onClick={() => checkUserStatus("contentrequest")}
               >
                 <div
                   className="request-inner-btn"
@@ -80,7 +85,7 @@ const NewRequest = ({ setHandleNotData }) => {
                   color: "white",
                   background: "#ff724a",
                 }}
-                onClick={checkUserStatus}
+                onClick={() => checkUserStatus("graphicsrequest")}
               >
                 <div
                   className="request-inner-btn"
@@ -108,7 +113,7 @@ const NewRequest = ({ setHandleNotData }) => {
                     gap: "11px",
                     justifyContent: "center",
                   }}
-                  onClick={checkUserStatus}
+                  onClick={() => checkUserStatus("videorequest")}
                 >
                   Video Creation{" "}
                   <Icon
