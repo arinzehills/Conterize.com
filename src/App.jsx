@@ -46,6 +46,7 @@ import NoDataFound from "./pages/Dashboard/Request/NoDataFound";
 import AdminPrivateRoute from "./utils/AdminPrivateRoute";
 import Terms from "./pages/Terms/Terms";
 import Privacy from "./pages/Terms/Privacy";
+import SettingsComponent from "./pages/Dashboard/Settings/SettingsComponent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -179,7 +180,12 @@ function App() {
             />
             <Route
               path="settings"
-              element={<Customers setHandleNotData={setHandleNotData} />}
+              element={
+                <SettingsComponent
+                  handleNot={handleNot}
+                  setHandleNotData={setHandleNotData}
+                />
+              }
             />
             <Route
               index

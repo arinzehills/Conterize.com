@@ -1,13 +1,19 @@
 import React, { useState } from "react";
+import { ReactNotifications } from "react-notifications-component";
 import DropDownField from "../../../components/Inputfield/DropDownField";
+import Modal2 from "../../../components/Modal/Modal2";
+import useToken from "../../../useToken";
 import useUser from "../../../useUser";
 import DashboardInput from "../components/DashboardInput/DashboardInput";
 import SaveButton from "../components/SaveButton/SaveButton";
 
-const SettingsComponent = ({ savePassword, error }) => {
+const SettingsComponent = ({ handleNot }) => {
   const [timeZone, setTimeZone] = useState("Select TimeZone");
   const timeZones = ["nigeria", "ghana"];
   const { user, setUser } = useUser();
+  const { token, setToken } = useToken();
+  const [showModal, setShowModal] = useState(false);
+  const [error, setError] = useState("");
 
   const initialValues = {
     personal_info: user?.["firstname"] + " " + user?.["lastname"],
@@ -18,7 +24,64 @@ const SettingsComponent = ({ savePassword, error }) => {
     password_confirmation: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
+  const user_id = user?.["id"];
 
+  const savePassword = async () => {
+    setShowModal(true);
+    const errors = {};
+    const data = {
+      id: user_id,
+      token: token,
+      ...formValues,
+    };
+    console.log(data);
+    const url = window.baseUrl + "updatePassword";
+    fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // console.log( data['token']);
+
+        if (data["success"] === true) {
+          setShowModal(false);
+          setError("");
+          handleNot({
+            title: "Success",
+            message: data["message"] ?? "Your data have been updated!",
+            backgroundColor: "var(--success)",
+          });
+          console.log(data);
+        } else {
+          setShowModal(false);
+          setError(data["message"]);
+          handleNot({
+            title: "Request Failed",
+            message: data["message"] ?? "Your data have not been updated!",
+            backgroundColor: "var(--danger)",
+          });
+          console.log(data);
+        }
+        // console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.warn("Error:", error);
+        setShowModal(false);
+
+        handleNot({
+          title: "Error",
+          message: "Their is an error in your request data, try again!",
+          backgroundColor: "var(--danger)",
+        });
+        // setLoading(false);
+      });
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -27,6 +90,9 @@ const SettingsComponent = ({ savePassword, error }) => {
 
   return (
     <>
+      {showModal && <Modal2 />}
+      <ReactNotifications />
+
       <div
         className="company-container"
         style={{ width: window.innerWidth > 960 && "110%" }}

@@ -40,61 +40,6 @@ const Settings = ({ setHandleNotData }) => {
   const [formValues, setFormValues] = useState(initialValues);
   const user_id = user?.["id"];
 
-  const savePassword = async () => {
-    setShowModal(true);
-    const errors = {};
-    const data = {
-      id: user_id,
-      token: token,
-      ...formValues,
-    };
-    const url = window.baseUrl + "updatePassword";
-    fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        // console.log( data['token']);
-
-        if (data["success"] === true) {
-          setShowModal(false);
-          setError("");
-          handleNot({
-            title: "Success",
-            message: data["message"] ?? "Your data have been updated!",
-            backgroundColor: "var(--success)",
-          });
-          console.log(data);
-        } else {
-          setShowModal(false);
-          setError(data["message"]);
-          handleNot({
-            title: "Request Failed",
-            message: data["message"] ?? "Your data have not been updated!",
-            backgroundColor: "var(--danger)",
-          });
-          console.log(data);
-        }
-        // console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.warn("Error:", error);
-        setShowModal(false);
-
-        handleNot({
-          title: "Error",
-          message: "Their is an error in your request data, try again!",
-          backgroundColor: "var(--danger)",
-        });
-        // setLoading(false);
-      });
-  };
   const handleNot = ({ title, message, backgroundColor }) => {
     Store.addNotification({
       content: MyNotify({
@@ -150,7 +95,6 @@ const Settings = ({ setHandleNotData }) => {
           setHandleNotData={setHandleNotData}
         />
         {/* <Modal2 /> */}
-        {showModal && <Modal2 />}
         <ReactNotifications />
         <div
           style={{
@@ -188,7 +132,10 @@ const Settings = ({ setHandleNotData }) => {
         </div>
         <div className="company-section">
           {currentTab === 1 ? (
-            <SettingsComponent savePassword={savePassword} error={error} />
+            <SettingsComponent
+              setShowModal={setShowModal}
+              handleNot={handleNot}
+            />
           ) : user?.payment_status === "unpaid" ? (
             <>
               <NoDataFound message={"You have not subscribe yet!"} />
