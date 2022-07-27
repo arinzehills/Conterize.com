@@ -3,6 +3,7 @@ import { HiOutlineBadgeCheck } from "react-icons/hi";
 import "./ContentType.css";
 import { Button } from "../Button/Button";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const ContentType = ({ headline, detail, subcontents, img, reverse }) => {
   return (
@@ -25,7 +26,9 @@ const ContentType = ({ headline, detail, subcontents, img, reverse }) => {
           <div className="content_col">
             <h1>{headline}</h1>
             <p>{detail}</p>
-            <Button buttonColor="gradient">Get Started</Button>
+            <Link to={"/pricing"}>
+              <Button buttonColor="gradient">Get Started</Button>
+            </Link>
             <div className="content_img_wrapper">
               {/* <img
                 className="content_img"

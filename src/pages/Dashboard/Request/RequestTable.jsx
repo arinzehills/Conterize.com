@@ -22,7 +22,8 @@ const RequestTable = ({
   setActiveRow,
   onClickRow,
   showCaret,
-
+  isCustomer,
+  markUserAsPaid,
   runDefualtFunc, //this is to determine wether to run the deafault select multiple items or run your own custom function pass as prop(i.e onClickRow Function) here
 }) => {
   const [showAssignFreelacer, setShowAssignFreelacer] = useState(false);
@@ -117,7 +118,7 @@ const RequestTable = ({
                     onClick={() => onClickRow(item)}
                     style={{ marginRight: "-10px" }}
                   >
-                    View
+                    {!isCustomer ? "View" : "Mark as"}
                   </Button>
                 </div>
               )
@@ -186,6 +187,17 @@ const RequestTable = ({
                 }}
               >
                 Assign Freelancer
+              </Button>
+            )}
+            {isCustomer && (
+              <Button
+                buttonColor={"gradient"}
+                onClick={() => {
+                  markUserAsPaid();
+                  // handleAssignFreelancer();
+                }}
+              >
+                Mark user as paid
               </Button>
             )}
           </div>

@@ -35,7 +35,7 @@ function GuaranteeHero({ headline, descArr }) {
               </div>
             ))}
           </div>
-          <Link to="/contentregistration">
+          <Link to="/creatorsregistration">
             <Button buttonColor={"gradient"}>Join Now</Button>
           </Link>
         </div>
