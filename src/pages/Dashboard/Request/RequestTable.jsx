@@ -110,7 +110,7 @@ const RequestTable = ({
                 circularWidth="90px"
               />
             ) : columnItem.value === "actions" ? (
-              isAdmin && (
+              (isAdmin || isCustomer) && (
                 <div onClick={stopPropagation}>
                   <Button
                     buttonColor={"pink"}

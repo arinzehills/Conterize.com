@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import Modal2 from "../../../components/Modal/Modal2";
+import DraftReqestModal from "../../../components/RequestHero/DraftReqestModal";
 import useFetch from "../../../useFetch";
 import useToken from "../../../useToken";
 import useUser from "../../../useUser";
@@ -14,6 +15,8 @@ const Customers = ({ setHandleNotData }) => {
   const { user, setUser } = useUser();
   const { token, setToken } = useToken();
   const [cusloading, setLoading] = useState(false);
+  const [markUser, setMarkUser] = useState({});
+  const [showAssignModal, setShowAssignModal] = useState(false);
 
   const [activeRow, setActiveRow] = useState(false); //the rows that is clicked or selected
 
@@ -23,6 +26,7 @@ const Customers = ({ setHandleNotData }) => {
     error,
   } = useFetch({
     url: window.baseUrl + "getAllCompanies",
+    secondParam: showAssignModal,
   });
   let columnData = [
     { heading: "Name", value: "firstname" },
@@ -47,10 +51,9 @@ const Customers = ({ setHandleNotData }) => {
   const markUserAsPaid = () => {
     setLoading(true);
     const data = {
-      token: token,
-      payment_status: "paid",
+      id: markUser.id,
     };
-    const url = window.baseUrl + "update";
+    const url = window.baseUrl + "updatePaymentStatus";
 
     fetch(url, {
       headers: {
@@ -84,6 +87,18 @@ const Customers = ({ setHandleNotData }) => {
   };
   return (
     <>
+      {showAssignModal && (
+        <DraftReqestModal
+          message={"Mark user as paid?"}
+          seconBtnLabel="Yes"
+          seconBtnSize="115px"
+          setOpenModal={setShowAssignModal}
+          onClick={() => {
+            markUserAsPaid();
+            setShowAssignModal(false);
+          }}
+        />
+      )}
       {cusloading && <Modal2 />}
       <div className="customers-section">
         <NavComponent
@@ -95,10 +110,13 @@ const Customers = ({ setHandleNotData }) => {
         />
         <Subnav title={"Customers"} icon="bi:people" />
         <RequestTable
-          isAdmin={true}
+          // isAdmin={true}
           isCustomer={true}
           // markUserAsPaid={markUserAsPaid}
-          onClickRow={(item) => console.log(item)}
+          onClickRow={(item) => {
+            setMarkUser(item);
+            setShowAssignModal(true);
+          }}
           loading={loading}
           data={requests}
           // data={req}
