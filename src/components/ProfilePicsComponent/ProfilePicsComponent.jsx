@@ -170,23 +170,23 @@ const ProfilePicsComponent = ({
             justifyContent: isCirclular && "center",
           }}
         >
-          <p
+          <div
             style={{
               fontWeight: isCirclular ? "normal" : "bold",
               textAlign: "left",
-              // gap: 0,
+              // gadiv: 0,
               marginLeft: "-6px",
             }}
           >
-            {isOnline === "Online" && (
+            {/* {isOnline === "Online" && (
               <Icon
                 icon="ci:dot-03-m"
                 color={"var(--success)"}
                 // style={{ paddingTop: "6px" }}
               />
-            )}
+            )} */}
             {name}
-          </p>
+          </div>
 
           {!isCirclular && (
             <span>

@@ -159,7 +159,11 @@ const RequestDetail = ({ setHandleNotData, user_id, isAdmin }) => {
 
                 <div>
                   <p>Assign To</p>
-                  <h4>{requestData?.assign_to}</h4>
+                  <h4 style={{ textTransform: "capitalize" }}>
+                    {requestData?.assign_to === "content dir.."
+                      ? "Content Director"
+                      : requestData?.assign_to}
+                  </h4>
                 </div>
                 <div>
                   <p>Status</p>

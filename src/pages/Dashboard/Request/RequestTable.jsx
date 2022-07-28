@@ -107,7 +107,8 @@ const RequestTable = ({
                 isCirclular={true}
                 isImage={false}
                 showCaret={false}
-                circularWidth="90px"
+                // circularWidth="90px"
+                size="120px"
               />
             ) : columnItem.value === "actions" ? (
               (isAdmin || isCustomer) && (
