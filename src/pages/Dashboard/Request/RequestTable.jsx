@@ -105,7 +105,7 @@ const RequestTable = ({
               <ProfilePicsComponent
                 name={item[`${columnItem.value}`] ?? "Hills"}
                 isCirclular={true}
-                isImage={true}
+                isImage={false}
                 showCaret={false}
                 circularWidth="90px"
               />

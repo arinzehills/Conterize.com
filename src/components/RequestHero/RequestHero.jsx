@@ -135,7 +135,7 @@ const RequestHero = ({ requestTitle, requestType }) => {
     //data for main request table
     data.append("status", "under review");
     data.append("submmitted_by", user_name);
-    data.append("assign_to", "admin");
+    data.append("assign_to", "content director");
     data.append("is_draft", isDraft);
     // this is data for request detail
     data.append("user_id", user_id);
