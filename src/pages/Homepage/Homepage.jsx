@@ -171,7 +171,7 @@ function Homepage() {
         />
       </Helmet>
       <Hero {...homeData} />
-      <Partners />
+      {/* <Partners /> */}
       <Hero {...homeData2} />
       <HowitWorks
         headline="Why should you use Conterize?"
