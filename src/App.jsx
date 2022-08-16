@@ -47,6 +47,7 @@ import AdminPrivateRoute from "./utils/AdminPrivateRoute";
 import Terms from "./pages/Terms/Terms";
 import Privacy from "./pages/Terms/Privacy";
 import SettingsComponent from "./pages/Dashboard/Settings/SettingsComponent";
+import GetDemo from "./pages/GetDemo/GetDemo";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -77,6 +78,7 @@ function App() {
         <Route path="/" exact element={<HomepageWrapper />}>
           <Route index element={<Homepage />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/getdemo" element={<GetDemo />} />
           <Route exact path="/pricing" element={<Pricingpage />} />
           <Route exact path="/content-types" element={<ContentTypePage />} />
           <Route exact path="/whyconterize" element={<WhyConterize />} />

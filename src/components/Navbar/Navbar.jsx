@@ -147,6 +147,16 @@ const Navbar = () => {
                 </Link>
               )}
             </li>
+            <li className="nav-btn" onClick={closeMobileMenu}>
+              <Link to="/getdemo">
+                <Button
+                  buttonStyle="btn--outline"
+                  // style={{ borderRadius: "50px" }}
+                >
+                  Get A Demo
+                </Button>
+              </Link>
+            </li>
           </ul>
         )}
       </div>

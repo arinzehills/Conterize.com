@@ -1,0 +1,9 @@
+.demo_container {
+  background: radial-gradient(
+    /* circle, */ #a7afda 5%,
+    #7e8dd8 10%,
+    #5768c1 15%,
+    #2d3d8c 35%,
+    #1f318c 90%
+  );
+}
