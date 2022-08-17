@@ -141,19 +141,18 @@ const Navbar = () => {
             <li className="nav-btn" onClick={closeMobileMenu}>
               {button && (
                 <Link to="/login">
-                  <Button buttonColor="gradient" buttonStyle="btn--rounded">
-                    Login
-                  </Button>
+                  <Button buttonStyle="btn--outline">Login</Button>
                 </Link>
               )}
             </li>
             <li className="nav-btn" onClick={closeMobileMenu}>
-              <Link to="/getdemo">
+              <Link to="/get-a-demo">
                 <Button
                   buttonStyle="btn--outline"
+                  buttonColor="gradient"
                   // style={{ borderRadius: "50px" }}
                 >
-                  Get A Demo
+                  Get a Demo
                 </Button>
               </Link>
             </li>

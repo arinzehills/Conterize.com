@@ -111,8 +111,8 @@ function Login({ setHandleNotData }) {
     inputValues: inputValues,
     inputNames: inputNames,
     leftImageHeight: "180px",
-    imageRight: "svg/emailcamp.svg",
-    imageleft: "images/studio3.svg",
+    imageRight: "images/signin.png",
+    // imageleft: "images/studio3.svg",
     formType: "",
     alt1: "two circles",
     alt2: "imageleft",
@@ -125,7 +125,7 @@ function Login({ setHandleNotData }) {
         <title>Conterize - Login to Conterize</title>
         <meta name="description" content="Conterize Login Page" />
       </Helmet>
-      <Modal2 zIndex={0} />
+      {/* <Modal2 zIndex={0} /> */}
       {loading ? (
         <Loader />
       ) : (

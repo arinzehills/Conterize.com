@@ -80,7 +80,7 @@ function App() {
           <Route index element={<Homepage />} />
           <Route exact path="/contact" element={<Contact />} />
           {/* <Route exact path="/getdemo" element={<GetDemo />} /> */}
-          <Route exact path="/getdemo" element={<DemoPage />} />
+          <Route exact path="/get-a-demo" element={<DemoPage />} />
           <Route exact path="/pricing" element={<Pricingpage />} />
           <Route exact path="/content-types" element={<ContentTypePage />} />
           <Route exact path="/whyconterize" element={<WhyConterize />} />
