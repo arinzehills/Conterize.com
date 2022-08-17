@@ -80,7 +80,7 @@ const dataArr2 = {
 
   showButton: true,
   buttonLabel: "Get Started",
-  withBg: true,
+  withBg: window.innerWidth > 960 && true,
 };
 const whyConterize = [
   {
