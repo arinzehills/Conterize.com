@@ -82,7 +82,7 @@ const GetDemo = () => {
             Let's discuss your content requirements and how Conterize can help
             <br /> scale your content creation needs{" "}
           </p>
-          <Link to="/getdemo">
+          <Link to="/demopage">
             <Button
               buttonStyle="btn--outline"
               buttonColor="gradient"
