@@ -1,9 +1,16 @@
 .demo_container {
   background: radial-gradient(
-    /* circle, */ #a7afda 5%,
+    circle,
     #7e8dd8 10%,
     #5768c1 15%,
+    #a7afda 5%,
     #2d3d8c 35%,
     #1f318c 90%
   );
+  /* max-height: 400px; */
+}
+.get_demo_division {
+  border: 1.9px solid #e7e8f1;
+
+  box-shadow: 0 0 6px 0 rgb(78 42 222 / 2%), 0 6px 18px 0 rgb(78 42 222 / 2%);
 }

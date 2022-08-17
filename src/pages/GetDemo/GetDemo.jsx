@@ -1,5 +1,8 @@
+import { Icon } from "@iconify/react";
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import { Button } from "../../components/Button/Button";
 import "./GetDemo.css";
 
 const GetDemo = () => {
@@ -35,7 +38,7 @@ const GetDemo = () => {
             // display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            padding: "12rem",
+            padding: "9rem",
           }}
         >
           <h1
@@ -47,9 +50,58 @@ const GetDemo = () => {
           >
             Explore Conterize
           </h1>
-          <h1>Request a demo</h1>
         </div>
-        <div style={{ background: "white", borderRadius: "15px" }}></div>
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div
+          style={{
+            background: "white",
+            borderRadius: "15px",
+            padding: "2.5rem",
+            color: "black",
+            display: "flex",
+            flexDirection: "column",
+            placeItems: "start",
+            textAlign: "left",
+            maxWidth: "41rem",
+            marginTop: "-5rem",
+          }}
+          className={"get_demo_division"}
+        >
+          <h1
+            style={{
+              color: "var(--dark-purple)",
+              lineHeight: 0,
+              fontSize: "2.4rem",
+              fontWeight: 900,
+            }}
+          >
+            Request a demo
+          </h1>
+          <p>
+            Let's discuss your content requirements and how Conterize can help
+            <br /> scale your content creation needs{" "}
+          </p>
+          <Link to="/getdemo">
+            <Button
+              buttonStyle="btn--outline"
+              buttonColor="gradient"
+              // style={{ borderRadius: "50px" }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1rem",
+                  fontWeight: 700,
+                }}
+              >
+                <Icon icon="carbon:intent-request-inactive" fontSize={"2rem"} />
+                Get Demo
+              </div>
+            </Button>
+          </Link>
+        </div>
       </div>
     </>
   );
