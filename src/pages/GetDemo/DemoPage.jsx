@@ -3,6 +3,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Button/Button";
+import Checkbox from "../../components/Checkbox/Checkbox";
 import InputField from "../../components/Inputfield/InputField";
 
 const DemoPage = () => {
@@ -87,6 +88,21 @@ const DemoPage = () => {
             inputColor="purple-input"
             // onHandleChange={handleChange}
           />
+          <div>
+            <h3
+              style={{
+                fontWeight: 700,
+                color: "var(--dark-purple)",
+                lineHeight: 0,
+              }}
+            >
+              Select all content types you need at scale
+            </h3>
+            <Checkbox label={"Content Writing "} />
+            <Checkbox label={"Graphic design"} />
+            <Checkbox label={"Video creation/Video editing"} />
+          </div>
+
           <InputField
             label={"What industry is your business in.."}
             // value={inputValues[0]}

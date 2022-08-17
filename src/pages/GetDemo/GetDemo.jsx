@@ -10,7 +10,7 @@ const GetDemo = () => {
     <>
       {" "}
       <Helmet>
-        <title>Conterize -Get Demo</title>
+        <title>Conterize - Get Demo</title>
         <meta
           name="description"
           content="Get a demo on any content creation type u will do"
@@ -78,10 +78,19 @@ const GetDemo = () => {
           >
             Request a demo
           </h1>
-          <p>
-            Let's discuss your content requirements and how Conterize can help
-            <br /> scale your content creation needs{" "}
-          </p>
+          <div style={{ display: "flex" }}>
+            <p>
+              Let's discuss your content requirements and how Conterize can help
+              <br /> scale your content creation needs{" "}
+            </p>
+            <img
+              src={"/images/requestdemo.png"}
+              alt={"request demo conterize"}
+              height="200px"
+              style={{ marginTop: "-11rem" }}
+              className="right__hero-img"
+            />
+          </div>
           <Link to="/demopage">
             <Button
               buttonStyle="btn--outline"
