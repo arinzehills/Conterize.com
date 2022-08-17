@@ -135,6 +135,7 @@
 .menu-icon {
   display: none;
 }
+
 /* smaller creens */
 @media screen and (max-width: 960px) {
   .container {

@@ -79,8 +79,8 @@ function App() {
         <Route path="/" exact element={<HomepageWrapper />}>
           <Route index element={<Homepage />} />
           <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/getdemo" element={<GetDemo />} />
-          <Route exact path="/demopage" element={<DemoPage />} />
+          {/* <Route exact path="/getdemo" element={<GetDemo />} /> */}
+          <Route exact path="/getdemo" element={<DemoPage />} />
           <Route exact path="/pricing" element={<Pricingpage />} />
           <Route exact path="/content-types" element={<ContentTypePage />} />
           <Route exact path="/whyconterize" element={<WhyConterize />} />
