@@ -78,7 +78,7 @@ const Payment = ({ next, back, planData }) => {
           method: "POST",
           body: JSON.stringify(data),
         })
-          .then((response) => response.text())
+          .then((response) => response.json())
           .then((data) => {
             console.log(data);
             // console.log( data['token']);
