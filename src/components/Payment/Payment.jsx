@@ -66,8 +66,8 @@ const Payment = ({ next, back, planData }) => {
           user_id: user?.["id"],
           firstname: user?.["firstname"],
           lastname: user?.["lastname"],
-          // plan_name: planData.heading,
-          plan_name: "Testing",
+          plan_name: planData.heading,
+          // plan_name: "Testing",
         };
         console.log("no error");
         fetch(url, {
