@@ -49,6 +49,9 @@ import Privacy from "./pages/Terms/Privacy";
 import SettingsComponent from "./pages/Dashboard/Settings/SettingsComponent";
 import GetDemo from "./pages/GetDemo/GetDemo";
 import DemoPage from "./pages/GetDemo/DemoPage";
+import ForgotPasswordHero from "./components/ForgotPasswordHero/ForgotPasswordHero";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -215,6 +218,9 @@ function App() {
             )
           }
         />
+        <Route path="/forgotPassword" exact element={<ForgotPassword />} />
+        <Route path="/resetPassword" exact element={<ResetPassword />} />
+
         {/* <Route path="/register" element={<Navigate to={"/pricing"} />} /> */}
         <Route path="/acceptInvite" element={<AcceptInvitation />} />
         <Route

@@ -24,6 +24,7 @@ const DemoPage = () => {
       >
         <img
           src={"/images/contactus.png"}
+          // src={"/images/getdemo.jpg"}
           alt={"alt2"}
           height="700px"
           className="right__hero-img"

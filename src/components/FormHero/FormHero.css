@@ -77,7 +77,6 @@
   max-height: 10px;
   margin-top: 10px;
   margin-left: 10px;
-  padding: 5px;
   justify-content: center;
   align-items: center;
 }
@@ -139,9 +138,16 @@
   .right__hero-img {
     max-width: 350px;
   }
+  .hr-wrapper {
+    margin-top: 0;
+  }
   .right__hero-img-wrapper {
     max-height: 400px;
     line-height: 0;
     margin-top: -13rem;
+  }
+  .forgot-password-link {
+    padding-top: 0rem;
+    /* padding-bottom: 1rem; */
   }
 }
