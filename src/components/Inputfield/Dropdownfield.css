@@ -14,7 +14,7 @@
   padding: 15px;
   left: 0;
   border-radius: 10px;
-  box-shadow: 0 10px 10px 10px rgba(131, 8, 255, 0.2);
+  box-shadow: 0 10px 10px 10px rgba(131, 8, 255, 0.048);
   width: 95%;
   z-index: 99;
   max-height: 400px;

@@ -46,21 +46,22 @@ function Footer() {
             <div className="footer-link-wrapper">
               <div className="footer-link-items">
                 <h2>About Us</h2>
-                <Link to="/">How it works</Link>
+                <Link to="/">Home</Link>
                 <Link to="/PrivacyPolicy">Privacy Policy</Link>
                 <Link to="/Terms">Terms of Service</Link>
               </div>
               <div className="footer-link-items">
                 <h2>Contact Us</h2>
                 <Link to="/contact">Contact</Link>
-                <Link to="/contact">Support</Link>
-                <Link to="/contact">Complaints</Link>
+                <Link to="/get-a-demo">Get a demo</Link>
+                <Link to="/contact">Contact</Link>
+                <a href="https://www.conterize.com/blog">Blog</a>
               </div>
             </div>
             <div className="footer-link-wrapper">
               <div className="footer-link-items">
                 <h2>Pages</h2>
-                <Link to="/">Home</Link>
+                {/* <Link to="/">Home</Link> */}
                 <Link to="/pricing">Pricing</Link>
                 <Link to="/content-types">Content types</Link>
                 <Link to="/content-creators">Content creators</Link>

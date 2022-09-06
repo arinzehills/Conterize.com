@@ -22,6 +22,7 @@ import {
 } from "chart.js";
 import Overall from "./Overall";
 import RevenueChart from "./RevenueChart";
+import useUser from "../../../useUser";
 
 ChartJS.register(
   CategoryScale,
@@ -85,6 +86,8 @@ const chartData = {
 
 const AdminDashboard = ({ setHandleNotData }) => {
   const [click, setClick] = useOutletContext();
+  const { user, setUser } = useUser();
+
   const handleClick = () => setClick(!click);
   const IconWrapper = ({ type, IconPadding, iconFontSize }) => {
     return (
@@ -198,7 +201,7 @@ const AdminDashboard = ({ setHandleNotData }) => {
   return (
     <>
       <NavComponent
-        personsName="admin"
+        personsName={user?.role_type ?? "Admin"}
         showNotification={true}
         handleClick={handleClick}
         pageTitle="Admin Dashboard"

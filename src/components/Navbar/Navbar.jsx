@@ -105,6 +105,19 @@ const Navbar = () => {
                 Content Creators
               </Link>
             </li>
+            <li
+              className={
+                currentTab === 5 ? "underline_link nav-items" : "nav-items"
+              }
+            >
+              <a
+                href="https://www.conterize.com/blog"
+                className="nav-links"
+                onClick={() => closeMobileMenu(5)}
+              >
+                Blog
+              </a>
+            </li>
             {/* <li className="nav-items">
               <Link
                 to="/whyconterize

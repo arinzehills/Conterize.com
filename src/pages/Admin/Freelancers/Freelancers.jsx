@@ -5,6 +5,7 @@ import { Button } from "../../../components/Button/Button";
 import DraftReqestModal from "../../../components/RequestHero/DraftReqestModal";
 import useFetch from "../../../useFetch";
 import useToken from "../../../useToken";
+import useUser from "../../../useUser";
 import NavComponent from "../../Dashboard/NavComponent/NavComponent";
 import SettingsTabs from "../../Dashboard/Settings/SettingsTabs";
 import AddTeam from "../../Dashboard/Team/AddTeam";
@@ -19,6 +20,8 @@ const Freelancers = ({ handleNotData, setHandleNotData }) => {
   const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [currentTab, setCurrentTab] = useState(1);
   const { token, setToken } = useToken();
+  const { user, setUser } = useUser();
+
   // const [handleNotData, setHandleNotData] = useState("no");
   const tableData = [
     {
@@ -112,7 +115,7 @@ const Freelancers = ({ handleNotData, setHandleNotData }) => {
       )}
       <div style={{ paddingTop: 20 }}>
         <NavComponent
-          personsName="Hills"
+          personsName={user?.role_type ?? "Admin"}
           showNotification={true}
           handleClick={handleClick}
           pageTitle=""

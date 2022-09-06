@@ -77,7 +77,8 @@ function ForgotPassword() {
           setShowModal(true);
           setLoading(false);
         } else {
-          const error = "Please wait for a moment before requesting again";
+          const error =
+            data["error"] ?? "Please wait for a moment before requesting again";
 
           // console.log(error)
           setResponseError(error);
@@ -95,7 +96,7 @@ function ForgotPassword() {
     inputValues: inputValues,
     inputNames: inputNames,
     imageRight: "svg/twocircle.svg",
-    imageleft: "images/signin.png",
+    imageleft: "/images/signin.svg",
     formType: "",
     alt1: "two circles",
     alt2: "baby",

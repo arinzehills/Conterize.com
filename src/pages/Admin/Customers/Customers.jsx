@@ -102,7 +102,7 @@ const Customers = ({ setHandleNotData }) => {
       {cusloading && <Modal2 />}
       <div className="customers-section">
         <NavComponent
-          personsName="Hills"
+          personsName={user?.role_type ?? "Admin"}
           showNotification={true}
           handleClick={handleClick}
           pageTitle=""

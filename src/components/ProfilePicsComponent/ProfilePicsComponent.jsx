@@ -176,6 +176,7 @@ const ProfilePicsComponent = ({
               textAlign: "left",
               // gap: 0,
               marginLeft: "-6px",
+              textTransform: "capitalize",
             }}
           >
             {isOnline === "Online" && (

@@ -126,7 +126,7 @@ function ResetPassword() {
     inputValues: inputValues,
     inputNames: inputNames,
     imageRight: "svg/twocircle.svg",
-    imageleft: "images/dullbabymobil.png",
+    imageleft: "images/signin.svg",
     formType: "reset",
     alt1: "two circles",
     alt2: "baby",

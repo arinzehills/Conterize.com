@@ -13,9 +13,10 @@
 }
 .partners__section h3 {
   max-width: 380px;
-  font-size: 23px;
+  font-size: 16px;
 }
 
 .partners__logos img {
-  height: 43.67px;
+  height: 21.67px;
+  padding: 1rem;
 }

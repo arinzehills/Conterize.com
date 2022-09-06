@@ -111,7 +111,7 @@ function Login({ setHandleNotData }) {
     inputValues: inputValues,
     inputNames: inputNames,
     leftImageHeight: "180px",
-    imageRight: "images/signin.png",
+    imageRight: "/images/signin.svg",
     // imageleft: "images/studio3.svg",
     formType: "",
     alt1: "two circles",

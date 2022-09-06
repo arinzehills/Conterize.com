@@ -52,6 +52,7 @@ import DemoPage from "./pages/GetDemo/DemoPage";
 import ForgotPasswordHero from "./components/ForgotPasswordHero/ForgotPasswordHero";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import DemoRequestDetail from "./pages/GetDemo/DemoRequestDetail";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -83,7 +84,11 @@ function App() {
           <Route index element={<Homepage />} />
           <Route exact path="/contact" element={<Contact />} />
           {/* <Route exact path="/getdemo" element={<GetDemo />} /> */}
-          <Route exact path="/get-a-demo" element={<DemoPage />} />
+          <Route
+            exact
+            path="/get-a-demo"
+            element={<DemoPage setHandleNotData={setHandleNotData} />}
+          />
           <Route exact path="/pricing" element={<Pricingpage />} />
           <Route exact path="/content-types" element={<ContentTypePage />} />
           <Route exact path="/whyconterize" element={<WhyConterize />} />
@@ -176,6 +181,12 @@ function App() {
             <Route
               path="orderdetail"
               element={<OrderDetail setHandleNotData={setHandleNotData} />}
+            />
+            <Route
+              path="demo-requests-detail"
+              element={
+                <DemoRequestDetail setHandleNotData={setHandleNotData} />
+              }
             />
             <Route
               path="deliver"

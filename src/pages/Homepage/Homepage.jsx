@@ -60,7 +60,7 @@ const dataArr = {
   ],
   isList: true,
   imgStart: "start",
-  img: "images/single-post.png",
+  img: "images/Conterize Quality Assurance.jpg",
   imgalt1: "Conterize Guaranteed Quality Assurance",
   showButton: true,
   buttonLabel: "Pick a plan",

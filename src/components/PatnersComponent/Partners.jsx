@@ -5,13 +5,15 @@ function Partners() {
     <>
       <div className="partners__section">
         <div className="partners_text">
-          <h3>1,000s of startups trust Conterize for their content needs</h3>
+          <h3>Powering Content Creation for top Businesses</h3>
         </div>
-        {/* <div className="partners__logos">
-          <img src="svg/payday.svg" alt="a" />
-          <img src="svg/payhippo.svg" alt="a" />
-          <img src="svg/bamboo.svg" alt="a" />
-        </div> */}
+        <div className="partners__logos">
+          <img src="images/pavelify.png" alt="a" />
+          <img src="images/incorpuk.png" alt="a" />
+          <img src="images/hostwiki.png" alt="a" />
+          <img src="images/semscoop.png" alt="a" />
+          <img src="images/obeok.png" alt="a" />
+        </div>
       </div>
     </>
   );
