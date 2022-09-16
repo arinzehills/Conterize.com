@@ -82,7 +82,11 @@ function App() {
         {/* <Route path='/' exact element={<Home/>}> */}
         <Route path="/" exact element={<HomepageWrapper />}>
           <Route index element={<Homepage />} />
-          <Route exact path="/contact" element={<Contact />} />
+          <Route
+            exact
+            path="/contact"
+            element={<Contact setHandleNotData={setHandleNotData} />}
+          />
           {/* <Route exact path="/getdemo" element={<GetDemo />} /> */}
           <Route
             exact

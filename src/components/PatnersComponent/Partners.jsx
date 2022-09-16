@@ -9,8 +9,8 @@ function Partners() {
         </div>
         <div className="partners__logos">
           <img src="images/pavelify.png" alt="a" />
-          <img src="images/incorpuk.png" alt="a" />
-          <img src="images/hostwiki.png" alt="a" />
+          <img src="images/incorpukLogo.png" alt="a" />
+          <img src="images/hostwiki.jpg" alt="a" />
           <img src="images/semscoop.png" alt="a" />
           <img src="images/obeok.png" alt="a" />
         </div>

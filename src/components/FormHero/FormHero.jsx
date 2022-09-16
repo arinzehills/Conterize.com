@@ -129,8 +129,8 @@ function Formhero({
                       <p className="errors">{formErrors[1]}</p>
 
                       {/* )} */}
-                      {formType == "register" ||
-                        (formType == "contact" && (
+                      {/* {formType == "register" ||
+                        (formType === "contact" && (
                           <div style={{ marginTop: "5px" }}>
                             <InputField
                               label={inputLabels[2]}
@@ -142,10 +142,15 @@ function Formhero({
                             />
                             <p className="errors">{formErrors[2]}</p>
                           </div>
-                        ))}
+                        ))} */}
                       {formType == "contact" && (
                         <div className="is_Reg" style={{ marginTop: "10px" }}>
-                          <TextArea />
+                          <TextArea
+                            name={inputNames[2]}
+                            onHandleChange={handleChange}
+                            value={inputValues[2]}
+                          />
+                          <p className="errors">{formErrors[2]}</p>
                         </div>
                       )}
                     </div>

@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import FormHero from "../../components/FormHero/FormHero";
+import Loader from "../../components/Loader/Loader";
 
-function Contact() {
+function Contact({ setHandleNotData }) {
   const initialValues = { name: "", email: "", message: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+  const [responseError, setResponseError] = useState("");
+
   const [isSubmit, setIsSubmit] = useState(false);
   const [loading, setLoading] = useState(false);
   const history = useNavigate();
@@ -36,10 +39,47 @@ function Contact() {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(formValues);
 
-      // register()
+      contact();
     }
   }, [formErrors]);
+  const contact = async () => {
+    setLoading(true);
+    const data = {
+      name: formValues.name,
+      email: formValues.email,
+      message: formValues.message,
+    };
+    const url = window.baseUrl + "contactUs";
 
+    fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        // 'Authorization': 'http://localhost:8000/api/user',
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // console.log( data['token']);
+
+        if (data["success"] === true) {
+          setHandleNotData({ message: data.message });
+          setLoading(false);
+        } else {
+          const error = data["message"];
+          console.log(error);
+          setResponseError(error);
+          setLoading(false);
+        }
+        // console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.warn("Error:", error);
+      });
+  };
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -78,14 +118,19 @@ function Contact() {
           content="This is a page to contact conterize support team"
         />
       </Helmet>
-      <FormHero
-        handleChange={handleChange}
-        onSubmit={onSubmit}
-        formErrors={inputErrors}
-        inputValues={inputValues}
-        inputNames={inputNames}
-        {...homeData}
-      />
+      {loading ? (
+        <Loader />
+      ) : (
+        <FormHero
+          handleChange={handleChange}
+          onSubmit={onSubmit}
+          formErrors={inputErrors}
+          inputValues={inputValues}
+          inputNames={inputNames}
+          {...homeData}
+          responseError={responseError}
+        />
+      )}
     </>
   );
 }

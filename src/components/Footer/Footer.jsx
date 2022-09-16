@@ -52,10 +52,9 @@ function Footer() {
               </div>
               <div className="footer-link-items">
                 <h2>Contact Us</h2>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact">Support</Link>
                 <Link to="/get-a-demo">Get a demo</Link>
                 <Link to="/contact">Contact</Link>
-                <a href="https://www.conterize.com/blog">Blog</a>
               </div>
             </div>
             <div className="footer-link-wrapper">
@@ -65,6 +64,7 @@ function Footer() {
                 <Link to="/pricing">Pricing</Link>
                 <Link to="/content-types">Content types</Link>
                 <Link to="/content-creators">Content creators</Link>
+                {/* <a href="https://www.conterize.com/blog">Blog</a> */}
               </div>
 
               {/* <div className="footer-link-items">

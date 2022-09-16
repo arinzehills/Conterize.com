@@ -105,7 +105,7 @@ const Navbar = () => {
                 Content Creators
               </Link>
             </li>
-            <li
+            {/* <li
               className={
                 currentTab === 5 ? "underline_link nav-items" : "nav-items"
               }
@@ -117,7 +117,7 @@ const Navbar = () => {
               >
                 Blog
               </a>
-            </li>
+            </li> */}
             {/* <li className="nav-items">
               <Link
                 to="/whyconterize
